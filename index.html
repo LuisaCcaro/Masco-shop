@@ -3,54 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masco-Shop</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <title>MascoShop</title>
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/LogoPagina.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <img src="img/Logo1.png" alt="">
-        </div>
-        <div class="navegador">
-            <a href="">Inicio</a>
-            <a href="">Tienda</a>
-            <a href="">Ofertas</a>
-            <a href="">Blog</a>
-            <a href="">Contacto</a>
-        </div>
-        <div class="contenedor-Login">
-            <div class="logoUser" id="btnLogin">
-                <div>
-                    <i class="fa-solid fa-user fa-lg"></i>
-                </div>
-                <p>Log in</p>
+    <section>
+        <nav>
+            <div class="logo">
+                <img src="img/LogoPagina.png" alt="LogoMascoShop">
             </div>
-            <div>
-                <i class="fa-solid fa-cart-shopping fa-lg"></i>
+            <div class="divNavegador">
+                <a href="#" class="active">Inicio</a>
+                <a href="">Productos</a>
+                <a href="">Contacto</a>
+                <a href="">Ubicacion</a>
+                <a href="html/login.html"><i class="fa-solid fa-user" style="color: white;"></i></a>
+                <a href=""><i class="fas fa-shopping-cart" style="color: white;"></i></a>
+            </div>
+        </nav>
+        <div class="portada">
+            <div class="PortadaIzq">
+                <h1>Comida de calidad para mascotas felices</h1>
+
+                <h3>Descubre una amplia gama de productos de alimentación para mascotas de primera calidad para tus amigos peludos.</h3>
+
+                <button type="submit" class="btnComprar">COMPRAR AHORA</button>
+                <button type="submit" class="btnContact">CONTACTO</button>
+            </div>
+            <div class="PortadaDer">
+                <img src="img/portadaMascoShop.png" alt="">
             </div>
         </div>
-    </nav>
-    <div class="login" id="login">
-        <form action="">
-             <h2>Log In</h2>
-             <div class="camposLogin">
-                <div>
-                    <input type="text" placeholder="Usuario">
-                </div>
-                <div>
-                    <input type="password" placeholder="Contraseña">
-                </div>
-             </div>
-             <div class="registrarse">
-                <p>¿No tienes una cuenta? <a href="">Resgistrarse</a></p>
-             </div>
-             <div class="boton">
-                <button type="submit">Log In</button>
-             </div>
-        </form>
-        <i class="fa-solid fa-xmark cerrarLogin" id="clsLogin"></i>
-    </div>
-    <script src="js/login.js"></script>
+    </section>
+
+    <section>
+        <div class="patrocinadores">
+            <img src="img/pedrigree.webp" alt="Pedigree">
+            <img src="img/purina.webp" alt="Purina" width="220">
+            <img src="img/hills.webp" alt="Hills" width="80">
+            <img src="img/royalCanin.avif" alt="RoyalCanin" width="190">
+        </div>
+    </section>
+
+    <section>
+        <main>
+            <h2 class="reveal-type" data-bg-color="black" data-fg-color="#ffc329">Comida de primera calidad para mascotas felices</h2>
+            <h3 class="reveal-type" data-bg-color="#ffc329" data-fg-color="black">Explore nuestra selección de productos de alimentos para mascotas de alta calidad para mantener a sus compañeros peludos sanos y satisfechos.</h3>
+            <p class="reveal-type" data-bg-color="#ffc329" data-fg-color="black">Nuestra plataforma de comercio electrónico ofrece una variedad de opciones nutritivas para perros y gatos, asegurando que sus mascotas reciban la mejor atención que se merecen. Compre ahora para brindarles deliciosas comidas adaptadas a sus necesidades.</p>
+        </main>
+    </section>
+
+    <section>
+        <p class="reveal-type" data-bg-color="#353535" data-fg-color="red">The web isn't static anymore, interactivity and motion now dominate.</p>
+    </section>
+
+
+
+    <section></section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script> 
+    <script src="js/app.js"></script>
 </body>
 </html>
