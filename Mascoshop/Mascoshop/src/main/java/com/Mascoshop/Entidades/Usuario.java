@@ -31,8 +31,9 @@ public class Usuario {
     @Column(name = "contrasena")
     private String contrasena;
 
-    @Column(name = "rol")
-    private int rol;
+    @ManyToOne
+    @JoinColumn(name = "idRol")
+    private Rol rol;
 }
 
 
