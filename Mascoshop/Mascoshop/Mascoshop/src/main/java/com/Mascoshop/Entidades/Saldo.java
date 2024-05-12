@@ -1,0 +1,27 @@
+package com.Mascoshop.Entidades;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "Saldo")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Saldo {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idSaldo;
+
+    @Column(name = "monto", nullable = false)
+    private Double monto;
+
+
+    // relación de la tabla idusuario(fk) a la tabla usuario(pk)
+    @ManyToOne
+    @JoinColumn(name = "idUsuario", nullable = false)
+    private Usuario usuario;
+}
