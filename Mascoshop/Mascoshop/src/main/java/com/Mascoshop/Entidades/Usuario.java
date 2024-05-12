@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Usuario {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idUsuario;
@@ -30,6 +29,9 @@ public class Usuario {
 
     @Column(name = "contrasena")
     private String contrasena;
+
+    @Column(name = "rol")
+    private int codigoRol;
 
     @ManyToOne
     @JoinColumn(name = "idRol")
