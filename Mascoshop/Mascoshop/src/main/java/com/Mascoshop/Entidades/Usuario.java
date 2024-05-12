@@ -30,7 +30,7 @@ public class Usuario {
     @Column(name = "contrasena")
     private String contrasena;
 
-    @Column(name = "rol")
+    @Column(name = "codigo_rol")
     private int codigoRol;
 
     @ManyToOne
