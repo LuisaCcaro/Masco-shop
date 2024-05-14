@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
+  display: flex;
+  overflow: hidden;
+}
+
+main .inicio {
+  width: 30%;
+  height: 100vh;
+  padding: 10vh;
+}
+
+main .inicio p {
+  display: flex;
+}
+
+main .inicio h1,
+p {
+  padding-bottom: 2vh;
+}
+
+main .inicio .camposEntrada {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+}
+
+main .inicio .camposEntrada input {
+  height: 5vh;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+}
+
+main .inicio .camposEntrada input:focus {
+  outline: none;
+}
+
+main .inicio .camposEntrada{
+    padding-top: 55px;
+    padding-bottom: 15px;
+}
+
+main .inicio .camposEntrada .campoIcon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgb(212, 212, 212);
+  border-radius: 5px;
+  width: 100%;
+}
+
+main .inicio .camposEntrada .campoIcon img {
+  padding-left: 10px;
+}
+
+main .inicio .camposEntrada a {
+  text-decoration: none;
+  padding-bottom: 35px;
+}
+
+main .inicioImg {
+  width: 70%;
+  height: 100vh;
+}
+
+main .inicioImg img {
+  width: 100%;
+  height: 100%;
+}
+main .inicio .camposEntrada .campoIconContra {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgb(212, 212, 212);
+  border-radius: 5px;
+  width: 100%;
+}
+main .inicio .camposEntrada .campoIconContra img {
+  padding-left: 10px;
+}
+
+main .inicio button {
+  width: 100%;
+  height: 40px;
+  background: #717fe8;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 35px;
+}
+
+main .inicio .hrContainer {
+  display: flex;
+  align-items: end;
+  margin-bottom: 35px;
+}
+
+main .inicio .hrContainer .or-line {
+  width: 40%;
+  height: 1px;
+  background: rgb(212, 212, 212);
+  border: none;
+  margin: 20px auto;
+}
+
+main .inicio .hrContainer .or-text {
+  display: inline-block;
+  color: rgb(172, 172, 172);
+  position: relative;
+  top: -0.7em;
+  padding: 0 10px;
+}
+
+main .inicio .btnGoogle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(212, 212, 212);
+  background: #fff;
+  color: black;
+  padding: 2vh;
+  margin-bottom: 5vh;
+}
+main .inicio .btnGoogle img {
+  position: relative;
+  left: -11vh;
+}
+
+main .inicio .noCuenta {
+    display: flex;
+    justify-content: center;
+}
+
+main .inicio p a {
+  color: black;
+}
