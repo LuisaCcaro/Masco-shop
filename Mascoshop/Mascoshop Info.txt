@@ -1,0 +1,121 @@
+User: Mascoshop
+Contraseña: mascoshopmasco
+
+host: aws-0-us-west-1.pooler.supabase.com
+database name: postgres
+port: 5432
+User: postgres.xihzyoxkydsfutbygmfx
+
+______________________________________________________________
+Si el puerto está ocupado usar: 
+
+ netstat  -ano | findstr LISTENING | findstr 8080
+
+taskkill -PID 8220 -F
+
+Params en postman, Query Params: 
+Key:
+Content-Type 
+Value: 
+application/json
+_____________________________________________________________________________
+
+Operaciones CRUD (Create, Read, Update, Delete) 
+
+Usuarios
+GET - Listar todos los usuarios ✅
+GET - Buscar usuario por ID ✅
+POST - Crear nuevo usuario ✅
+PUT - Actualizar usuario ✅
+DELETE - Eliminar usuario ✅
+
+Autenticación
+POST - Iniciar sesión (login)
+POST - Registrarse (crear una cuenta)
+POST - Cerrar sesión (logout)
+
+Productos
+GET - Listar todos los productos ✅
+GET - Buscar productos por ID ✅
+GET - Buscar productos por término de búsqueda 
+GET - Buscar producto por animal ✅
+GET - Buscar producto por categoria ✅
+GET - Buscar por marca ✅
+POST - Agregar nuevo producto ✅
+PUT - Actualizar producto  ✅
+DELETE - Eliminar producto ✅
+
+Carrito de Compras
+POST - Agregar producto al carrito
+GET - Ver productos en el carrito
+DELETE - Eliminar producto del carrito
+POST - Realizar compra
+
+Reseñas y Comentarios
+POST - Calificar producto
+POST - Comentar producto
+GET - Ver reseñas y comentarios de un producto
+
+Listas de Deseos
+POST - Agregar producto a la lista de deseos
+GET - Ver productos en la lista de deseos
+DELETE - Eliminar producto de la lista de deseos
+
+Administración (para Administradores y Súper-Administradores)
+GET - Listar todos los usuarios (administración)
+DELETE - Eliminar usuario (administración)
+PUT - Gestionar roles de administrador
+
+POSTMAN:
+Key: apikey
+Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhpaHp5b3hreWRzZnV0YnlnbWZ4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQzMjQ5OTQsImV4cCI6MjAyOTkwMDk5NH0.aLyIyNYJsup3z3Ly1uxvyBrx9OdmlZFFug6TXuK-rE4
+
+_____________________________________________________________________________
+
+
+
+
+
+Ejemplo de agregar. 
+{
+    "nombre": "Alejandro",
+    "apellido": "Hernandez",
+    "correo": "alejandro.hernandez@example.com",
+    "contrasena": "alejandropass",
+    "nombreUsuario": "AlejandroH",
+    "direccion": "Calle Real 505",
+    "telefono": "5566778899",
+    "rol": {
+        "idRol": 3,
+        "nombre": "Super-Administrador"
+    }
+}
+
+
+{
+    "nombre": "Mariana",
+    "apellido": "Sanchez",
+    "correo": "mariana.sanchez@example.com",
+    "contrasena": "marianapass",
+    "nombreUsuario": "MarianaS",
+    "direccion": "Carrera 606",
+    "telefono": "6677889900",
+    "rol": {
+        "idRol": 1,
+        "nombre": "Usuario"
+    }
+}
+{
+    "nombre": "Laura",
+    "apellido": "Gomez",
+    "correo": "laura.gomez@example.com",
+    "contrasena": "lauraSecure",
+    "nombreUsuario": "LauraG",
+    "direccion": "Calle Larga 202",
+    "telefono": "2233445566",
+    "rol": {
+        "idRol": 3,
+        "nombre": "Super-Administrador"
+    }
+}
+
