@@ -1,35 +1,6 @@
 gsap.registerPlugin(ScrollTrigger);
 
-const splitTypes = document.querySelectorAll('.reveal-type');
-
-splitTypes.forEach((char, i) => {
-    const bg = char.dataset.bgColor;
-    const fg = char.dataset.fgColor;
-
-    const text = new SplitType(char, { types: 'chars' });
-
-    gsap.fromTo(text.chars, {
-        color: bg,
-    }, {
-        color: fg,
-        duration: 0.01,
-        stagger: 0.01,
-        scrollTrigger: {
-            trigger: char,
-            start: 'top 80%',
-            end: 'top 20%',
-            scrub: true,
-            markers: false,
-            toggleActions: 'play play reverse reverse'
-        }
-    });
-});
-
 const lenis = new Lenis();
-
-lenis.on('scroll', (e) => {
-    console.log(e);
-});
 
 function raf(time) {
     lenis.raf(time);
@@ -37,3 +8,23 @@ function raf(time) {
 }
 
 requestAnimationFrame(raf);
+
+document.addEventListener('DOMContentLoaded', function(){
+    var typed = new Typed('.cambio', {
+        strings: ['Mascotas', 'Gatos', 'Perros'],
+        typeSpeed: 50,
+        backSpeed: 30, 
+        loop: true
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function(){
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", function(){
+        if(window.scrollY > 50){
+            navbar.classList.add("scrolled");
+        }else{
+            navbar.classList.remove("scrolled");
+        }
+    });
+});
