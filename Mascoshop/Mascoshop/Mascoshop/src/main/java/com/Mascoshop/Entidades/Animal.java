@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class Animal {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAnimal;
 
     @Column(name = "Nombre")

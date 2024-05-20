@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class CategoriaProducto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCategoria;
 
     @Column(name = "Nombre", nullable = false)

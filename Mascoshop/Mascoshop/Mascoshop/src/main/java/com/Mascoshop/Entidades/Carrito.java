@@ -16,14 +16,17 @@ import lombok.NoArgsConstructor;
 public class Carrito {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCarrito;
 
     @ManyToOne
     @JoinColumn(name = "idUsuario", nullable = false)
     private Usuario usuario;
 
-    @OneToMany
-    @JoinColumn(name = "idCarrito", nullable = false)
-    private List<Producto> productos;
+
+    @ManyToOne
+    @JoinColumn(name = "idProducto", nullable = false)
+    private Producto producto;
+
+
 }

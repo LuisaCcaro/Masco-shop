@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class Saldo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSaldo;
 
     @Column(name = "monto", nullable = false)
