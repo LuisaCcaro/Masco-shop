@@ -32,9 +32,9 @@ public class ServiciosProductos {
         return repoProducto.findAll();
     }
     /*Buscar por nombre*/
-    public Producto encontrarPorNom(String nombre){
-        return (Producto) repoProducto.findByNombreContaining(nombre);
-    }
+//    public Producto encontrarPorNom(String nombre){
+//        return (Producto) repoProducto.findByNombreContaining(nombre);
+//    }
     /*Buscar por animal, listar*/
     public  List<Producto> encontrarPorAnimal(long aninalId){
         return  repoProducto.findByAnimal_IdAnimal(aninalId);

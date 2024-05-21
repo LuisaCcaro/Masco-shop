@@ -2,6 +2,8 @@ package com.Mascoshop.Entidades;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -23,10 +25,8 @@ public class Carrito {
     @JoinColumn(name = "idUsuario", nullable = false)
     private Usuario usuario;
 
-
-    @ManyToOne
-    @JoinColumn(name = "idProducto", nullable = false)
-    private Producto producto;
+    @OneToMany(mappedBy = "carrito", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CarritoItem> items = new ArrayList<>(); // Inicializar la lista aquí
 
 
 }

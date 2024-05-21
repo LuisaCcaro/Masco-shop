@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "usuario")
 @Data
@@ -39,6 +41,10 @@ public class Usuario {
     @ManyToOne
     @JoinColumn(name = "idRol", nullable = false)
     private Rol rol;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Carrito> carritos;
+
 }
 
 

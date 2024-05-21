@@ -46,9 +46,9 @@ PUT - Actualizar producto  ✅
 DELETE - Eliminar producto ✅
 
 Carrito de Compras
-POST - Agregar producto al carrito
-GET - Ver productos en el carrito
-DELETE - Eliminar producto del carrito
+POST - Agregar producto al carrito ✅
+GET - Ver productos en el carrito ✅
+DELETE - Eliminar producto del carrito ✅
 POST - Realizar compra
 
 Reseñas y Comentarios

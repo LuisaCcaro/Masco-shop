@@ -35,11 +35,11 @@ public class ProductoControlador {
         return new ResponseEntity<>(producto, HttpStatus.OK);
     }
     // Buscar productos por término de búsqueda (No funcional)
-    @GetMapping("/buscar/{nombre}")
-    public ResponseEntity<List<Producto>> buscarPorTermino(@RequestParam String nombre){
-        List<Producto> productos = (List<Producto>) serviciosProductos.encontrarPorNom(nombre); //Revision
-        return new ResponseEntity<>(productos, HttpStatus.OK);
-    }
+//    @GetMapping("/buscar/{nombre}")
+//    public ResponseEntity<List<Producto>> buscarPorTermino(@RequestParam String nombre){
+//        List<Producto> productos = (List<Producto>) serviciosProductos.encontrarPorNom(nombre); //Revision
+//        return new ResponseEntity<>(productos, HttpStatus.OK);
+//    }
     //Buscar producto por animal
     @GetMapping("/animal/{animalId}")
     public ResponseEntity<List<Producto>> buscarPorAnimal(@PathVariable Integer animalId){
@@ -75,15 +75,11 @@ public class ProductoControlador {
         } catch (RuntimeException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-
     }
     //eliminarProducto
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarProducto(@PathVariable Integer id){
         serviciosProductos.borrarProducto(id);
         return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
-
-
 }

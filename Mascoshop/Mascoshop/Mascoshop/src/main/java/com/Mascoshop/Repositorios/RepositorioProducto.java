@@ -10,7 +10,7 @@ import java.util.List;
 public interface RepositorioProducto extends JpaRepository<Producto, Integer> {
 
     //Encontrar por nombre
-    List<Producto> findByNombreContaining(String nombre);
+//    List<Producto> findByNombreContaining(String nombre);
     //Econtrar por categoria
     List<Producto> findByCategoriaProducto_IdCategoria(Integer categoriaId);
     //Encontrar por animal :D
