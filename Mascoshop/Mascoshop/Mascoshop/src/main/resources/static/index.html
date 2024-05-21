@@ -5,68 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MascoShop</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="img/LogoPagina.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" integrity="sha512-OQDNdI5rpnZ0BRhhJc+btbbtnxaj+LdQFeh0V9/igiEPDiWE2fG+ZsXl0JEH+bjXKPJ3zcXqNyP4/F/NegVdZg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section>
+    <section class="infoBanner">
+        <div class="logo">
+            <img src="img/Mascoshoop.png" width="300px">
+        </div>
+
+        <div class="atencionCliente">
+            <img src="img/IconAC.png" alt="">
+            <a href="">Soporte al cliente <br> 123-456-789</a>
+        </div>
+    </section>
+
+    <!-- ------ first section -->
         <nav>
-            <div class="logo">
-                <img src="img/Mascoshoop.png" alt="LogoMascoShop">
+            <div class="navegador">
+                <a href="#">Inicio</a>
+                <a href="#">Productos</a>
+                <a href="">Blog</a>
+                <a href="">Contactanos</a>
             </div>
-            <div class="divNavegador">
-                <a href="#" class="active">INICIO</a>
-                <a href="">PRODUCTOS</a>
-                <a href="">CONTACTO</a>
-                <a href="">UBICACION</a>
-            </div>
-            <div class="logIn">
-                <img src="img/IconCorazon.png" alt="">
-                <span class="contador">0</span>
-                <a href="html/login.html" class="fondoLogin">INICIO SESION</a>
-                <img src="img/IconCarrito.png" alt="">
-                <span class="contadorDos">0</span>
+            <div class="carrito">
+                <a href="html/login.html">Log In</a>
+                <span> | </span>
+                <div class="contador">
+                    <a href="#"><img width="32" height="32" src="https://img.icons8.com/parakeet-line/32/FFFFFF/shopping-cart.png" alt="shopping-cart"/></a>
+                    <span>0</span>
+                </div>
             </div>
         </nav>
-        <div class="portada">
-            <div class="PortadaIzq">
-                <h1>Comida de calidad para mascotas felices</h1>
+        <!-- -------- -->
 
-                <h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. <br> Sit minus molestiae voluptatum beatae a vitae. Facere, <br> libero culpa. Iste a perspiciatis laboriosam quo, soluta at <br> molestias velit maxime inventore adipisci?
-                </h3>
-
-                <button type="submit" class="btnComprar">COMPRAR AHORA</button>
+        <!-- second section -->
+    <section class="banner">
+        <div class="info">
+            <div class="diamante">
+                <img src="img/Diamond.ico">
+                <p>LA DIFERENCIA DE MASCOSHOP</p>
             </div>
-            <div class="PortadaDer">
-                <img src="img/portadaMascoShop.png">
-            </div>
+            <h1>Una filosofía nutricional inspirada en el amor por tus <span class="cambio"></span></h1>
+            <a href="#">Explora MascoShop</a>
         </div>
     </section>
+        <!-- -------  -->
 
-    <section>
-        <div class="patrocinadores">
-            <img src="img/pedrigree.webp" alt="Pedigree">
-            <img src="img/purina.webp" alt="Purina" width="220">
-            <img src="img/hills.webp" alt="Hills" width="80">
-            <img src="img/royalCanin.avif" alt="RoyalCanin" width="190">
-        </div>
-    </section>
+    section.
 
-    <section>
-        <main>
-            <h2 class="reveal-type" data-bg-color="black" data-fg-color="#ffc329">Comida de primera calidad para mascotas felices</h2>
-            <h3 class="reveal-type" data-bg-color="#ffc329" data-fg-color="black">Explore nuestra selección de productos de alimentos para mascotas de alta calidad para mantener a sus compañeros peludos sanos y satisfechos.</h3>
-            <p class="reveal-type" data-bg-color="#ffc329" data-fg-color="black">Nuestra plataforma de comercio electrónico ofrece una variedad de opciones nutritivas para perros y gatos, asegurando que sus mascotas reciban la mejor atención que se merecen. Compre ahora para brindarles deliciosas comidas adaptadas a sus necesidades.</p>
-        </main>
-    </section>
-
-    <section>
-        <p class="reveal-type" data-bg-color="#353535" data-fg-color="red">The web isn't static anymore, interactivity and motion now dominate.</p>
-    </section>
-
-
-
+<div class="espacio"></div>
     <section></section>
+
+
+    <!-- Scripts -->
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/split-type"></script>
