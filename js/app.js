@@ -65,3 +65,9 @@ const showMenu = (toggleId, navId) =>{
  showMenu('nav-toggle','nav-menu')
 
  /*------------------ Menu --------------*/
+
+ 
+window.addEventListener("scroll", function(){
+    var header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0);
+});

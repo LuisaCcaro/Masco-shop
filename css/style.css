@@ -15,14 +15,19 @@ body{
   overflow: hidden;
 }
 /* header */
-.header{
-  position: absolute;
+header{
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
+  transition: 0.6s;
+  padding: 40px 100px;
   z-index: 10;
 }
-
+menu.sticky{
+  padding: 5px 100px;
+  background: black;
+}
 .header .container{
   display: flex;
   align-items: center;
@@ -75,7 +80,7 @@ body{
   left: 0;
   width: 230px;
   padding: 15px 0;
-  background-color: hsl(229, 54%, 51%);
+  background-color: transparent;
   box-shadow: 0 0 5px hsl(0, 0%, 0%, 0.5);
   z-index: 1;
   transform-origin: top;
@@ -118,7 +123,7 @@ body{
   text-decoration: none;
   color: white;
   border: 1px solid;
-  padding: 2vh  3vh;
+  padding: 1.5vh  3vh;
   border-radius: 1vh;
 }
 
