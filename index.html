@@ -8,91 +8,108 @@
 </head>
 <body>
     <!-- Navegador -->
-    <section>
-       <header class="navFijo">
-        <nav id="navbar">
+
+    <header class="header">
+        <div class="container">
             <div class="logo">
-                <img src="img/Mascoshoop.png" alt="Logo-MascoShop">
+                <img src="img/Mascoshoop.png" width="300px">
+            </div>
+            <nav class="menu">
+                <div class="head">
+                    <div class="logo"><img src="img/Mascoshoop.png" width="200px"></div>
+                    <button type="button" class="close-menu-btn"></button>
+                </div>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="productos">Productos</a>
+                        <ul class="sub-menu">
+                            <li><a href="#"><span>Perros</span></a></li>
+                            <li><a href="#"><span>Gatos</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contactanos</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <a href="#" class="icon-btn">Log In</a>
+                <img src="img/IconCarrito.png" class="icon-btn">
+
+                <button type="button" class="open-menu-btn">
+                    <span class="line line-1"></span>
+                    <span class="line line-2"></span>
+                    <span class="line line-3"></span>
+                </button>
+            </div>
+            
+        </div>
+    </header>
+    <section class="hero">
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <nav>
+            <div class="logo">
+                <img src="img/Mascoshoop.png" width="200px">
             </div>
             <div class="navegador">
                 <a href="#">Inicio</a>
-                <div class="desplegable">
-                    <a href="#" class="productos">Productos</a>
-                    <div class="submenu">
-                        <a href="#">Perros</a>
-                        <a href="#">Gatos</a>
-                    </div>
-                </div>
+                <a href="#">Productos</a>
+                <ul>
+                    <li><a href="#">Alimentos seco</a></li>
+                    <li><a href="#">Alimento húmedo</a></li>
+                    <li><a href="#">Snacks y premios.</a></li>
+                    <li><a href="#">Comida especializada.</a></li>
+                    <li><a href="#">Comida orgánica o natural.</a></li>
+                </ul>
                 <a href="#">Blog</a>
                 <a href="#">Contactanos</a>
             </div>
-            <div class="compra">
-                <a href="html/login.html" class="log-in">Log In</a>
-                <a href="#" class="iconCart"><img src="img/IconCarrito.png"></a>
-                <a href="#" class="phone"><img src="img/MenuResponsive.ico"></a>
+            <div class="carrito">
+                <a href="#">Log In</a>
+                <a href="#"><img src="img/IconCarrito.png" alt=""></a>
             </div>
         </nav>
-       </header>
-    </section>
-    <!-- Fin Navegador -->
-
-    <section class="portada">
-        <div class="info">
-            <div class="diamante">
-                <img src="img/Diamond.ico" alt="Icono diamante">
-
-                <p>LA DIFERENCIA DE MASCOSHOP</p>
+        <section class="banner">
+            <div class="info">
+                <div class="diamante">
+                    <img src="img/Diamond.ico" alt="Icono diamante">
+                    <p>LA DIFERENCIA DE MASCOSHOP</p>
+                </div>
+                <h1>Una filosofía nutricional inspirada en el amor por tus <span class="cambio"></span></h1>
             </div>
-            <h1>Una filosofía nutricional inspirada en el amor por tus <span class="cambio"></span></h1>
-            <a href="#">Explora MascoShop</a>
-        </div>
-    </section>
+        </section> -->
+    <!-- FinNavegador -->
 
-    <section class="productosTitulos">
-        <p>Nuevos productos!</p>
-        <a href="#">Todos los productos</a>
-    </section>
-    <main>
-        <div class="card-1">
-            <div class="cont-img">
-                <img src="img/productoCanin.jpg" alt="img">
-                <h2>Carne Humeda</h2>   
-                <p>descripcion</p> 
-                <p>$$</p>
-            </div>
-        </div>
-        <div class="card-1">
-            <div class="cont-img">
-                <img src="img/productoCanin.jpg" alt="img">
-                <h2>Carne Humeda</h2>   
-                <p>descripcion</p> 
-                <p>$$</p>
-            </div>
-        </div>
-        <div class="card-1">
-            <div class="cont-img">
-                <img src="img/productoCanin.jpg" alt="img">
-                <h2>Carne Humeda</h2>   
-                <p>descripcion</p> 
-                <p>$$</p>
-            </div>
-        </div>
-        <div class="card-1">
-            <div class="cont-img">
-                <img src="img/productoCanin.jpg" alt="img">
-                <h2>Carne Humeda</h2>   
-                <p>descripcion</p> 
-                <p>$$</p>
-            </div>
-        </div>
-    </main>
-
-
-    <section class="espacio">
-
-    </section>
-
-
+<section class="espacio"></section>
 
     <!-- Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
