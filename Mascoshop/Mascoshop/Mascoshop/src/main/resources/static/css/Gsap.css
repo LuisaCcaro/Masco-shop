@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #efefef;
+    overflow-x: hidden;
+    font-family: sans-serif;
+}
+p{
+    margin: 1em 0;
+    font-size: 1.1em;
+    line-height: 34px;
+    max-width: 650px;
+}
+
+.hero{
+    height: 100vh;
+    min-height: 30em;
+    padding: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hero h1{
+    font-size: 4em;
+}
+
+.gallery{
+    height: 100vh;
+    min-height: 30em;
+    width: fit-content;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.gallery img{
+    width: 50vw;
+    min-width: 25em;
+    max-width: 35em;
+    height: 90vh;
+    object-fit: cover;
+    padding: 0 2em;
+}
+
+.about{
+    padding: 2.5em;
+}
+
+.about h2{
+    font-size: 3em;
+}
+
+.arrow{
+    position: absolute;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5em;
+}
