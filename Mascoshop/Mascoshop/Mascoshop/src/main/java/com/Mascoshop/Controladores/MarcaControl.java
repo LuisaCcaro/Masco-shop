@@ -21,15 +21,21 @@ public class MarcaControl {
         this.serviciosMarca = serviciosMarca;
     }
 
-    //Listar las marcas que se disponen
+    //Agregar una marca.
+    @PostMapping
+    public ResponseEntity<Marca> crearMarca(@RequestBody  Marca marca){
+        Marca nuevamarca = serviciosMarca.agregarNuevaMarca(marca);
+        return new ResponseEntity<>(marca, HttpStatus.CREATED);
 
+    }
+    //Listar las marcas que se disponen
     @GetMapping
     public ResponseEntity<List<Marca>> listarMarcas() {
         List<Marca> marcas = serviciosMarca.marcasDisponibles();
         return new ResponseEntity<>(marcas, HttpStatus.OK);
     }
 
-    //Actualizar una marca ._.
+    //Actualizar una marca
     @PutMapping("/{id}")
     public ResponseEntity<Marca> actualizarMarca(@PathVariable Integer id, @RequestBody Marca marcaActualiada) {
         try {
@@ -39,6 +45,7 @@ public class MarcaControl {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    //Borrar una marca
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarMarca(@PathVariable Integer id){
         serviciosMarca .borrarMarca(id);

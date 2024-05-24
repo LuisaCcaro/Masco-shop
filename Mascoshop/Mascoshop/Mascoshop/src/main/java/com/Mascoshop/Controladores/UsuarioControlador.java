@@ -15,12 +15,13 @@ public class UsuarioControlador {
 
     private final ServiciosUsuario serviciosUsuario;
 
+
     @Autowired
     public UsuarioControlador(ServiciosUsuario serviciosUsuario) {
         this.serviciosUsuario = serviciosUsuario;
     }
 
-    //Listar todos los usuarios :D
+    //Listar todos los usuarios.
     @GetMapping
     public ResponseEntity<List<Usuario>> listarUsuarios() {
         List<Usuario> usuarios = serviciosUsuario.list();

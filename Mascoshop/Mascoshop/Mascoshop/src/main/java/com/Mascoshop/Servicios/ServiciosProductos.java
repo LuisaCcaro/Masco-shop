@@ -1,10 +1,7 @@
 package com.Mascoshop.Servicios;
 
-import com.Mascoshop.Entidades.Calificacion;
-import com.Mascoshop.Entidades.Comentario;
 import com.Mascoshop.Entidades.Producto;
 import com.Mascoshop.Repositorios.RepositorioCalificacion;
-import com.Mascoshop.Repositorios.RepositorioComentario;
 import com.Mascoshop.Repositorios.RepositorioProducto;
 import lombok.Data;
 import org.springframework.stereotype.Service;
@@ -16,25 +13,23 @@ import java.util.List;
 public class ServiciosProductos {
     private final RepositorioProducto repoProducto;
     private final RepositorioCalificacion reposCalificacion;
-    private final RepositorioComentario reposComentario;
 
 
-    public ServiciosProductos(RepositorioProducto repoProducto,
-                              RepositorioCalificacion reposCalificacion,
-                              RepositorioComentario reposComentario) {
+    public ServiciosProductos(RepositorioProducto repoProducto, RepositorioCalificacion reposCalificacion) {
         this.repoProducto = repoProducto;
         this.reposCalificacion = reposCalificacion;
-        this.reposComentario = reposComentario;
     }
 
     /*Listar productos*/
     public List<Producto> listarProductos(){
         return repoProducto.findAll();
     }
+
     /*Buscar por nombre*/
 //    public Producto encontrarPorNom(String nombre){
 //        return (Producto) repoProducto.findByNombreContaining(nombre);
 //    }
+
     /*Buscar por animal, listar*/
     public  List<Producto> encontrarPorAnimal(long aninalId){
         return  repoProducto.findByAnimal_IdAnimal(aninalId);
@@ -74,18 +69,7 @@ public class ServiciosProductos {
             return  repoProducto.save(producto);
         }).orElseThrow(() -> new RuntimeException("Ups, producto no encontrado"));
     }
-    /*Comentar un producto*/
-    public Comentario comentar(Comentario comentario){
-        return reposComentario.save(comentario);
-    }
-    /*Listar comentarios*/
-    public List<Comentario> listarComentario(Integer productoId){
-        return reposComentario.findByProducto_IdProducto(Long.valueOf(productoId));
-    }
-    /*Calificar un producto*/
-    public Calificacion agregarCalificacion(Calificacion calificacion){
-        return reposCalificacion.save(calificacion);
-    }
+
     /*borrar producto*/
     public void borrarProducto(Integer id){
         repoProducto.deleteById(id);

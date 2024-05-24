@@ -26,14 +26,15 @@ public class CarritoControlador {
     @PostMapping("/agregar")
     public ResponseEntity<Carrito> agregarAlCarro(@RequestParam Integer usuarioId,@RequestParam Integer productoId){
         Carrito carrito = serviciosCarrito.agregarProducto(usuarioId, productoId);
-        return new ResponseEntity<>(carrito, HttpStatus.OK);
+        return new ResponseEntity<>(carrito, HttpStatus.CREATED);
     }
-
+    //Buscar por Id.
     @GetMapping("/{usuarioId}")
     public ResponseEntity<List<CarritoItem>> verCarrito(@PathVariable Integer usuarioId){
         List<CarritoItem> items = serviciosCarrito.encarrito(usuarioId);
         return  new ResponseEntity<>(items, HttpStatus.OK);
     }
+    //Borrar Item.
     @DeleteMapping("/Eliminar")
     public ResponseEntity<Void>eliminarProductoEnCarrito(@RequestParam Integer usuarioId, @RequestParam Integer itemid){
         serviciosCarrito.eliminarDelCarro(usuarioId, itemid);

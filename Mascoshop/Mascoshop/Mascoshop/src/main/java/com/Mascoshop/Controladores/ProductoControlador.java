@@ -22,24 +22,29 @@ public class ProductoControlador {
         this.serviciosProductos = serviciosProductos;
     }
 
-    //Listar los productos disponibles :D
+    //Listar los productos disponibles.
     @GetMapping
     public ResponseEntity<List<Producto>> listarProductos() {
         List<Producto> productos = serviciosProductos.listarProductos();
         return new ResponseEntity<>(productos, HttpStatus.OK);
     }
-    //Listar por ID, Obtener producto
+    //Listar por ID, Obtener producto.
     @GetMapping("/{id}")
-    public ResponseEntity<Producto>obtenerProducto(@PathVariable Integer id){
-        Producto producto = serviciosProductos.buscarPorId(id);
-        return new ResponseEntity<>(producto, HttpStatus.OK);
+    public ResponseEntity<?> obtenerProducto(@PathVariable Integer id) {
+        try {
+            Producto producto = serviciosProductos.buscarPorId(id);
+            return new ResponseEntity<>(producto, HttpStatus.OK);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>("Producto no encontrado", HttpStatus.NOT_FOUND);
+        }
     }
-    // Buscar productos por término de búsqueda (No funcional)
-//    @GetMapping("/buscar/{nombre}")
-//    public ResponseEntity<List<Producto>> buscarPorTermino(@RequestParam String nombre){
-//        List<Producto> productos = (List<Producto>) serviciosProductos.encontrarPorNom(nombre); //Revision
-//        return new ResponseEntity<>(productos, HttpStatus.OK);
-//    }
+
+    //Agregar un producto.
+    @PostMapping
+    public  ResponseEntity<Producto>agregarProducto(@RequestBody Producto producto){
+        Producto nuevoProducto = serviciosProductos.agregarProducto(producto);
+        return new ResponseEntity<>(producto, HttpStatus.CREATED);
+    }
     //Buscar producto por animal
     @GetMapping("/animal/{animalId}")
     public ResponseEntity<List<Producto>> buscarPorAnimal(@PathVariable Integer animalId){
@@ -59,24 +64,17 @@ public class ProductoControlador {
         return new ResponseEntity<>(productos, HttpStatus.OK);
     }
 
-    //Agregar un producto.
-    @PostMapping
-    public  ResponseEntity<Producto>agregarProducto(@RequestBody Producto producto){
-        Producto nuevoProducto = serviciosProductos.agregarProducto(producto);
-        return new ResponseEntity<>(producto, HttpStatus.OK);
-    }
-
-    //Actualizar el producto
+    //Actualizar el producto.
     @PutMapping("/{id}")
-    public ResponseEntity<Producto> actualizarProd(@PathVariable Integer id, @RequestBody Producto productoActualizado) {
+    public ResponseEntity<?> actualizarProd(@PathVariable Integer id, @RequestBody Producto productoActualizado) {
         try {
             Producto producto = serviciosProductos.editarProducto(id, productoActualizado);
             return new ResponseEntity<>(producto, HttpStatus.OK);
         } catch (RuntimeException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("No se pudo actualizar el producto", HttpStatus.NOT_FOUND);
         }
     }
-    //eliminarProducto
+    //Eliminar un producto.
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarProducto(@PathVariable Integer id){
         serviciosProductos.borrarProducto(id);

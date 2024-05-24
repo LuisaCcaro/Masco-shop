@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "ListaDeseos")
 @Data
@@ -20,7 +23,6 @@ public class ListaDeseos {
     @JoinColumn(name = "idUsuario",nullable = false)
     private Usuario usuario;
 
-    @ManyToOne
-    @JoinColumn(name = "idProducto", nullable = false)
-    private Producto producto;
+    @OneToMany(mappedBy = "listaDeseos", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ListaDeseosItem> items = new ArrayList<>(); // Inicializar la lista aquí
 }
