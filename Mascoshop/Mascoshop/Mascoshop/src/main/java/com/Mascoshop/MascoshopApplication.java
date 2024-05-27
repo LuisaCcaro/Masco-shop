@@ -3,8 +3,11 @@ package com.Mascoshop;
 import com.Mascoshop.Entidades.Usuario;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
 
 @SpringBootApplication
+@EnableWebMvc
 public class MascoshopApplication {
 
 	public static void main(String[] args) {
