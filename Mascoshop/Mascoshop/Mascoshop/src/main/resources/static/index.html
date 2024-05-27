@@ -3,75 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MascoShop</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" integrity="sha512-OQDNdI5rpnZ0BRhhJc+btbbtnxaj+LdQFeh0V9/igiEPDiWE2fG+ZsXl0JEH+bjXKPJ3zcXqNyP4/F/NegVdZg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <title>GSAP Horizontal </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/navbar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section class="infoBanner">
-        <div class="logo">
-            <img src="img/Mascoshoop.png" width="300px">
-        </div>
-
-        <div class="atencionCliente">
-            <img src="img/IconAC.png" alt="">
-            <a href="">Soporte al cliente <br> 123-456-789</a>
-        </div>
-    </section>
-
-    <!-- ------ first section -->
-        <nav>
-            <div class="navegador">
-                <a href="#">Inicio</a>
-                <a href="#">Productos</a>
-                <a href="">Blog</a>
-                <a href="">Contactanos</a>
-            </div>
-            <div class="carrito">
-                <a href="html/login.html">Log In</a>
-                <span> | </span>
-                <div class="contador">
-                    <a href="#"><img width="32" height="32" src="https://img.icons8.com/parakeet-line/32/FFFFFF/shopping-cart.png" alt="shopping-cart"/></a>
-                    <span>0</span>
+  <header>
+    <div class="atencionCliente">
+      <img src="img/IconAC.png">
+      <p>
+        Soporte al cliente <br>
+        123-456-7890
+      </p>
+    </div>
+    <div class="logo">
+      <img src="img/Mascoshoop.png" width="250px">
+    </div>
+    <div class="login">
+      <a href="#">Log In</a>
+      <img src="img/icons8-carrito-de-compras-32.png">
+    </div>
+  </header>
+    <nav>
+        <div class="wrapper">
+          <form class="form-busqueda">
+            <input type="text" placeholder="Buscar...">
+            <button>
+              <img src="img/icons8-búsqueda-20.png" alt="icn">
+            </button>
+          </form>
+          <input type="radio" name="slider" id="menu-btn">
+          <input type="radio" name="slider" id="close-btn">
+          <ul class="nav-links">
+            <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+            <li><a href="#">Inicio</a></li>
+            
+            <li>
+              <a href="#" class="desktop-item">Comida</a>
+              <input type="checkbox" id="showMega">
+              <label for="showMega" class="mobile-item">Comida</label>
+              <div class="mega-box">
+                <div class="content">
+                  <div class="row">
+                    <img src="img/menubg-comida.jpg" alt="">
+                  </div>
+                  <div class="row">
+                    <header>Perros</header>
+                    <ul class="mega-links">
+                      <li><a href="#">Comida Seca</a></li>
+                      <li><a href="#">Comida Húmeda</a></li>
+                      <li><a href="#">Comida Medicada</a></li>
+                      <li><a href="#">Vitaminas y suplementos </a></li>
+                    </ul>
+                  </div>
+                  <div class="row">
+                    <header>Gatos</header>
+                    <ul class="mega-links">
+                        <li><a href="#">Comida Seca</a></li>
+                        <li><a href="#">Comida Húmeda</a></li>
+                        <li><a href="#">Comida Medicada</a></li>
+                        <li><a href="#">Vitaminas y suplementos</a></li>
+                    </ul>
+                  </div>
+                  <div class="row">
+                    <header>Snacks</header>
+                    <ul class="mega-links">
+                      <li><a href="#">Snacks para perros</a></li>
+                      <li><a href="#">Snacks para gatos</a></li>
+                    </ul>
+                  </div>
                 </div>
-            </div>
-        </nav>
-        <!-- -------- -->
+              </div>
+            </li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Oferta</a></li>
+          </ul>
+          <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
 
-        <!-- second section -->
-    <section class="banner">
-        <div class="info">
-            <div class="diamante">
-                <img src="img/Diamond.ico">
-                <p>LA DIFERENCIA DE MASCOSHOP</p>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="portada">
+          <!-- <section class="banner">
+            <div class="info">
+                <div class="diamante">
+                    <img src="img/Diamond.ico">
+                    <p>LA DIFERENCIA DE MASCOSHOP</p>
+                </div>
+                <h1>Una filosofía nutricional inspirada en el amor por tus <span class="cambio"></span></h1>
+                <a href="#">Explora MascoShop</a>
             </div>
-            <h1>Una filosofía nutricional inspirada en el amor por tus <span class="cambio"></span></h1>
-            <a href="#">Explora MascoShop</a>
+          </section> -->
         </div>
     </section>
-        <!-- -------  -->
 
-    section.
+    <section class="caracteristicas">
+      <div class="section">
+        Nuevos productos!
+      </div>
+      <div class="section">
+        <a href="#">Ver todos los productos</a>
+      </div>
+    </section>
 
-<div class="espacio"></div>
-    <section></section>
+    <section class="productosNuevos">
+      <!-- Producto 1 -->
+      <div class="productos">
+        <div class="container-img">
+          <img src="img/comida_dog.webp">
+          <div class="button-group">
+            <span><i class="fa-regular fa-eye"></i></span>
+            <span><i class="fa-regular fa-heart"></i></span>
+          </div>
+        </div>
+        <div class="contenido-card">
+          <div class="estrellas">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <h3>Dog</h3>
+          <div class="precioCart">
+            <span class="cart">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </span>
+            <p class="precio">$15.000</p>
+          </div>
+        </div>
+      </div>
+      <!-- Producto 2 -->
+      <div class="productos">
+        <div class="container-img">
+          <img src="img/comida_dog.webp">
+          <div class="button-group">
+            <span><i class="fa-regular fa-eye"></i></span>
+            <span><i class="fa-regular fa-heart"></i></span>
+          </div>
+        </div>
+        <div class="contenido-card">
+          <div class="estrellas">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <h3>Dog</h3>
+          <div class="precioCart">
+            <span class="cart">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </span>
+            <p class="precio">$15.000</p>
+          </div>
+        </div>
+      </div>
+      <!-- Producto 3 -->
+      <div class="productos">
+        <div class="container-img">
+          <img src="img/comida_dog.webp">
+          <div class="button-group">
+            <span><i class="fa-regular fa-eye"></i></span>
+            <span><i class="fa-regular fa-heart"></i></span>
+          </div>
+        </div>
+        <div class="contenido-card">
+          <div class="estrellas">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <h3>Dog</h3>
+          <div class="precioCart">
+            <span class="cart">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </span>
+            <p class="precio">$15.000</p>
+          </div>
+        </div>
+      </div>
+      <!-- Producto 4 -->
+      <div class="productos">
+        <div class="container-img">
+          <img src="img/comida_dog.webp">
+          <div class="button-group">
+            <span><i class="fa-regular fa-eye"></i></span>
+            <span><i class="fa-regular fa-heart"></i></span>
+          </div>
+        </div>
+        <div class="contenido-card">
+          <div class="estrellas">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <h3>Dog</h3>
+          <div class="precioCart">
+            <span class="cart">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </span>
+            <p class="precio">$15.000</p>
+          </div>
+        </div>
+      </div>
+    </section>
+<section class="espacio">
 
+</section>
+    <section class="patrocinadores">
+      <div class="marcas">
+        <img src="img/hills.webp">
+        <img src="img/pedrigree.webp">
+        <img src="img/royalCanin.avif">
+        <img src="img/purina.webp">
+      </div>
+      <div class="marcas">
+        <img src="img/hills.webp">
+        <img src="img/pedrigree.webp">
+        <img src="img/royalCanin.avif">
+        <img src="img/purina.webp">
+      </div>
+      <div class="marcas">
+        <img src="img/hills.webp">
+        <img src="img/pedrigree.webp">
+        <img src="img/royalCanin.avif">
+        <img src="img/purina.webp">
+      </div>
+    </section>
 
-    <!-- Scripts -->
+    <!-- <div class="tituloTestimonio">
+      <h3>Testimonio</h3>
+    </div>
+    <section class="testimonios">
+      <div class="testimonio">Test 1</div>
+      <div class="testimonio">Test 2</div>
+      <div class="testimonio">Test 3</div>
+    </section>
 
+    <footer>
+      
+    </footer> -->
 
-
+    <script src="js/Gsap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://unpkg.com/split-type"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script> 
-    <script src="js/app.js"></script>
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script> 
 </body>
 </html>
