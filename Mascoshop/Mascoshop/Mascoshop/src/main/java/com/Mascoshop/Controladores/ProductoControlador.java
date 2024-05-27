@@ -3,12 +3,22 @@ package com.Mascoshop.Controladores;
 import com.Mascoshop.Entidades.Producto;
 import com.Mascoshop.Servicios.ServiciosProductos;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.security.PublicKey;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/productos")
@@ -28,6 +38,7 @@ public class ProductoControlador {
         List<Producto> productos = serviciosProductos.listarProductos();
         return new ResponseEntity<>(productos, HttpStatus.OK);
     }
+
     //Listar por ID, Obtener producto.
     @GetMapping("/{id}")
     public ResponseEntity<?> obtenerProducto(@PathVariable Integer id) {
@@ -40,26 +51,51 @@ public class ProductoControlador {
     }
 
     //Agregar un producto.
+
     @PostMapping
-    public  ResponseEntity<Producto>agregarProducto(@RequestBody Producto producto){
+    public ResponseEntity<Producto> agregarProducto(@RequestBody Producto producto, @RequestParam("File") MultipartFile imagen) {
         Producto nuevoProducto = serviciosProductos.agregarProducto(producto);
+
+        if (!imagen.isEmpty()){
+            Path directorioImagenes = Paths.get("src//main//resources//static/Imagenes");
+            String rutaAbsoluta = directorioImagenes.toFile().getAbsolutePath();
+
+            try {
+                byte [] byteImg = imagen.getBytes();
+                Path rutaCompleta = Paths.get(rutaAbsoluta + "//"+ imagen.getOriginalFilename());
+                Files.write(rutaCompleta, byteImg);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            producto.setImagen(imagen.getOriginalFilename());
+        }
         return new ResponseEntity<>(producto, HttpStatus.CREATED);
     }
+
+
+//    @PostMapping por si no funciona el original
+//    public ResponseEntity<Producto> agregarProducto(@RequestBody Producto producto) {
+//        Producto nuevoProducto = serviciosProductos.agregarProducto(producto);
+//        return new ResponseEntity<>(producto, HttpStatus.CREATED);
+//    }
+
     //Buscar producto por animal
     @GetMapping("/animal/{animalId}")
-    public ResponseEntity<List<Producto>> buscarPorAnimal(@PathVariable Integer animalId){
+    public ResponseEntity<List<Producto>> buscarPorAnimal(@PathVariable Integer animalId) {
         List<Producto> productos = serviciosProductos.encontrarPorAnimal(animalId);
         return new ResponseEntity<>(productos, HttpStatus.OK);
     }
+
     //Buscar producto por categoria
     @GetMapping("/categoria/{categoriaId}")
-    public ResponseEntity<List<Producto>> buscarPorCategoria(@PathVariable Integer categoriaId){
+    public ResponseEntity<List<Producto>> buscarPorCategoria(@PathVariable Integer categoriaId) {
         List<Producto> productos = serviciosProductos.encontrarPorCategoria(categoriaId);
         return new ResponseEntity<>(productos, HttpStatus.OK);
     }
+
     //Buscar producto por marca
     @GetMapping("/marca/{marcaId}")
-    public ResponseEntity<List<Producto>> buscarPorMarca(@PathVariable Integer marcaId){
+    public ResponseEntity<List<Producto>> buscarPorMarca(@PathVariable Integer marcaId) {
         List<Producto> productos = serviciosProductos.encontrarPorMarca(marcaId);
         return new ResponseEntity<>(productos, HttpStatus.OK);
     }
@@ -74,10 +110,42 @@ public class ProductoControlador {
             return new ResponseEntity<>("No se pudo actualizar el producto", HttpStatus.NOT_FOUND);
         }
     }
+
     //Eliminar un producto.
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarProducto(@PathVariable Integer id){
+    public ResponseEntity<Void> eliminarProducto(@PathVariable Integer id) {
         serviciosProductos.borrarProducto(id);
-        return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    //Eliminar imagen de un producto
+    @DeleteMapping("/{id}/imagen")
+    public ResponseEntity<Void> eliminarImagen(@PathVariable Integer id) {
+        try {
+            serviciosProductos.eliminarImagen(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    //Descargar una imagen de un producto
+    @GetMapping("/{id}/imagen")
+    public ResponseEntity<Resource> descargarImagen(@PathVariable Integer id) {
+        try {
+            String imagePath = serviciosProductos.obtenerRutaImagen(id);
+            Path file = Paths.get(imagePath);
+            if (!Files.exists(file) || !Files.isReadable(file)) {
+                throw new RuntimeException("No se puede leer el archivo: " + imagePath);
+            }
+            Resource resource = new UrlResource(file.toUri());
+            return ResponseEntity.ok()
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFileName().toString() + "\"")
+                    .body(resource);
+        } catch (MalformedURLException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }

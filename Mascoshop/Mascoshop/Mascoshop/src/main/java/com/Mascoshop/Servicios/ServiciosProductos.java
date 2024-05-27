@@ -6,6 +6,7 @@ import com.Mascoshop.Repositorios.RepositorioProducto;
 import lombok.Data;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.util.List;
 
 @Data
@@ -43,7 +44,7 @@ public class ServiciosProductos {
         return repoProducto.findByMarca_IdMarca(marcaId);
     }
 
-    /*Buscar por ID*/
+    // Buscar por ID tal producto.
     public Producto buscarPorId(Integer id){
         return repoProducto.findById(id).orElse(null);
     }
@@ -51,11 +52,12 @@ public class ServiciosProductos {
     public List<Producto>listarCategoria(Integer id){
         return repoProducto.findByCategoriaProducto_IdCategoria(id);
     }
-    /*Agregar producto*/
+    // Agregar producto.
     public Producto agregarProducto(Producto producto){
         return repoProducto.save(producto);
     }
-    /*Actualizar producto*/
+
+    //Actualizar producto
     public Producto editarProducto(Integer id, Producto productoEditar){
         return  repoProducto.findById(id).map(producto ->{
             producto.setNombre(productoEditar.getNombre());
@@ -70,8 +72,30 @@ public class ServiciosProductos {
         }).orElseThrow(() -> new RuntimeException("Ups, producto no encontrado"));
     }
 
-    /*borrar producto*/
+    //Obtener ruta de imagen!
+    public String obtenerRutaImagen(Integer id) {
+        Producto producto = repoProducto.findById(id).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+        return producto.getImagen();
+    }
+
+    //Eliminar un producto.
     public void borrarProducto(Integer id){
         repoProducto.deleteById(id);
     }
+
+    //Eliminar una imagen correspondiente a un producto.
+    public void eliminarImagen(Integer id) {
+        Producto producto = repoProducto.findById(id).orElseThrow(() -> new RuntimeException("No encontrado."));
+        String imagePath = producto.getImagen();
+        if (imagePath != null && !imagePath.isEmpty()) {
+            File imagefile = new File(imagePath);
+            if (imagefile.exists()) {
+                imagefile.delete();
+            }
+        }
+        producto.setImagen(null);
+        repoProducto.save(producto);
+    }
+
+
 }
