@@ -7,51 +7,31 @@
   font-weight: 400;
   font-style: normal;
 }
-body{
-  overflow: hidden;
-}
 
 header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 15px;
+  padding: 0 28px;
 }
 
 .atencionCliente{
   display: flex;
   gap: 2vh;
   align-items: center;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .atencionCliente p{
   color: #524656;
 }
 
-header .login{
-  display: flex;
-  align-items: center;
-  gap: 3vh;
-}
-header .login a{
-  text-decoration: none;
-  border: 1px solid;
-  padding: 1vh 2vh;
-  border-radius: 8px;
-  color: black;
-}
-header .login a:hover{
-  background: #524656;
-  transition: .4s ease;
-  color: #fff;
-}
 @media (max-width: 620px) {
   .atencionCliente{
     display: none;
   }
 }
-@media (max-width: 460px) {
+@media (max-width: 487px) {
   .logo img{
     width: 200px;
   }
@@ -60,12 +40,21 @@ header .login a:hover{
   }
 }
 
-@media (max-width: 355px) {
+@media (max-width: 430px) {
   .logo img{
-    width: 100px;
+    width: 200px;
   }
   header .login a{
     font-size: 9px;
+  }
+}
+@media (max-width: 400px){
+  .wrapper .form-busqueda input{
+    display: none;
+  }
+  .wrapper .form-busqueda button{
+    background: white;
+    border: none;
   }
 }
 .form-busqueda{
@@ -377,7 +366,7 @@ nav input{
   background-image: url(../img/perroPortada.jpg);
   background-size: cover;
   background-position: left;
-  height: 100vh;
+  height: 90vh;
 }
 
 .carrito{
@@ -386,11 +375,49 @@ nav input{
   margin-left: 40px;
 }
 
-/* .info{
+@media (max-width: 1200px) {
+  .banner .info{
+    right: 5vh;
+    padding: 5vh 4vh;
+    min-height: calc(320px - 6rem);
+    background-color: hsla(0, 0%, 100%, 0.5);
+  }
+  .banner .info .diamante{
+    margin-bottom: 1vh;
+  }
+  .banner .info .diamante p{
+    font-size: 0.9rem;
+    line-height: 1.1rem;
+  }
+  .hero .portada{
+    height: 90vh;
+  }
+}
+.hero .portada .portada-oculto{
+  display: none;
+}
+@media (max-width: 700px) {
+  .hero .portada .info{
+    position: relative;
+    left: 50px;
+    top: 120px;
+  }
+
+  .hero .portada .portada-oculto{
+    display: block;
+    width: 400px;
+  }
+  .hero .portada .info h1{
+    font-size: 40px;
+    line-height: 35px;
+  }
+}
+
+.info{
   position: absolute;
   top: 30vh;
   right: 20vh;
-  background-color: hsla(0, 0%, 100%, .85);
+  background-color: hsla(0, 0%, 100%, 0.5);
   padding: 6vh 3vh;
   border-radius: 1vh;
   border: none;
@@ -416,7 +443,7 @@ nav input{
 }
 .info span{
   color: #524656;
-} */
+}
 
 .caracteristicas{
   display: flex;
@@ -556,13 +583,22 @@ nav input{
   height: 80px;
   margin: 0 40px;
 }
-.tituloTestimonio{
+
+article{
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+
 }
-.testimonios{
+article .noticia p{
+  max-width: 300px;
+  font-weight: bold;
+}
+article .noticia{
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
 }
 
 .espacio{
