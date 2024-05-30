@@ -601,6 +601,10 @@ article .noticia{
   gap: 15px;
 }
 
+#logoutButton{
+  display: none;
+}
+
 .espacio{
   height: 30vh;
 }
