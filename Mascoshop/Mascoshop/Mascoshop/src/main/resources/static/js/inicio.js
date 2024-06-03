@@ -48,5 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ScrollReveal().reveal('.wrapper', { delay: 500 });
     ScrollReveal().reveal('.info', { delay: 600 });
     ScrollReveal().reveal('.portada', { delay: 600 });
+
 });
 

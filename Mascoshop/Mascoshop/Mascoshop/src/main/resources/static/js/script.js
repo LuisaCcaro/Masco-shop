@@ -49,9 +49,9 @@ function updateUIForLoggedInUser() {
 
     if (localStorage.getItem('googleToken')) {
         loginButton.style.display = 'none';
-        logoutButton.style.display = 'block';
+        logoutButton.style.display = 'contents';
     } else {
-        loginButton.style.visibility = 'block';
+        loginButton.style.visibility = 'contents';
         logoutButton.style.display = 'none';
     }
 }
