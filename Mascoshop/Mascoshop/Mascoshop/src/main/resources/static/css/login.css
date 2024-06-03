@@ -52,7 +52,7 @@ form{
 
 .form .field{
     position: relative;
-    height: 45px;
+    height: 40px;
     width: 100%;
     margin-top: 20px;
     border-radius: 6px;
@@ -86,13 +86,13 @@ form{
     padding: 5px;
 }
 .field button{
-    background-color: #0171d3;
+    background-color: #f6761d;
     color: #fff;
     transition: all 0.3s ease;
     cursor: pointer;
 }
 .field button:hover{
-    background-color: #016dcb;
+    background-color: #be5d18;
 }
 .form-link{
     text-align: center;
@@ -245,7 +245,7 @@ form .page .field select{
 form .page .field button{
   width: 100%;
   border: none;
-  background: #0171d3;
+  background: #f6761d;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
@@ -349,4 +349,134 @@ form .page .btns button.next{
 .progress-bar .step .check.active{
   display: block;
   color: #fff;
+}
+
+/* terms y conditiones */
+
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #111111bd;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .6s;
+  --transform: translateY(-100vh);
+  --transition: transform .8s;
+  z-index: 100;
+}
+
+.modal_show{
+  opacity: 1;
+  pointer-events: unset;
+  transition: opacity .6s;
+  --transform: translateY(0);
+}
+.container_modal{
+  margin: auto;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90%;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 3em 2.5em;
+  gap: 1em;
+  place-items: center;
+  grid-template-columns: 100%;
+  transform: var(--transform);
+  transition: var(--transition);
+  overflow-y: scroll;
+}
+.modal .container_modal h1{
+  font-size: 2.5rem;
+}
+.modal .container_modal p{
+  margin-bottom: 15px;
+}
+.modal .container_modal .modal_cierre{
+  text-decoration: none;
+  color: #fff;
+  background-color: #F26250;
+  padding: 1em 3em;
+  border: 1px solid;
+  border-radius: 6px;
+  display: inline-block;
+  font-weight: 300;
+  transition: background-color .3s;
+}
+.modal .container_modal .modal_cierre:hover{
+  color: #F26250;
+  background-color: #fff;
+}
+
+.modal .container_modal .correo{
+  color: #f6761d;
+}
+
+/* privacidad */
+
+.modal_privacidad{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #111111bd;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .6s;
+  --transform: translateY(-100vh);
+  --transition: transform .8s;
+  z-index: 100;
+}
+
+.modal_show_privacidad{
+  opacity: 1;
+  pointer-events: unset;
+  transition: opacity .6s;
+  --transform: translateY(0);
+}
+.container_modal_privacidad{
+  margin: auto;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90%;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 3em 2.5em;
+  gap: 1em;
+  place-items: center;
+  grid-template-columns: 100%;
+  transform: var(--transform);
+  transition: var(--transition);
+  overflow-y: scroll;
+}
+.modal_privacidad .container_modal_privacidad h1{
+  font-size: 2.5rem;
+}
+.modal_privacidad .container_modal_privacidad p{
+  margin-bottom: 15px;
+}
+.modal_privacidad .container_modal_privacidad .modal_cierre_privacidad{
+  text-decoration: none;
+  color: #fff;
+  background-color: #F26250;
+  padding: 1em 3em;
+  border: 1px solid;
+  border-radius: 6px;
+  display: inline-block;
+  font-weight: 300;
+  transition: background-color .3s;
+}
+.modal_privacidad .container_modal_privacidad .modal_cierre_privacidad:hover{
+  color: #F26250;
+  background-color: #fff;
+}
+
+.modal_privacidad .container_modal_privacidad .correo_privacidad{
+  color: #f6761d;
 }
