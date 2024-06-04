@@ -42,39 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     //buscador
-    const searchInput = document.getElementById('search');
-const suggestionsContainer = document.getElementById('suggestions');
 
-const data = [
-    'Comida secos para perros',
-    'Comida secos para gatos',
-    'Comida humedos para perros',
-    'Comida humedos para gatos',
-    'Especial para perros',
-    'Especial para gatos',
-    'Snacks para perros',
-    'Snacks para gatos'
-];
-
-searchInput.addEventListener('input', () => {
-    const inputValue = searchInput.value.toLowerCase();
-    suggestionsContainer.innerHTML = '';
-    
-    if (inputValue) {
-        const filteredData = data.filter(item => item.toLowerCase().includes(inputValue));
-        
-        filteredData.forEach(item => {
-            const suggestionDiv = document.createElement('div');
-            suggestionDiv.textContent = item;
-            suggestionsContainer.appendChild(suggestionDiv);
-            
-            suggestionDiv.addEventListener('click', () => {
-                searchInput.value = item;
-                suggestionsContainer.innerHTML = '';
-            });
-        });
-    }
-});
     //
 
 
@@ -153,7 +121,38 @@ searchInput.addEventListener('input', () => {
     function updateCartCounter() {
       cartItemCount.textContent = itemCount;
     }
-    
-      
 });
 
+const searchInput = document.getElementById('search');
+const suggestionsContainer = document.getElementById('suggestions');
+
+const data = [
+    'Comida secos para perros',
+    'Comida secos para gatos',
+    'Comida humedos para perros',
+    'Comida humedos para gatos',
+    'Especial para perros',
+    'Especial para gatos',
+    'Snacks para perros',
+    'Snacks para gatos'
+];
+
+searchInput.addEventListener('input', () => {
+    const inputValue = searchInput.value.toLowerCase();
+    suggestionsContainer.innerHTML = '';
+    
+    if (inputValue) {
+        const filteredData = data.filter(item => item.toLowerCase().includes(inputValue));
+        
+        filteredData.forEach(item => {
+            const suggestionDiv = document.createElement('div');
+            suggestionDiv.textContent = item;
+            suggestionsContainer.appendChild(suggestionDiv);
+            
+            suggestionDiv.addEventListener('click', () => {
+                searchInput.value = item;
+                suggestionsContainer.innerHTML = '';
+            });
+        });
+    }
+});

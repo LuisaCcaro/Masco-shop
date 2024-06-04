@@ -480,3 +480,12 @@ form .page .btns button.next{
 .modal_privacidad .container_modal_privacidad .correo_privacidad{
   color: #f6761d;
 }
+
+@media (max-width: 1000px) {
+  .imagen{
+    display: none;
+  }
+  .container{
+    width: 100%;
+  }
+}

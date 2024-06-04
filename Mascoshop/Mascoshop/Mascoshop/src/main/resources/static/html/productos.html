@@ -4,8 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos ~ Mascoshop</title>
+    <link rel="shortcut icon" href="img/Mascoshoop.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    
+    <header>
+        <div class="container-hero">
+            <div class="container hero">
+                <div class="customer-support">
+                    <i class="fa-solid fa-headset"></i>
+                    <div class="content-customer-support">
+                        <span class="text">Soporte al cliente</span>
+                        <span class="number">123-456-7890</span>
+                    </div>
+                </div>
+
+                <div class="container-logo">
+                    <img src="../img/Mascoshoop.png">
+                </div>
+
+                <div class="container-user">
+                    <div class="listaDeseo">
+                    <i class="fa-solid fa-heart"></i>
+                    <div class="content-deseo">
+                        <span class="text">Lista de deseo</span>
+                        <span class="number">(0)</span>
+                    </div>
+                    </div>
+                    
+                    <i class="fa-solid fa-user"></i>
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <div class="content-shopping-cart">
+                        <span class="text">Carrito</span>
+                        <span class="number" id="cart-item-count">(0)</span>
+                        
+                        <div id="emptyCartMessage" class="empty-cart-message"><span>Tu carrito está vacío</span>
+                            <div id="cart-hover" class="cart-hover">
+                                <div id="cart-items-hover" class="cart-items-hover">
+                                  <!-- Aquí se mostrarán los productos agregados al carrito -->
+                                </div>
+                              </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="wrapper">
+              <form class="search-form">
+                    <input type="search" placeholder="Buscar..." id="search"/>
+                    <button class="btn-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+                <div id="suggestions" class="suggestions"></div>
+              <input type="radio" name="slider" id="menu-btn">
+              <input type="radio" name="slider" id="close-btn">
+              <ul class="nav-links">
+                <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+                <li><a href="../index.html">Inicio</a></li>
+                <li>
+                  <a href="../html/productos.html" class="desktop-item">Productos</a>
+                  <input type="checkbox" id="showMega" class="showMegaInput">
+                  <label for="showMega" class="mobile-item">Productos</label>
+                  <div class="mega-box">
+                    <div class="content">
+                      <div class="row">
+                        <img src="../img/menubg-comida.jpg" alt="">
+                      </div>
+                      <div class="row">
+                        <header>Perros</header>
+                        <ul class="mega-links">
+                          <li><a href="#">Comida Seca</a></li>
+                          <li><a href="#">Comida Húmeda</a></li>
+                          <li><a href="#">Comida Medicada</a></li>
+                          <li><a href="#">Vitaminas y suplementos</a></li>
+                        </ul>
+                      </div>
+                      <div class="row">
+                        <header>Gatos</header>
+                        <ul class="mega-links">
+                          <li><a href="#">Comida Seca</a></li>
+                          <li><a href="#">Comida Húmeda</a></li>
+                          <li><a href="#">Comida Medicada</a></li>
+                          <li><a href="#">Vitaminas y suplementos</a></li>
+                        </ul>
+                      </div>
+                      <div class="row">
+                        <header>Snacks</header>
+                        <ul class="mega-links">
+                          <li><a href="#">Snacks para perros</a></li>
+                          <li><a href="#">Snacks para gatos</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#ofertas">Ofertas</a></li>
+                <li><a href="#gallery">Galeria</a></li>
+                <li><a href="../html/login.html" id="loginButton">Iniciar sesion</a></li>
+                <li><a href="" class="Cerrarsesion" id="logoutButton" onclick="signOut()">Cerrar sesion</a></li>
+              </ul>
+              <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+            </div>
+          </nav>			
+            </nav>
+        </div>
+    </header>
+
+    <script
+			src="https://kit.fontawesome.com/81581fb069.js"
+			crossorigin="anonymous"
+		></script>
+        <script src="../js/inicio.js"></script>
+    	<script src="../js/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    	<script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script> 
 </body>
 </html>

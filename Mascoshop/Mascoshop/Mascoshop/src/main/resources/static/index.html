@@ -28,13 +28,21 @@
 					</div>
 
 					<div class="container-user">
+						<div class="listaDeseo">
+						<i class="fa-solid fa-heart"></i>
+						<div class="content-deseo">
+							<span class="text">Lista de deseo</span>
+							<span class="number">(0)</span>
+						</div>
+						</div>
+						
 						<i class="fa-solid fa-user"></i>
 						<i class="fa-solid fa-basket-shopping"></i>
 						<div class="content-shopping-cart">
 							<span class="text">Carrito</span>
 							<span class="number" id="cart-item-count">(0)</span>
 							
-							<div id="emptyCartMessage" class="empty-cart-message"><span class="mensajeVacio">Tu carrito está vacío</span>
+							<div id="emptyCartMessage" class="empty-cart-message"><span>Tu carrito está vacío</span>
 								<div id="cart-hover" class="cart-hover">
 									<div id="cart-items-hover" class="cart-items-hover">
 									  <!-- Aquí se mostrarán los productos agregados al carrito -->
@@ -60,7 +68,7 @@
 					<label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
 					<li><a href="#">Inicio</a></li>
 					<li>
-					  <a href="#" class="desktop-item">Productos</a>
+					  <a href="html/productos.html" class="desktop-item">Productos</a>
 					  <input type="checkbox" id="showMega" class="showMegaInput">
 					  <label for="showMega" class="mobile-item">Productos</label>
 					  <div class="mega-box">
@@ -425,8 +433,8 @@
 								Suscríbete a nuestros boletines ahora y mantente al
 								día con nuevas colecciones y ofertas exclusivas.
 							</p>
-							<input type="email" placeholder="Ingresa el correo aquí...">
-							<button>Suscríbete</button>
+							<input type="email" placeholder="Ingresa el correo aquí..." required>
+							<button onclick="boletinInformativo">Suscríbete</button>
 						</div>
 					</div>
 				</div>
@@ -451,6 +459,5 @@
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     	<script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script> 
-	
 	</body>
 </html>
