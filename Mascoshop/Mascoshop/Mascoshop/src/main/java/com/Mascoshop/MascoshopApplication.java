@@ -7,7 +7,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 
 @SpringBootApplication
-@EnableWebMvc
 public class MascoshopApplication {
 
 	public static void main(String[] args) {

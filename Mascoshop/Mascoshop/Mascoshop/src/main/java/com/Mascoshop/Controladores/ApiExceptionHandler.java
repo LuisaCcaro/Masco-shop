@@ -12,7 +12,7 @@ public class ApiExceptionHandler {
     @ExceptionHandler({NoHandlerFoundException.class})
     public ModelAndView handleNoHandlerFoundExceptio(
             NoHandlerFoundException ex, HttpServletRequest request) {
-        ModelAndView modelAndView = new ModelAndView("error404"); // Nombre del archivo HTML personalizado sin la extensión
+        ModelAndView modelAndView = new ModelAndView("error-404"); // Nombre del archivo HTML personalizado sin la extensión
         modelAndView.addObject("message", "Resource not found"); // Puedes agregar más atributos si lo necesitas
         return modelAndView;
     }
