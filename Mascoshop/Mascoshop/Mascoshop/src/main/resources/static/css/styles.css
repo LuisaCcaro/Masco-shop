@@ -6,6 +6,77 @@
 	--dark-color: #151515;
 }
 /*  */
+
+/* carrito */
+.content-shopping-cart {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.empty-cart-message {
+    display: none;
+	text-align: center;
+    position: absolute;
+    top: calc(100%);
+	width: 30vh;
+	height: 20vh;
+    transform: translateX(-80%);
+    background-color: #fff;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+	overflow-y: scroll;
+}
+
+.fa-basket-shopping:hover + .content-shopping-cart .empty-cart-message,
+.empty-cart-message:hover {
+    display: block;
+}
+/* Estilos para el botón de eliminar en el carrito */
+.delete-button {
+	background-color: orange;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 5px 10px;
+	cursor: pointer;
+	margin-left: 10px;
+  }
+  
+  .delete-button:hover {
+	background-color: darkorange;
+  }
+  
+
+/*  */
+
+/* menu tiempo real */
+.suggestions {
+    position: absolute;
+    border: 1px solid #ccc;
+    border-top: none;
+	top: 55px;
+    left: 47px;
+    width: 20%;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: #fff;
+    border-radius: 0 0 4px 4px;
+}
+
+.suggestions div {
+    padding: 1px 10px;
+    cursor: pointer;
+}
+
+.suggestions div:hover {
+    background-color: #f0f0f0;
+}
+/*  */
+
 nav{
   z-index: 99;
   width: 100%;
@@ -1297,7 +1368,7 @@ body{
 	}
 
 	.container-blogs {
-		grid-template-columns: 1fr;
+		grid-template-columns: 2fr;
 		height: 75rem;
 	}
 

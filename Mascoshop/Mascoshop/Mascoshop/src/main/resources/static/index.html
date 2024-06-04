@@ -32,7 +32,15 @@
 						<i class="fa-solid fa-basket-shopping"></i>
 						<div class="content-shopping-cart">
 							<span class="text">Carrito</span>
-							<span class="number">(0)</span>
+							<span class="number" id="cart-item-count">(0)</span>
+							
+							<div id="emptyCartMessage" class="empty-cart-message"><span class="mensajeVacio">Tu carrito está vacío</span>
+								<div id="cart-hover" class="cart-hover">
+									<div id="cart-items-hover" class="cart-items-hover">
+									  <!-- Aquí se mostrarán los productos agregados al carrito -->
+									</div>
+								  </div> 
+							</div>
 						</div>
 					</div>
 				</div>
@@ -40,11 +48,12 @@
 			<nav>
 				<div class="wrapper">
 				  <form class="search-form">
-						<input type="search" placeholder="Buscar..." />
+						<input type="search" placeholder="Buscar..." id="search"/>
 						<button class="btn-search">
 							<i class="fa-solid fa-magnifying-glass"></i>
 						</button>
 					</form>
+					<div id="suggestions" class="suggestions"></div>
 				  <input type="radio" name="slider" id="menu-btn">
 				  <input type="radio" name="slider" id="close-btn">
 				  <ul class="nav-links">
@@ -87,8 +96,9 @@
 						</div>
 					  </div>
 					</li>
-					<li><a href="#">Blog</a></li>
-            		<li><a href="#">Oferta</a></li>
+					<li><a href="#blog">Blog</a></li>
+            		<li><a href="#ofertas">Ofertas</a></li>
+					<li><a href="#gallery">Galeria</a></li>
 					<li><a href="./html/login.html" id="loginButton">Iniciar sesion</a></li>
             		<li><a href="" class="Cerrarsesion" id="logoutButton" onclick="signOut()">Cerrar sesion</a></li>
 				  </ul>
@@ -151,7 +161,7 @@
 				</div>
 			</section>
 
-			<section class="container top-products">
+			<section class="container top-products" id="ofertas">
 				<h1 class="heading-1">Mejores Productos</h1>
 
 				<div class="container-options">
@@ -162,7 +172,7 @@
 					<!-- Producto 1 -->
 					<div class="card-product">
 						<div class="container-img">
-							<img src="./img/SecoPerro.png" alt="Cafe Irish" />
+							<img src="./img/SecoPerro.png"/>
 							<span class="discount">-13%</span>
 							<div class="button-group">
 								<span>
@@ -170,9 +180,6 @@
 								</span>
 								<span>
 									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
 								</span>
 							</div>
 						</div>
@@ -196,7 +203,6 @@
 						<div class="container-img">
 							<img
 								src="./img/AlimentoHumedoPerro.png"
-								alt="Cafe incafe-ingles.jpg"
 							/>
 							<span class="discount">-22%</span>
 							<div class="button-group">
@@ -205,9 +211,6 @@
 								</span>
 								<span>
 									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
 								</span>
 							</div>
 						</div>
@@ -231,7 +234,6 @@
 						<div class="container-img">
 							<img
 								src="./img/snacksPurina.jpg"
-								alt="Cafe Australiano"
 							/>
 							<div class="button-group">
 								<span>
@@ -239,9 +241,6 @@
 								</span>
 								<span>
 									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
 								</span>
 							</div>
 						</div>
@@ -263,16 +262,13 @@
 					<!--  -->
 					<div class="card-product">
 						<div class="container-img">
-							<img src="./img/AlimentoEspecializadoGatos.jpg" alt="Cafe Helado" />
+							<img src="./img/AlimentoEspecializadoGatos.jpg"/>
 							<div class="button-group">
 								<span>
 									<i class="fa-regular fa-eye"></i>
 								</span>
 								<span>
 									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
 								</span>
 							</div>
 						</div>
@@ -294,7 +290,7 @@
 				</div>
 			</section>
 
-			<section class="gallery">
+			<section class="gallery" id="gallery">
 				<img
 					src="./img/Gallery-1.jpg"
 					alt="Gallery Img1"
@@ -341,7 +337,7 @@
 	</div>
   </section>
 
-			<section class="container blogs">
+			<section class="container blogs" id="blog">
 				<h1 class="heading-1">Últimos Blogs</h1>
 
 				<div class="container-blogs">
@@ -455,5 +451,6 @@
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     	<script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script> 
+	
 	</body>
 </html>
