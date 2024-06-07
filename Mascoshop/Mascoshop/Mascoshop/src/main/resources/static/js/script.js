@@ -39,7 +39,7 @@ function handleAuthResponse() {
     if (result.access_token) {
         localStorage.setItem('googleToken', result.access_token);
         updateUIForLoggedInUser();
-        showMessage('Inicio de sesión exitoso');
+        alert('Inicio de sesión exitoso');
     }
 }
 
@@ -58,9 +58,9 @@ function updateUIForLoggedInUser() {
 
 function signOut() {
     localStorage.removeItem('googleToken');
+    alert('Sesión cerrada');
     updateUIForLoggedOutUser();
-    showMessage('Sesión cerrada');
-    cancelSignOut();
+    // cancelSignOut();
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {

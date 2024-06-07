@@ -1,6 +1,6 @@
 package com.Mascoshop.Entidades;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 

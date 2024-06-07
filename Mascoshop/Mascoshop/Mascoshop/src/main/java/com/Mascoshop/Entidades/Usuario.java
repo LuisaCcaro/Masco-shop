@@ -1,6 +1,6 @@
 package com.Mascoshop.Entidades;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,7 +29,7 @@ public class Usuario {
     @Column(name = "contrasena", nullable = false)
     private String contrasena;
 
-    @Column(name = "nombreUsuario", nullable = false )
+    @Column(name = "nombre_usuario", nullable = false )
     private String nombreUsuario;
 
     @Column(name = "Direccion", nullable = false)
@@ -44,7 +44,6 @@ public class Usuario {
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Carrito> carritos;
-
 }
 
 
