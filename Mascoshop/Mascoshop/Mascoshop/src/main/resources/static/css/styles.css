@@ -1585,3 +1585,114 @@ body{
 		font-size: 1.6rem;
 	}
 }
+
+.hr{
+	height: 15vh;
+}
+
+/* Products */
+
+.filter{
+	display: flex;
+	gap: 10px;
+}
+.filter .all{
+	display: flex;
+	border: 1px solid #ccc;
+	padding: 4px;
+	border-radius: 6px;
+	gap: 3px;
+	text-align: center;
+}
+.filter .all:hover input ~ .check{
+	border-color: transparent;
+	background-color: #ededed;
+}
+.filter .secos{
+	display: flex;
+	border: 1px solid #ccc;
+	padding: 4px;
+	border-radius: 6px;
+	gap: 3px;
+	text-align: center;
+}
+.filter .humedos{
+	display: flex;
+	border: 1px solid #ccc;
+	padding: 4px;
+	border-radius: 6px;
+	gap: 3px;
+	text-align: center;
+}
+.filter .especializada{
+	display: flex;
+	border: 1px solid #ccc;
+	padding: 4px;
+	border-radius: 6px;
+	gap: 3px;
+	text-align: center;
+}
+
+/* pagination */
+
+.prev-next .container,
+.prev-next .button,
+.prev-next .links,
+.prev-next .link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.prev-next .container {
+  padding: 20px;
+  border-radius: 8px;
+  column-gap: 12px;
+  background: #fff;
+}
+.prev-next .button {
+  border: none;
+}
+.prev-next .button i {
+  pointer-events: none;
+}
+.prev-next .button:disabled {
+  color: #b3b3b3;
+  pointer-events: none;
+}
+.prev-next .button,
+.prev-next .link {
+  height: 45px;
+  width: 45px;
+  font-size: 20px;
+  color: #666666;
+  background-color: #f2f2f2;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.prev-next .links {
+  column-gap: 12px;
+}
+.prev-next .link {
+  font-weight: 500;
+  text-decoration: none;
+}
+.prev-next .button:hover,
+.prev-next .link:hover {
+  color: #fff;
+  background-color: var(--primary-color);
+}
+.prev-next .link.active {
+  color: #fff;
+  background-color: var(--primary-color);
+}
+
+/* Whatssapp */
+
+.whatssapp{
+	position: fixed;
+	bottom: 0;
+	z-index: 1000;
+	right: 2.5vh;
+	font-size: 5vh;
+}
+
