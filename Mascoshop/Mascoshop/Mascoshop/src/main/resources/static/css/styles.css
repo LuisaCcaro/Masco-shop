@@ -6,7 +6,6 @@
 	--dark-color: #151515;
 }
 /*  */
-
 /* carrito */
 .content-shopping-cart {
     display: flex;
@@ -1061,6 +1060,165 @@ body{
 .btn-read-more:hover {
 	background-color: var(--dark-color);
 }
+/* ********************************** */
+/*            Develops                */
+/* ********************************** */
+  
+.Desarrolladores body{
+	height: 60vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #f2f2f2;
+	border: 1px solid;
+  }
+  
+  .Desarrolladores section{
+	position: relative;  
+	height: 450px;
+	width: 1075px;
+	display: flex;
+	align-items: center;
+	margin: 0 auto;
+  }
+  
+  .Desarrolladores .swiper{
+	width: 950px;
+	padding-bottom: 100px;
+  }
+  
+  .Desarrolladores .card{
+	position: relative;
+	background: #fff;
+	border-radius: 20px;
+	margin: 20px 0;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Desarrolladores .card::before{
+	content: "";
+	position: absolute;
+	height: 40%;
+	width: 100%;
+	background-color: var(--primary-color);
+	border-radius: 20px 20px 0 0;
+  }
+  
+  .Desarrolladores .card .card-content{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 30px;
+	position: relative;
+	z-index: 100;
+  }
+  
+  .Desarrolladores section .card .image{
+	height: 140px;
+	width: 140px;
+	border-radius: 50%;
+	padding: 3px;
+	background-color: #FAD835;
+  }
+  
+  .Desarrolladores section .card .image img{
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	border-radius: 50%;
+	border: 3px solid #fff;
+  }
+  
+  .Desarrolladores .card .media-icons{
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  }
+  
+  .Desarrolladores .card .media-icons i{
+	color: #fff;
+	opacity: 0.6;
+	margin-top: 10px;
+	transition: all 0.3s ease;
+	cursor: pointer;
+	font-size: 12px;
+  }
+  
+  .Desarrolladores .card .media-icons i:hover{
+	opacity: 1;
+  }
+  
+  .Desarrolladores .card .name-profession{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 10px;
+  } 
+  
+  .Desarrolladores .name-profession .name{
+	font-size: 20px;
+	font-weight: 600;
+  }
+  
+  .Desarrolladores .name-profession .profession{
+	font-size:15px;
+	font-weight: 500;
+  }
+  
+  .Desarrolladores .card .rating{
+	display: flex;
+	align-items: center;
+	margin-top: 18px;
+  }
+  
+  .Desarrolladores .card .rating i{
+	font-size: 18px;
+	margin: 0 2px;
+	color: #FAD835;
+  }
+  
+  .Desarrolladores .card .button button{
+	background-color: var(--primary-color);
+	outline: none;
+	border: none;
+	color: #fff;
+	padding: 8px 22px;
+	border-radius: 20px;
+	font-size: 14px;
+	transition: all 0.3s ease;
+	cursor: pointer;
+  }
+  
+  .Desarrolladores .button button:hover{
+	background: #FAD835;;
+  }
+  
+  .Desarrolladores .swiper-pagination{
+	position: absolute;
+	padding-bottom: 20px;
+  }
+  
+  .Desarrolladores .swiper-pagination-bullet{
+	height: 7px;
+	width: 26px;
+	border-radius: 25px;
+	background: #6d6d6d;
+  }
+  
+  .Desarrolladores .swiper-button-next, .Desarrolladores .swiper-button-prev{
+	opacity: 0.7;
+	color: #FAD835;
+	transition: all 0.3s ease;
+  }
+
+  .Desarrolladores .swiper-button-next:hover, .swiper-button-prev:hover{
+	opacity: 1;
+	color: var(--primary-color);
+  }
+
 
 /* ********************************** */
 /*               FOOTER               */
