@@ -12,13 +12,13 @@
         <div class="form login">
             <div class="form-content">
                 <header>Log In</header>
-                <form  action="/login" method="POST">
+                <form action="/login" method="POST">
                     <div class="field input-field">
-                        <input type="text" placeholder="Usuario" class="input" name="username">
+                        <input type="text" placeholder="Usuario" class="input" name="nombreUsuario">
                     </div>
 
                     <div class="field input-field">
-                        <input type="password" placeholder="Password" class="password" name="password">
+                        <input type="password" placeholder="Password" class="password" name="contrasena">
                         <i class="bx bx-hide eye-icon"></i>
                     </div>
 
@@ -56,64 +56,26 @@
     <div class="form signup">
         <div class="form-content">
             <header>Registro</header>
-            <!-- <div class="progress-bar">
-                <div class="step">
-                   <p>
-                      Nombre
-                   </p>
-                   <div class="bullet">
-                      <span>1</span>
-                   </div>
-                   <div class="check fas fa-check"></div>
-                </div>
-                <div class="step">
-                   <p>
-                      Contacto
-                   </p>
-                   <div class="bullet">
-                      <span>2</span>
-                   </div>
-                   <div class="check fas fa-check"></div>
-                </div>
-                <div class="step">
-                   <p>
-                      Birth
-                   </p>
-                   <div class="bullet">
-                      <span>3</span>
-                   </div>
-                   <div class="check fas fa-check"></div>
-                </div>
-                <div class="step">
-                   <p>
-                      Submit
-                   </p>
-                   <div class="bullet">
-                      <span>4</span>
-                   </div>
-                   <div class="check fas fa-check"></div>
-                </div>
-             </div> -->
              <div class="form-outer">
-                <form action="#">
+                <form action="/register" method="POST" id="form-register">
                    <div class="page slide-page">
                       <div class="field">
                          <div class="label">
                             Nombre
                          </div>
-                         <input type="text">
+                         <input type="text" name="nombre">
                       </div>
                       <div class="field">
                          <div class="label">
                             Apellido
                          </div>
-                         <input type="text">
+                         <input type="text" name="apellido">
                       </div>
                       <div class="field">
                         <div class="label">
                            Direccion
                         </div>
-                        <input type="text">
+                        <input type="text" name="direccion">
                      </div>
                       <div class="field">
                          <button class="firstNext next">Siguiente</button>
@@ -124,39 +86,31 @@
                          <div class="label">
                             Correo
                          </div>
-                         <input type="text">
+                         <input type="text" name="correo">
                       </div>
                       <div class="field">
                          <div class="label">
                             Telefono
                          </div>
-                         <input type="tel">
+                         <input type="tel" name="telefono">
                       </div>
                       <div class="field btns">
                          <button class="prev-1 prev">Anterior</button>
                          <button class="next-1 next">Siguiente</button>
                       </div>
                    </div>
-                   <!-- <div class="page">
-                      
-                     
-                      <div class="field btns">
-                         <button class="prev-2 prev">Anterior</button>
-                         <button class="next-2 next">Siguiente</button>
-                      </div>
-                   </div> -->
                    <div class="page">
                       <div class="field">
                          <div class="label">
                             Usuario
                          </div>
-                         <input type="text">
+                         <input type="text" name="nombreUsuario">
                       </div>
                       <div class="field">
                          <div class="label">
                             Contraseña
                          </div>
-                         <input type="password">
+                         <input type="password" name="contrasena">
                       </div>
                       <input type="checkbox" id="termsCondiciones">
                     <label for="termsCondiciones">He leido y acepto los <a href="" class="abrir_modal">Terminos y condiciones</a></label>
@@ -165,29 +119,12 @@
                     <label for="privacidad">Acepto las <a href="" class="abrir_modal_privacidad">Política de Privacidad</a></label>
                       <div class="field btns">
                          <button class="prev-2 prev">Anterior</button>
-                         <button class="submit">Enviar</button>
+                         <button class="submit" onclick="registrarUsuario()">Enviar</button>
                       </div>
                    </div>
                 </form>
              </div>
-                <!-- <div class="field input-field">
-                    <input type="email" placeholder="Email" class="input">
-                </div>
-
-                <div class="field input-field">
-                    <input type="password" placeholder="Password" class="password">
-                    <i class="bx bx-hide eye-icon"></i>
-                </div>
-                <div class="field input-field">
-                    <input type="password" placeholder="Password" class="password">
-                    <i class="bx bx-hide eye-icon"></i>
-                </div>
-
-                <div class="field button-field">
-                    <button>Resgistro</button>
-                </div>
--->
-                <div class="form-link2">
+            <div class="form-link2">
                     <span>Tienes una cuenta? <a href="#" class="link login-link">Inicio sesion</a></span>
                 </div> 
 

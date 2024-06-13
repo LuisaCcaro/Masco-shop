@@ -1,6 +1,5 @@
 package com.Mascoshop;
 
-import com.Mascoshop.Entidades.Usuario;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
