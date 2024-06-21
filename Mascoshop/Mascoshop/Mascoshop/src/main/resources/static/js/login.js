@@ -55,14 +55,7 @@ nextBtnSec.addEventListener("click", function(event){
   progressText[current - 1].classList.add("active");
   current += 1;
 });
-// nextBtnThird.addEventListener("click", function(event){
-// event.preventDefault();
-// slidePage.style.marginLeft = "-70%";
-// bullet[current - 1].classList.add("active");
-// progressCheck[current - 1].classList.add("active");
-// progressText[current - 1].classList.add("active");
-// current += 1;
-// });
+
 submitBtn.addEventListener("click", function(){
   bullet[current - 1].classList.add("active");
   progressCheck[current - 1].classList.add("active");

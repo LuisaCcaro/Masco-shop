@@ -13,27 +13,7 @@
     position: relative;
 }
 
-.empty-cart-message {
-    display: none;
-	text-align: center;
-    position: absolute;
-    top: calc(100%);
-	width: 30vh;
-	height: 20vh;
-    transform: translateX(-80%);
-    background-color: #fff;
-    color: #333;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 10;
-	overflow-y: scroll;
-}
 
-.fa-basket-shopping:hover + .content-shopping-cart .empty-cart-message,
-.empty-cart-message:hover {
-    display: block;
-}
 /* Estilos para el botón de eliminar en el carrito */
 .delete-button {
 	background-color: orange;
@@ -152,6 +132,7 @@ nav .wrapper{
   top: 85px;
   opacity: 0;
   visibility: hidden;
+  z-index: 1000;
 }
 .mega-box .content{
   background: #242526;
@@ -341,7 +322,7 @@ html {
 	box-sizing: border-box;
 }
 body{
-	overflow: hidden;
+	scroll-behavior: smooth;
 }
 .container {
 	max-width: 120rem;
@@ -694,6 +675,10 @@ body{
 	cursor: pointer;
 }
 
+.card-category span a{
+	text-decoration: none;
+}
+
 .card-category span:hover {
 	color: var(--primary-color);
 }
@@ -852,7 +837,6 @@ body{
 	border-radius: 50%;
 	cursor: pointer;
 	transition: all 0.4s ease;
-
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -1080,6 +1064,7 @@ body{
 	display: flex;
 	align-items: center;
 	margin: 0 auto;
+	flex-wrap: wrap;
   }
   
   .Desarrolladores .swiper{
@@ -1219,6 +1204,12 @@ body{
 	color: var(--primary-color);
   }
 
+  @media (max-width: 1050px) {
+	.Desarrolladores{
+		display: none;
+	}
+  }
+
 
 /* ********************************** */
 /*               FOOTER               */
@@ -1237,7 +1228,7 @@ body{
 
 .menu-footer {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr) 30rem;
+	grid-template-columns: repeat(2, 1fr) 5rem;
 	gap: 3rem;
 	justify-items: center;
 }
@@ -1685,14 +1676,3 @@ body{
   color: #fff;
   background-color: var(--primary-color);
 }
-
-/* Whatssapp */
-
-.whatssapp{
-	position: fixed;
-	bottom: 0;
-	z-index: 1000;
-	right: 2.5vh;
-	font-size: 5vh;
-}
-

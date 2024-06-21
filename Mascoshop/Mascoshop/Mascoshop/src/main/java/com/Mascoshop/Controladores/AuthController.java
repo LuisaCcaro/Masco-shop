@@ -3,6 +3,7 @@ package com.Mascoshop.Controladores;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +25,18 @@ public class AuthController {
     private RepositorioUsuario repositorioUsuario;
 
     @PostMapping("/login")
-    public ResponseMessage login(@RequestBody UsuarioRequest request) {
+    public ResponseEntity<?> login(@RequestBody UsuarioRequest request, HttpSession session) {
         Usuario usuario = repositorioUsuario.findByNombreUsuario(request.getNombreUsuario());
         if (usuario != null && usuario.getContrasena().equals(request.getContrasena())) {
-            return new ResponseMessage("login exitoso");
+            if (usuario.getRol().getIdRol() == 2) {
+                session.setAttribute("usuario", usuario);
+                return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage("Administrador - login exitoso"));
+            } else {
+                session.setAttribute("usuario", usuario);
+                return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage("login exitoso"));
+            }
         } else {
-            return new ResponseMessage("credenciales incorrectas");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ResponseMessage("credenciales incorrectas"));
         }
     }
 
@@ -48,10 +55,8 @@ public class AuthController {
                 request.getDireccion(),
                 request.getTelefono(), rolCliente, null
             );
-            // Realiza la validación y persistencia del usuario en la base de datos
             Usuario nuevoUsuarioPersistido = repositorioUsuario.save(nuevoUsuario);
-    
-            // Devuelve la respuesta adecuada según el resultado de la operación de persistencia
+
             return ResponseEntity.status(HttpStatus.CREATED).body(nuevoUsuario);
         } catch (DataIntegrityViolationException ex) {
             ex.printStackTrace();
@@ -65,7 +70,6 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
         }
     }
-    
 
 
     public static class UsuarioRequest {
@@ -150,7 +154,6 @@ public class AuthController {
             this.message = message;
         }
 
-        // Getter para message
         public String getMessage() {
             return message;
         }

@@ -1,8 +1,8 @@
 document.querySelector('form').addEventListener('submit', async (e) => {
-    e.preventDefault(); // Evitar que se envíe el formulario de forma predeterminada
+    e.preventDefault();
 
-    const formData = new FormData(e.target); // Obtener datos del formulario
-    const formDataJson = Object.fromEntries(formData.entries()); // Convertir a JSON
+    const formData = new FormData(e.target);
+    const formDataJson = Object.fromEntries(formData.entries());
 
     try {
         const response = await fetch('/login', {
@@ -21,7 +21,9 @@ document.querySelector('form').addEventListener('submit', async (e) => {
             const data = await response.json();
             alert(data.message);
 
-            if (data.message === "login exitoso") {
+            if (data.message === "Administrador - login exitoso") {
+                window.location.href = '/admin.html';
+            }else{
                 window.location.href = '/index.html';
             }
         }
@@ -31,10 +33,10 @@ document.querySelector('form').addEventListener('submit', async (e) => {
 });
 
 document.querySelector('#form-register').addEventListener('submit', async (e) => {
-    e.preventDefault(); // Evitar que se envíe el formulario de forma predeterminada
+    e.preventDefault();
 
-    const formData = new FormData(e.target); // Obtener datos del formulario
-    const formDataJson = Object.fromEntries(formData.entries()); // Convertir a JSON
+    const formData = new FormData(e.target);
+    const formDataJson = Object.fromEntries(formData.entries());
 
     try {
         const response = await fetch('/register', {
@@ -46,7 +48,6 @@ document.querySelector('#form-register').addEventListener('submit', async (e) =>
         });
 
         if (!response.ok) {
-            // Si la respuesta no es OK, intenta obtener el mensaje de error
             const errorData = await response.json();
             throw new Error(errorData.message || 'Error al registrar usuario');
         } else {
@@ -75,21 +76,6 @@ function handleAuthResponse() {
         alert('Inicio de sesión exitoso');
     }
 }
-
-function updateUIForLoggedInUser() {
-    let loginButton = document.getElementById('loginButton');
-    let logoutButton = document.getElementById('logoutButton');
-
-    if (localStorage.getItem('supabaseToken')) {
-        loginButton.style.display = 'none';
-        logoutButton.style.display = 'contents';
-    } else {
-        loginButton.style.display = 'contents';
-        logoutButton.style.display = 'none';
-    }
-}
-
-// Función para cerrar sesión
 function logOut() {
     localStorage.removeItem('supabaseToken');
     alert('Sesión cerrada');

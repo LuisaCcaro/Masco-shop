@@ -14,11 +14,11 @@
                 <header>Log In</header>
                 <form action="/login" method="POST">
                     <div class="field input-field">
-                        <input type="text" placeholder="Usuario" class="input" name="nombreUsuario">
+                        <input type="text" id="usuario" placeholder="Usuario" class="input" name="nombreUsuario" required>
                     </div>
 
                     <div class="field input-field">
-                        <input type="password" placeholder="Password" class="password" name="contrasena">
+                        <input type="password" id="contraseña" placeholder="Password" class="password" name="contrasena" required>
                         <i class="bx bx-hide eye-icon"></i>
                     </div>
 
@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="field button-field">
-                        <button type="submit"> Log In </button>
+                        <button type="submit" onclick="signInSupabase()"> Log In </button>
                     </div>
                 </form>
                 <div class="form-link">
