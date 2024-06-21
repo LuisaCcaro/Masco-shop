@@ -107,29 +107,32 @@
 
         <div class="filter">
           <div class="all">            
-            <input type="checkbox" id="all">
-            <label for="all">Ver todos</label>
-            <span class="check"></span>
+            <input  type="checkbox" id="all">
+            <label class="categoriaFilter" for="all" category="all">Ver todos</label>
           </div>
           <div class="secos">
             <input type="checkbox" id="secos">
-            <label for="secos">Alimentos secos</label>
+            <label class="categoriaFilter" for="secos" category="Secos">Alimentos secos</label>
           </div>
           <div class="humedos">
             <input type="checkbox" id="humedos">
-            <label for="humedos">Alimentos humedos</label>
+            <label class="categoriaFilter" for="humedos" category="Humedos">Alimentos humedos</label>
           </div>
           <div class="especializada">
             <input type="checkbox" id="especial">
-            <label for="especial">Alimentos especializados</label>
+            <label class="categoriaFilter" for="especial" category="Medicado">Alimentos especializados</label>
+          </div>
+		  <div class="snacks">
+            <input type="checkbox" id="snack">
+            <label class="categoriaFilter" for="snack" category="Snacks">Snacks</label>
           </div>
         </div>
 
 				<div class="container-products">
 					<!-- Producto 1 -->
-					<div class="card-product">
+					<div class="card-product secos">
 						<div class="container-img">
-							<img src="../img/SecoPerro.png"/>
+							<img src="../img/RoyalCaninCachorros.jpg"/>
 						</div>
 						<div class="content-card-product">
 							<div class="stars">
@@ -139,7 +142,7 @@
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-regular fa-star"></i>
 							</div>
-							<h3>Alimentos secos</h3>
+							<h3>Alimentos secos Cachorros</h3>
 							<span class="add-cart">
 								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
 							</span>
@@ -147,7 +150,7 @@
 						</div>
 					</div>
 					<!-- Producto 2 -->
-					<div class="card-product">
+					<div class="card-product humedos">
 						<div class="container-img">
 							<img
 								src="../img/AlimentoHumedoPerro.png"
@@ -161,7 +164,7 @@
 								<i class="fa-regular fa-star"></i>
 								<i class="fa-regular fa-star"></i>
 							</div>
-							<h3>Alimentos humedos</h3>
+							<h3>Alimentos humedos Adulto</h3>
 							<span class="add-cart">
 								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
 							</span>
@@ -169,7 +172,7 @@
 						</div>
 					</div>
 					<!--  -->
-					<div class="card-product">
+					<div class="card-product snacks">
 						<div class="container-img">
 							<img
 								src="../img/snacksPurina.jpg"
@@ -183,7 +186,7 @@
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-solid fa-star"></i>
 							</div>
-							<h3>Snacks</h3>
+							<h3>Snacks Purina</h3>
 							<span class="add-cart">
 								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
 							</span>
@@ -191,7 +194,7 @@
 						</div>
 					</div>
 					<!--  -->
-					<div class="card-product">
+					<div class="card-product medicado">
 						<div class="container-img">
 							<img src="../img/AlimentoEspecializadoGatos.jpg"/>
 						</div>
@@ -203,20 +206,15 @@
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-regular fa-star"></i>
 							</div>
-							<h3>Alimento especializados</h3>
+							<h3>Alimentos especializados</h3>
 							<span class="add-cart">
 								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
 							</span>
 							<p class="price">$5.60</p>
 						</div>
 					</div>
-				</div>
-			</section>
-      <!-- seccion 2 -->
-      <section class="container top-products" id="ofertas">
-				<div class="container-products">
-					<!-- Producto 1 -->
-					<div class="card-product">
+					<!--  -->
+					<div class="card-product secos">
 						<div class="container-img">
 							<img src="../img/SecoPerro.png"/>
 						</div>
@@ -228,18 +226,18 @@
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-regular fa-star"></i>
 							</div>
-							<h3>Alimentos secos</h3>
+							<h3>Alimentos secos Pedigree</h3>
 							<span class="add-cart">
 								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
 							</span>
 							<p class="price">$5.80</p>
 						</div>
 					</div>
-					<!-- Producto 2 -->
-					<div class="card-product">
+					<!--  -->
+					<div class="card-product secos">
 						<div class="container-img">
 							<img
-								src="../img/AlimentoHumedoPerro.png"
+								src="../img/RoyalCaninAdulto.jpg"
 							/>
 						</div>
 						<div class="content-card-product">
@@ -250,7 +248,7 @@
 								<i class="fa-regular fa-star"></i>
 								<i class="fa-regular fa-star"></i>
 							</div>
-							<h3>Alimentos humedos</h3>
+							<h3>Alimentos secos R. Canin</h3>
 							<span class="add-cart">
 								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
 							</span>
@@ -258,10 +256,10 @@
 						</div>
 					</div>
 					<!--  -->
-					<div class="card-product">
+					<div class="card-product snacks">
 						<div class="container-img">
 							<img
-								src="../img/snacksPurina.jpg"
+								src="../img/snackGatos.webp"
 							/>
 						</div>
 						<div class="content-card-product">
@@ -272,7 +270,7 @@
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-solid fa-star"></i>
 							</div>
-							<h3>Snacks</h3>
+							<h3>Snacks Hills</h3>
 							<span class="add-cart">
 								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
 							</span>
@@ -280,187 +278,9 @@
 						</div>
 					</div>
 					<!--  -->
-					<div class="card-product">
+					<div class="card-product medicado">
 						<div class="container-img">
-							<img src="../img/AlimentoEspecializadoGatos.jpg"/>
-						</div>
-						<div class="content-card-product">
-							<div class="stars">
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-regular fa-star"></i>
-							</div>
-							<h3>Alimento especializados</h3>
-							<span class="add-cart">
-								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
-							</span>
-							<p class="price">$5.60</p>
-						</div>
-					</div>
-				</div>
-			</section>
-      <!-- seccion 2 -->
-      <section class="container top-products" id="ofertas">
-				<div class="container-products">
-					<!-- Producto 1 -->
-					<div class="card-product">
-						<div class="container-img">
-							<img src="../img/SecoPerro.png"/>
-						</div>
-						<div class="content-card-product">
-							<div class="stars">
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-regular fa-star"></i>
-							</div>
-							<h3>Alimentos secos</h3>
-							<span class="add-cart">
-								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
-							</span>
-							<p class="price">$5.80</p>
-						</div>
-					</div>
-					<!-- Producto 2 -->
-					<div class="card-product">
-						<div class="container-img">
-							<img
-								src="../img/AlimentoHumedoPerro.png"
-							/>						
-						</div>
-						<div class="content-card-product">
-							<div class="stars">
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-regular fa-star"></i>
-								<i class="fa-regular fa-star"></i>
-							</div>
-							<h3>Alimentos humedos</h3>
-							<span class="add-cart">
-								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
-							</span>
-							<p class="price">$5.70</p>
-						</div>
-					</div>
-					<!--  -->
-					<div class="card-product">
-						<div class="container-img">
-							<img
-								src="../img/snacksPurina.jpg"
-							/>
-						</div>
-						<div class="content-card-product">
-							<div class="stars">
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-							</div>
-							<h3>Snacks</h3>
-							<span class="add-cart">
-								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
-							</span>
-							<p class="price">$3.20</p>
-						</div>
-					</div>
-					<!--  -->
-					<div class="card-product">
-						<div class="container-img">
-							<img src="../img/AlimentoEspecializadoGatos.jpg"/>
-						</div>
-						<div class="content-card-product">
-							<div class="stars">
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-regular fa-star"></i>
-							</div>
-							<h3>Alimento especializados</h3>
-							<span class="add-cart">
-								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
-							</span>
-							<p class="price">$5.60</p>
-						</div>
-					</div>
-				</div>
-			</section>
-      <!-- seccion 2 -->
-      <section class="container top-products" id="ofertas">
-				<div class="container-products">
-					<!-- Producto 1 -->
-					<div class="card-product">
-						<div class="container-img">
-							<img src="../img/SecoPerro.png"/>
-						</div>
-						<div class="content-card-product">
-							<div class="stars">
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-regular fa-star"></i>
-							</div>
-							<h3>Alimentos secos</h3>
-							<span class="add-cart">
-								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
-							</span>
-							<p class="price">$5.80</p>
-						</div>
-					</div>
-					<!-- Producto 2 -->
-					<div class="card-product">
-						<div class="container-img">
-							<img
-								src="../img/AlimentoHumedoPerro.png"
-							/>
-						</div>
-						<div class="content-card-product">
-							<div class="stars">
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-regular fa-star"></i>
-								<i class="fa-regular fa-star"></i>
-							</div>
-							<h3>Alimentos humedos</h3>
-							<span class="add-cart">
-								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
-							</span>
-							<p class="price">$5.70</p>
-						</div>
-					</div>
-					<!--  -->
-					<div class="card-product">
-						<div class="container-img">
-							<img
-								src="../img/snacksPurina.jpg"
-							/>
-						</div>
-						<div class="content-card-product">
-							<div class="stars">
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-							</div>
-							<h3>Snacks</h3>
-							<span class="add-cart">
-								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
-							</span>
-							<p class="price">$3.20</p>
-						</div>
-					</div>
-					<!--  -->
-					<div class="card-product">
-						<div class="container-img">
-							<img src="../img/AlimentoEspecializadoGatos.jpg"/>
+							<img src="../img/medicadoGatos.png"/>
 						</div>
 						<div class="content-card-product">
 							<div class="stars">
@@ -537,5 +357,6 @@
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     	<script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script> 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+		<script src="../js/filter.js"></script>
 </body>
 </html>

@@ -22,7 +22,7 @@ main {
 	margin-bottom: 80px;
 }
 
-.container-img {
+.containers-img {
 	background-color: #f7f7f9;
 	flex: 1;
 }
@@ -160,9 +160,17 @@ main {
 .container-additional-information,
 .container-reviews {
 	display: flex;
-	flex-direction: column;
+	justify-content: space-evenly;
 	border-bottom: 1px solid #e4e4e4;
 	padding: 10px 0;
+}
+.container-reviews input{
+	width: 100%;
+    border: none;
+    padding: 12px 15px;
+    background-color: #f7f7f7;
+    outline: none;
+    color: #666;
 }
 
 .title-description,
@@ -220,6 +228,26 @@ main {
 	color: #1bbeb4;
 }
 
+.rating {
+    display: flex;
+	gap: 12px;
+}
+
+.card-text {
+    text-align: justify;
+}
+
+.star {
+    font-size: 32px;
+    color: #ddd;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.star:hover,
+.star.checked {
+    color: gold;
+}
 
 footer {
 	padding: 30px;
@@ -227,3 +255,4 @@ footer {
 	margin-top: 50px;
 	color: #222;
 }
+
