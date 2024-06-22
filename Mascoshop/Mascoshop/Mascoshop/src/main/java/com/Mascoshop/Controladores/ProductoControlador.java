@@ -21,7 +21,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/productos")
+@RequestMapping("/api/productos")
 public class ProductoControlador {
 
     private final ServiciosProductos serviciosProductos;
@@ -40,7 +40,7 @@ public class ProductoControlador {
     }
 
     //Listar por ID, Obtener producto.
-    @GetMapping("/{id}")
+    @GetMapping("/buscar/{id}")
     public ResponseEntity<?> obtenerProducto(@PathVariable Integer id) {
         try {
             Producto producto = serviciosProductos.buscarPorId(id);
@@ -101,7 +101,7 @@ public class ProductoControlador {
     }
 
     //Actualizar el producto.
-    @PutMapping("/{id}")
+    @PutMapping("/editar-producto/{id}")
     public ResponseEntity<?> actualizarProd(@PathVariable Integer id, @RequestBody Producto productoActualizado) {
         try {
             Producto producto = serviciosProductos.editarProducto(id, productoActualizado);
@@ -112,14 +112,14 @@ public class ProductoControlador {
     }
 
     //Eliminar un producto.
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/eliminar-producto/{id}")
     public ResponseEntity<Void> eliminarProducto(@PathVariable Integer id) {
         serviciosProductos.borrarProducto(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     //Eliminar imagen de un producto
-    @DeleteMapping("/{id}/imagen")
+    @DeleteMapping("/borrar-imagen/{id}/imagen")
     public ResponseEntity<Void> eliminarImagen(@PathVariable Integer id) {
         try {
             serviciosProductos.eliminarImagen(id);
@@ -130,7 +130,7 @@ public class ProductoControlador {
     }
 
     //Descargar una imagen de un producto
-    @GetMapping("/{id}/imagen")
+    @GetMapping("/descargar/{id}/imagen")
     public ResponseEntity<Resource> descargarImagen(@PathVariable Integer id) {
         try {
             String imagePath = serviciosProductos.obtenerRutaImagen(id);

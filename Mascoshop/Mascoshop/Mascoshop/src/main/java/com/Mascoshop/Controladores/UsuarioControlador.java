@@ -1,6 +1,7 @@
 package com.Mascoshop.Controladores;
 
 import com.Mascoshop.Entidades.Usuario;
+import com.Mascoshop.Repositorios.RepositorioUsuario;
 import com.Mascoshop.Servicios.ServiciosUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,13 +16,12 @@ public class UsuarioControlador {
 
     private final ServiciosUsuario serviciosUsuario;
 
-
     @Autowired
-    public UsuarioControlador(ServiciosUsuario serviciosUsuario) {
+    public UsuarioControlador(ServiciosUsuario serviciosUsuario, RepositorioUsuario usuarioRepository) {
         this.serviciosUsuario = serviciosUsuario;
     }
 
-    //Listar todos los usuarios.
+    //Listar todos los usuarios :D
     @GetMapping
     public ResponseEntity<List<Usuario>> listarUsuarios() {
         List<Usuario> usuarios = serviciosUsuario.list();
@@ -38,13 +38,7 @@ public class UsuarioControlador {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
-    //Crear nuevo usuario
-    @PostMapping
-    public ResponseEntity<Usuario> crearUsuario(@RequestBody Usuario usuario){
-        Usuario nuevoUsuario = serviciosUsuario.guardarUsuario(usuario);
-        return new ResponseEntity<>(nuevoUsuario, HttpStatus.CREATED);
-    }
+    
     //Actualizar un usuario existente.
     @PutMapping("/{id}")
     public ResponseEntity<Usuario> actualizarUsuario(@PathVariable Integer id, @RequestBody Usuario usuarioActualizado) {

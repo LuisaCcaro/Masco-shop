@@ -1,6 +1,6 @@
 package com.Mascoshop.Entidades;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
 
 @Entity

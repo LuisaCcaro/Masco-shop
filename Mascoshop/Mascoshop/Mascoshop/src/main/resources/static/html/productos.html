@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos ~ Mascoshop</title>
+    <link rel="shortcut icon" href="img/Mascoshoop.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/styles.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+		<div class="container-hero">
+			<div class="container hero">
+				<div class="customer-support">
+					<i class="fa-solid fa-headset"></i>
+					<div class="content-customer-support">
+						<span class="text">Soporte al cliente</span>
+						<span class="number">123-456-7890</span>
+					</div>
+				</div>
+
+				<div class="container-logo">
+					<img src="../img/Mascoshoop.png">
+				</div>
+
+				<div class="container-user">
+					<div class="listaDeseo">
+					<i class="fa-solid fa-heart"></i>
+					</div>
+					<div class="dropdown">
+						<i class="fa-solid fa-user" data-bs-toggle="dropdown"></i>
+						<ul class="dropdown-menu">
+						  <li><a class="dropdown-item" href="../html/login.html" id="loginButton">Iniciar Sesion</a></li>
+						  <li><a class="dropdown-item" id="logoutButton" onclick="signOut()" style="display: none;">Cerrar sesion</a></li>
+						</ul>
+					</div>
+					<i class="fa-solid fa-basket-shopping"></i>
+				</div>
+			</div>
+		</div>
+		<nav>
+			<div class="wrapper">
+			  <form class="search-form">
+					<input type="search" placeholder="Buscar..." id="search"/>
+					<button class="btn-search">
+						<i class="fa-solid fa-magnifying-glass"></i>
+					</button>
+				</form>
+				<div id="suggestions" class="suggestions"></div>
+			  <input type="radio" name="slider" id="menu-btn">
+			  <input type="radio" name="slider" id="close-btn">
+			  <ul class="nav-links">
+				<label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+				<li><a href="../index.html">Inicio</a></li>
+				<li>
+				  <a href="#" class="desktop-item">Productos</a>
+				  <input type="checkbox" id="showMega" class="showMegaInput">
+				  <label for="showMega" class="mobile-item">Productos</label>
+				  <div class="mega-box">
+					<div class="content">
+					  <div class="row">
+						<img src="../img/menubg-comida.jpg" alt="">
+					  </div>
+					  <div class="row">
+						<header>Perros</header>
+						<ul class="mega-links">
+						  <li><a href="#">Comida Seca</a></li>
+						  <li><a href="#">Comida Húmeda</a></li>
+						  <li><a href="#">Comida Medicada</a></li>
+						</ul>
+					  </div>
+					  <div class="row">
+						<header>Gatos</header>
+						<ul class="mega-links">
+						  <li><a href="#">Comida Seca</a></li>
+						  <li><a href="#">Comida Húmeda</a></li>
+						  <li><a href="#">Comida Medicada</a></li>
+						</ul>
+					  </div>
+					  <div class="row">
+						<header>Snacks</header>
+						<ul class="mega-links">
+						  <li><a href="#">Snacks para perros</a></li>
+						  <li><a href="#">Snacks para gatos</a></li>
+						</ul>
+					  </div>
+					</div>
+				  </div>
+				</li>
+				<li><a href="../index.html#blog">Blog</a></li>
+				<li><a href="../index.html#gallery">Galeria</a></li>
+			  </ul>
+			  <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+			</div>
+		  </nav>			
+			</nav>
+		</div>
+	</header>
+    <div class="hr"></div>
+    <main>
+      <!-- seccion 1 -->
+      <section class="container top-products" id="ofertas">
+				<h1 class="heading-1">Productos</h1>
+
+        <!-- Filtrado -->
+
+        <div class="filter">
+          <div class="all">            
+            <input  type="checkbox" id="all">
+            <label class="categoriaFilter" for="all" category="all">Ver todos</label>
+          </div>
+          <div class="secos">
+            <input type="checkbox" id="secos">
+            <label class="categoriaFilter" for="secos" category="Secos">Alimentos secos</label>
+          </div>
+          <div class="humedos">
+            <input type="checkbox" id="humedos">
+            <label class="categoriaFilter" for="humedos" category="Humedos">Alimentos humedos</label>
+          </div>
+          <div class="especializada">
+            <input type="checkbox" id="especial">
+            <label class="categoriaFilter" for="especial" category="Medicado">Alimentos especializados</label>
+          </div>
+		  <div class="snacks">
+            <input type="checkbox" id="snack">
+            <label class="categoriaFilter" for="snack" category="Snacks">Snacks</label>
+          </div>
+        </div>
+
+				<div class="container-products">
+					<!-- Producto 1 -->
+					<div class="card-product secos">
+						<div class="container-img">
+							<img src="../img/RoyalCaninCachorros.jpg"/>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Alimentos secos Cachorros</h3>
+							<span class="add-cart">
+								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
+							</span>
+							<p class="price">$5.80</p>
+						</div>
+					</div>
+					<!-- Producto 2 -->
+					<div class="card-product humedos">
+						<div class="container-img">
+							<img
+								src="../img/AlimentoHumedoPerro.png"
+							/>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Alimentos humedos Adulto</h3>
+							<span class="add-cart">
+								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
+							</span>
+							<p class="price">$5.70</p>
+						</div>
+					</div>
+					<!--  -->
+					<div class="card-product snacks">
+						<div class="container-img">
+							<img
+								src="../img/snacksPurina.jpg"
+							/>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+							</div>
+							<h3>Snacks Purina</h3>
+							<span class="add-cart">
+								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
+							</span>
+							<p class="price">$3.20</p>
+						</div>
+					</div>
+					<!--  -->
+					<div class="card-product medicado">
+						<div class="container-img">
+							<img src="../img/AlimentoEspecializadoGatos.jpg"/>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Alimentos especializados</h3>
+							<span class="add-cart">
+								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
+							</span>
+							<p class="price">$5.60</p>
+						</div>
+					</div>
+					<!--  -->
+					<div class="card-product secos">
+						<div class="container-img">
+							<img src="../img/SecoPerro.png"/>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Alimentos secos Pedigree</h3>
+							<span class="add-cart">
+								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
+							</span>
+							<p class="price">$5.80</p>
+						</div>
+					</div>
+					<!--  -->
+					<div class="card-product secos">
+						<div class="container-img">
+							<img
+								src="../img/RoyalCaninAdulto.jpg"
+							/>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Alimentos secos R. Canin</h3>
+							<span class="add-cart">
+								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
+							</span>
+							<p class="price">$5.70</p>
+						</div>
+					</div>
+					<!--  -->
+					<div class="card-product snacks">
+						<div class="container-img">
+							<img
+								src="../img/snackGatos.webp"
+							/>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+							</div>
+							<h3>Snacks Hills</h3>
+							<span class="add-cart">
+								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
+							</span>
+							<p class="price">$3.20</p>
+						</div>
+					</div>
+					<!--  -->
+					<div class="card-product medicado">
+						<div class="container-img">
+							<img src="../img/medicadoGatos.png"/>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Alimento especializados</h3>
+							<span class="add-cart">
+								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
+							</span>
+							<p class="price">$5.60</p>
+						</div>
+					</div>
+				</div>
+			</section>
+    </main>
+
+    <footer class="footer">
+			<div class="container container-footer">
+				<div class="menu-footer">
+					<div class="contact-info">
+						<p class="title-footer">Información de Contacto</p>
+						<ul>
+							<li>Teléfono: 123-456-7890</li>
+							<li>EmaiL: Mascoshoop@support.com</li>
+						</ul>
+						<div class="social-icons">
+							<span class="facebook">
+								<i class="fa-brands fa-facebook-f"></i>
+							</span>
+							
+							<span class="instagram">
+								<i class="fa-brands fa-instagram"></i>
+							</span>
+						</div>
+					</div>
+
+
+					<div class="newsletter">
+						<p class="title-footer">Boletín</p>
+
+						<div class="content">
+							<p>
+								Suscríbete a nuestros boletines ahora y mantente al
+								día con nuevas colecciones y ofertas exclusivas.
+							</p>
+							<input type="email" placeholder="Ingresa el correo aquí..." required>
+							<button onclick="boletinInformativo">Suscríbete</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="copyright">
+					<p>
+						Mascoshop &copy; 2024
+					</p>
+
+					<img src="../img/payment.png" alt="Pagos">
+				</div>
+			</div>
+		</footer>
+
+    <script
+			src="https://kit.fontawesome.com/81581fb069.js"
+			crossorigin="anonymous"
+		></script>
+        <script src="../js/inicio.js"></script>
+    	<script src="../js/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    	<script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script> 
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+		<script src="../js/filter.js"></script>
+</body>
+</html>

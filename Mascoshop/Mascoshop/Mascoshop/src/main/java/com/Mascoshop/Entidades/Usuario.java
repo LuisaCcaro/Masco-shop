@@ -1,6 +1,6 @@
 package com.Mascoshop.Entidades;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,25 +29,34 @@ public class Usuario {
     @Column(name = "contrasena", nullable = false)
     private String contrasena;
 
-    @Column(name = "nombreUsuario", nullable = false )
+    @Column(name = "nombre_usuario", nullable = false )
     private String nombreUsuario;
 
-    @Column(name = "Direccion", nullable = false)
+    @Column(name = "direccion", nullable = false)
     private String direccion;
 
-    @Column(name = "Telefono", nullable = false)
+    @Column(name = "telefono", nullable = false)
     private String telefono;
 
     @ManyToOne
-    @JoinColumn(name = "idRol", nullable = false)
+    @JoinColumn(name = "id_rol", nullable = false)
     private Rol rol;
+
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Carrito> carritos;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ListaDeseos> listaDeseos;
-
+    public Usuario(String nombre, String apellido, String correo, String contrasena, String nombreUsuario, String direccion, String telefono, Rol rol, List<Carrito> carritos) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.contrasena = contrasena;
+        this.nombreUsuario = nombreUsuario;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.rol = rol;
+        this.carritos = carritos;
+    }
 }
 
 

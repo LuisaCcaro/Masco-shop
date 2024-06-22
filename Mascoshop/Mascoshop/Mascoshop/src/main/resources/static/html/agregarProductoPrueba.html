@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Producto</title>
+</head>
+<body>
+<h1>Agregar Producto</h1>
+<form id="productForm" enctype="multipart/form-data">
+    <label for="idPCategoria">Categoría del Producto:</label>
+    <select name="idPCategoria" id="idPCategoria" required>
+        <option value="1">Categoría 1</option>
+        <option value="2">Categoría 2</option>
+        <option value="3">Categoría 3</option>
+        <option value="4">Categoría 4</option>
+        <option value="5">Categoría 5</option>
+    </select>
+    <br><br>
+
+    <label for="idAnimal">Animal:</label>
+    <select name="idAnimal" id="idAnimal" required>
+        <option value="1">Perro</option>
+        <option value="2">Gato</option>
+    </select>
+    <br><br>
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+    <br><br>
+
+    <label for="id_Marca">Marca:</label>
+    <select name="id_Marca" id="id_Marca" required>
+        <option value="1">Marca 1nose</option>
+        <option value="2">Marca 2snoe</option>
+        <option value="3">Marca 3sdf</option>
+        <option value="4">Marca 4sadf</option>
+        <option value="5">Marca 5sdf</option>
+    </select>
+    <br><br>
+
+    <label for="descripcion">Descripción:</label>
+    <textarea id="descripcion" name="descripcion" required></textarea>
+    <br><br>
+
+    <label for="imagen">Imagen:</label>
+    <input type="file" id="imagen" name="imagen" accept="image/*">
+    <br><br>
+
+    <label for="precio">Precio:</label>
+    <input type="number" id="precio" name="precio" step="0.01" required>
+    <br><br>
+
+    <label for="cantidadDisponible">Cantidad Disponible:</label>
+    <input type="number" id="cantidadDisponible" name="cantidadDisponible" required>
+    <br><br>
+
+    <button type="button" id="save-product">Agregar Producto</button>
+</form>
+<p id="message"></p>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="product.js"></script>
+</body>
+</html>
