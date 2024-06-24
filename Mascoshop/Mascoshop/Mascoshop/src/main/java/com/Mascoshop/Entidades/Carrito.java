@@ -27,6 +27,4 @@ public class Carrito {
 
     @OneToMany(mappedBy = "carrito", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CarritoItem> items = new ArrayList<>(); // Inicializar la lista aquí
-
-
 }

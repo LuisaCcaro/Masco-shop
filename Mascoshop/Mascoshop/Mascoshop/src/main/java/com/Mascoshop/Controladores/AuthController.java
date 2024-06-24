@@ -28,16 +28,19 @@ public class AuthController {
     public ResponseEntity<?> login(@RequestBody UsuarioRequest request, HttpSession session) {
         Usuario usuario = repositorioUsuario.findByNombreUsuario(request.getNombreUsuario());
         if (usuario != null && usuario.getContrasena().equals(request.getContrasena())) {
-            if (usuario.getRol().getIdRol() == 2) {
+            if (usuario.getRol().getIdRol() == 1 || usuario.getRol().getIdRol() == 2) {
                 session.setAttribute("usuario", usuario);
                 return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage("Administrador - login exitoso"));
             } else {
-                session.setAttribute("usuario", usuario);
-                return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage("login exitoso"));
+                if (usuario.getRol().getIdRol() == 3) {
+                    session.setAttribute("usuario", usuario);
+                    return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage("login exitoso"));
+                }
             }
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ResponseMessage("credenciales incorrectas"));
         }
+        return null;
     }
 
     @PostMapping("/register")
@@ -81,7 +84,9 @@ public class AuthController {
         private String direccion;
         private String telefono;
         private Rol rol;
-
+        private String to;
+        private String subject;
+        private String message;
         // Getters y setters
         public String getNombre() {
             return nombre;
@@ -144,6 +149,29 @@ public class AuthController {
 
         public void setRol(Rol rol) {
             this.rol = rol;
+        }
+        public String getTo() {
+            return to;
+        }
+    
+        public void setTo(String to) {
+            this.to = to;
+        }
+    
+        public String getSubject() {
+            return subject;
+        }
+    
+        public void setSubject(String subject) {
+            this.subject = subject;
+        }
+    
+        public String getMessage() {
+            return message;
+        }
+    
+        public void setMessage(String message) {
+            this.message = message;
         }
     }
 

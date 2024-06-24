@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos ~ Mascoshop</title>
+	<link rel="shortcut icon" href="../img/Gatoyperro-removebg-preview.png" type="image/x-icon">
     <link rel="shortcut icon" href="img/Mascoshoop.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/styles.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -26,16 +27,21 @@
 
 				<div class="container-user">
 					<div class="listaDeseo">
-					<i class="fa-solid fa-heart"></i>
+						<a href="../html/deseo.html"><i class="fa-solid fa-heart"></i></a>
+						<span class="number" id="deseo-item-count">(0)</span>
 					</div>
 					<div class="dropdown">
 						<i class="fa-solid fa-user" data-bs-toggle="dropdown"></i>
 						<ul class="dropdown-menu">
-						  <li><a class="dropdown-item" href="../html/login.html" id="loginButton">Iniciar Sesion</a></li>
-						  <li><a class="dropdown-item" id="logoutButton" onclick="signOut()" style="display: none;">Cerrar sesion</a></li>
+							<li><a class="dropdown-item" href="#" id="configButton" style="display: none;"><i class="fas fa-cog"></i> <span>Configuración</span></a></li>
+							<li><a class="dropdown-item" href="../html/login.html" id="loginButton"><i class="fas fa-sign-in-alt"></i> <span>Iniciar Sesión</span></a></li>
+							<li><a class="dropdown-item" href="#" id="logoutButton" onclick="signOut()" style="display: none;"><i class="fas fa-sign-out-alt"></i> <span>Cerrar Sesión</span></a></li>
 						</ul>
 					</div>
-					<i class="fa-solid fa-basket-shopping"></i>
+					<div class="content-shopping-cart">
+                        <a href="../html/carrito.html"><i class="fa-solid fa-basket-shopping"></i></a>
+                        <span class="number" id="cart-item-count">(0)</span>
+                    </div>
 				</div>
 			</div>
 		</div>
@@ -88,22 +94,19 @@
 					</div>
 				  </div>
 				</li>
-				<li><a href="../index.html#blog">Blog</a></li>
+				<li><a href="../html/blog.html">Blog</a></li>
 				<li><a href="../index.html#gallery">Galeria</a></li>
 			  </ul>
 			  <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
 			</div>
-		  </nav>			
-			</nav>
-		</div>
+		</nav>			
+	</nav>
+</div>
 	</header>
     <div class="hr"></div>
     <main>
-      <!-- seccion 1 -->
-      <section class="container top-products" id="ofertas">
+    <section class="container top-products" id="ofertas">
 				<h1 class="heading-1">Productos</h1>
-
-        <!-- Filtrado -->
 
         <div class="filter">
           <div class="all">            
@@ -128,11 +131,19 @@
           </div>
         </div>
 
-				<div class="container-products">
-					<!-- Producto 1 -->
+		<div class="container-products">
+				
 					<div class="card-product secos">
 						<div class="container-img">
 							<img src="../img/RoyalCaninCachorros.jpg"/>
+							<div class="button-group">
+								<span>
+									<a href="#" class="add-to-cart-button" data-name="Royal Canin Cachorros" data-price="5.80" data-image="../img/RoyalCaninCachorros.jpg"><i class="fa-solid fa-basket-shopping"></i></a>
+								</span>
+								<span>
+									<a href="#" class="add-to-deseo-button" data-name="Royal Canin Cachorros" data-price="5.80" data-image="../img/RoyalCaninCachorros.jpg"><i class="fa-regular fa-heart"></i></a>
+								</span>
+							</div>
 						</div>
 						<div class="content-card-product">
 							<div class="stars">
@@ -144,17 +155,25 @@
 							</div>
 							<h3>Alimentos secos Cachorros</h3>
 							<span class="add-cart">
-								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
+								<a href="../html/cartaProductos.html" class="view-product-button" data-id="1"><i class="fa-regular fa-eye"></i></a>
 							</span>
 							<p class="price">$5.80</p>
 						</div>
 					</div>
-					<!-- Producto 2 -->
+					
 					<div class="card-product humedos">
 						<div class="container-img">
 							<img
 								src="../img/AlimentoHumedoPerro.png"
 							/>
+							<div class="button-group">
+								<span>
+									<a href="#" class="add-to-cart-button" data-name="Alimentos humedos Adulto" data-price="5.70" data-image="../img/AlimentoHumedoPerro.png"><i class="fa-solid fa-basket-shopping"></i></a>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+							</div>
 						</div>
 						<div class="content-card-product">
 							<div class="stars">
@@ -166,17 +185,25 @@
 							</div>
 							<h3>Alimentos humedos Adulto</h3>
 							<span class="add-cart">
-								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
+								<a href="../html/cartaProductos.html" class="view-product-button" data-id="2"><i class="fa-regular fa-eye"></i></a>
 							</span>
 							<p class="price">$5.70</p>
 						</div>
 					</div>
-					<!--  -->
+					
 					<div class="card-product snacks">
 						<div class="container-img">
 							<img
 								src="../img/snacksPurina.jpg"
 							/>
+							<div class="button-group">
+								<span>
+									<a href="#" class="add-to-cart-button" data-name="Snacks Purina" data-price="3.20" data-image="../img/snacksPurina.jpg"><i class="fa-solid fa-basket-shopping"></i></a>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+							</div>
 						</div>
 						<div class="content-card-product">
 							<div class="stars">
@@ -188,15 +215,23 @@
 							</div>
 							<h3>Snacks Purina</h3>
 							<span class="add-cart">
-								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
+								<a href="../html/cartaProductos.html" class="view-product-button" data-id="3"><i class="fa-regular fa-eye"></i></a>
 							</span>
 							<p class="price">$3.20</p>
 						</div>
 					</div>
-					<!--  -->
+					
 					<div class="card-product medicado">
 						<div class="container-img">
 							<img src="../img/AlimentoEspecializadoGatos.jpg"/>
+							<div class="button-group">
+								<span>
+									<a href="#" class="add-to-cart-button" data-name="Alimentos especializados" data-price="5.60" data-image="../img/AlimentoEspecializadoGatos.jpg"><i class="fa-solid fa-basket-shopping"></i></a>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+							</div>
 						</div>
 						<div class="content-card-product">
 							<div class="stars">
@@ -208,15 +243,23 @@
 							</div>
 							<h3>Alimentos especializados</h3>
 							<span class="add-cart">
-								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
+								<a href="../html/cartaProductos.html" class="view-product-button" data-id="4"><i class="fa-regular fa-eye"></i></a>
 							</span>
 							<p class="price">$5.60</p>
 						</div>
 					</div>
-					<!--  -->
+				
 					<div class="card-product secos">
 						<div class="container-img">
 							<img src="../img/SecoPerro.png"/>
+							<div class="button-group">
+								<span>
+									<a href="#" class="add-to-cart-button" data-name="Alimentos secos Pedigree" data-price="5.80" data-image="../img/SecoPerro.png"><i class="fa-solid fa-basket-shopping"></i></a>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+							</div>
 						</div>
 						<div class="content-card-product">
 							<div class="stars">
@@ -228,17 +271,25 @@
 							</div>
 							<h3>Alimentos secos Pedigree</h3>
 							<span class="add-cart">
-								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
+								<a href="../html/cartaProductos.html" class="view-product-button" data-id="5"><i class="fa-regular fa-eye"></i></a>
 							</span>
 							<p class="price">$5.80</p>
 						</div>
 					</div>
-					<!--  -->
+				
 					<div class="card-product secos">
 						<div class="container-img">
 							<img
 								src="../img/RoyalCaninAdulto.jpg"
 							/>
+							<div class="button-group">
+								<span>
+									<a href="#" class="add-to-cart-button" data-name="Alimentos secos R. Canin" data-price="5.70" data-image="../img/RoyalCaninAdulto.jpg"><i class="fa-solid fa-basket-shopping"></i></a>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+							</div>
 						</div>
 						<div class="content-card-product">
 							<div class="stars">
@@ -250,17 +301,25 @@
 							</div>
 							<h3>Alimentos secos R. Canin</h3>
 							<span class="add-cart">
-								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
+								<a href="../html/cartaProductos.html" class="view-product-button" data-id="6"><i class="fa-regular fa-eye"></i></a>
 							</span>
 							<p class="price">$5.70</p>
 						</div>
 					</div>
-					<!--  -->
+				
 					<div class="card-product snacks">
 						<div class="container-img">
 							<img
 								src="../img/snackGatos.webp"
 							/>
+							<div class="button-group">
+								<span>
+									<a href="#" class="add-to-cart-button" data-name="Snacks Hills" data-price="3.20" data-image="../img/snackGatos.webp"><i class="fa-solid fa-basket-shopping"></i></a>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+							</div>
 						</div>
 						<div class="content-card-product">
 							<div class="stars">
@@ -272,15 +331,23 @@
 							</div>
 							<h3>Snacks Hills</h3>
 							<span class="add-cart">
-								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
+								<a href="../html/cartaProductos.html" class="view-product-button" data-id="7"><i class="fa-regular fa-eye"></i></a>
 							</span>
 							<p class="price">$3.20</p>
 						</div>
 					</div>
-					<!--  -->
+				
 					<div class="card-product medicado">
 						<div class="container-img">
 							<img src="../img/medicadoGatos.png"/>
+							<div class="button-group">
+								<span>
+									<a href="#" class="add-to-cart-button" data-name="Alimento especializados" data-price="5.60" data-image="../img/medicadoGatos.png"><i class="fa-solid fa-basket-shopping"></i></a>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+							</div>
 						</div>
 						<div class="content-card-product">
 							<div class="stars">
@@ -292,15 +359,14 @@
 							</div>
 							<h3>Alimento especializados</h3>
 							<span class="add-cart">
-								<a href="../html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
+								<a href="../html/cartaProductos.html" class="view-product-button" data-id="8"><i class="fa-regular fa-eye"></i></a>
 							</span>
 							<p class="price">$5.60</p>
 						</div>
 					</div>
-				</div>
-			</section>
-    </main>
-
+		</div>
+	</section>
+	</main>
     <footer class="footer">
 			<div class="container container-footer">
 				<div class="menu-footer">
@@ -325,14 +391,14 @@
 					<div class="newsletter">
 						<p class="title-footer">Boletín</p>
 
-						<div class="content">
+						<form action="/gmail" id="emailForm" class="content" method="POST">
 							<p>
 								Suscríbete a nuestros boletines ahora y mantente al
 								día con nuevas colecciones y ofertas exclusivas.
 							</p>
-							<input type="email" placeholder="Ingresa el correo aquí..." required>
-							<button onclick="boletinInformativo">Suscríbete</button>
-						</div>
+							<input type="email" placeholder="Ingresa el correo aquí..." name="to" required>
+							<button type="submit">Suscríbete</button>
+						</form>
 					</div>
 				</div>
 
@@ -346,10 +412,7 @@
 			</div>
 		</footer>
 
-    <script
-			src="https://kit.fontawesome.com/81581fb069.js"
-			crossorigin="anonymous"
-		></script>
+    	<script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
         <script src="../js/inicio.js"></script>
     	<script src="../js/script.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
@@ -358,5 +421,10 @@
     	<script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script> 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 		<script src="../js/filter.js"></script>
+		<script src="../js/carrito.js"></script>
+		<script src="../js/correo.js"></script>
+		<script src="../js/cartaProductos.js"></script>
+		<script src="../js/ListaProductos.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

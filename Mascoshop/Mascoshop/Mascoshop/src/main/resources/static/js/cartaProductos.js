@@ -31,3 +31,15 @@ function updateStarRating(rating) {
 const storedRating = localStorage.getItem("rating");
 
 // Si hay una calificación almacenada, actualizar la interfaz de usuario
+
+//-----------------------------------------------------------------------
+
+document.querySelectorAll('.view-product-button').forEach(button => {
+  button.addEventListener('click', function() {
+      const productId = this.getAttribute('data-id');
+      localStorage.setItem('selectedProductId', productId);
+  });
+});
+
+
+//---------

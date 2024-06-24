@@ -12,7 +12,7 @@
         <div class="form login">
             <div class="form-content">
                 <header>Log In</header>
-                <form action="/login" method="POST">
+                <form action="/login" method="POST" id="loginForm">
                     <div class="field input-field">
                         <input type="text" id="usuario" placeholder="Usuario" class="input" name="nombreUsuario" required>
                     </div>
@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="field button-field">
-                        <button type="submit" onclick="signInSupabase()"> Log In </button>
+                        <button type="submit"> Log In </button>
                     </div>
                 </form>
                 <div class="form-link">
@@ -35,13 +35,6 @@
                 </div>
         </div>
         <div class="line"></div>
-
-        <div class="media-options">
-            <a href="#" class="field facebook">
-                <i class="bx bxl-facebook facebook-icon"></i>
-                <span>Iniciar sesion con Facebook </span>
-            </a>
-        </div>
 
         <div class="media-options">
             <a href="#" onclick="signIn()" class="field google">
@@ -211,12 +204,6 @@
                 
     <!-- </div> -->
     <div class="line"></div>
-    <div class="media-options">
-        <a href="#" class="field facebook">
-            <i class="bx bxl-facebook facebook-icon"></i>
-            <span>Registrarse con Facebook </span>
-        </a>
-    </div>
 
     <div class="media-options">
         <a href="#" onclick="signIn()" class="field google">
@@ -234,6 +221,7 @@
     <script src="../js/login.js"></script>
     <script src="../js/script.js"></script>
     <script src="../js/terms.js"></script>
-    <script src="../js/conexion.js"></script>
+    <script src="../js/supaB.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

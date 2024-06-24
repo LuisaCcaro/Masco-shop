@@ -14,6 +14,7 @@ public class CarritoItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Integer cantidad;
 
     @ManyToOne
     @JoinColumn(name = "idCarrito", nullable = false)
@@ -23,4 +24,12 @@ public class CarritoItem {
     @JoinColumn(name = "idProducto", nullable = false)
     private Producto producto;
 
+    
+    public Integer getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
+    }
 }
