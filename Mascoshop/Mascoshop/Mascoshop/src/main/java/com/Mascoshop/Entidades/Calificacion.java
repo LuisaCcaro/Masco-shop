@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 @Entity
 @Table(name = "Calificacion")
 @Data
@@ -14,16 +17,29 @@ public class Calificacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCalificacion;
+    private Integer idCalificacion;
+
+
+    @Column(name = "Calificacion", nullable = false)
+    private int calificacion;
+
+    @Column(name = "Comentario", nullable = false)
+    private String comentario;
+
+    @Column(name = "Registro", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime registro;
 
     @ManyToOne
-    @JoinColumn(name = "idUsuario", nullable = false)
+    @JoinColumn(name = "idUsuario", nullable = false, unique = true)
     private Usuario usuario;
 
     @ManyToOne
     @JoinColumn(name = "idProducto", nullable = false)
     private Producto producto;
 
-    @Column(name = "Calificacion", nullable = false)
-    private int calificacion;
+    @PrePersist
+    protected void onCreate() {
+        this.registro = LocalDateTime.now();
+    }
+
 }

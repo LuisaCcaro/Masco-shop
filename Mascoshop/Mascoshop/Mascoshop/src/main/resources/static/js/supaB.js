@@ -115,11 +115,33 @@ function signOut() {
             );
         }
     }).then(()=>{
-
         window.location.reload();
     });
 }
 
+function signOutAdmin() {
+    Swal.fire({
+        title: 'Cerrar sesión',
+        text: '¿Estás seguro de que quieres cerrar sesión?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, cerrar sesión'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            localStorage.removeItem('googleToken');
+            localStorage.removeItem('supabaseToken');
+            Swal.fire(
+                '¡Sesión cerrada!',
+                'Tu sesión ha sido cerrada.',
+                'success'
+            );
+        }
+    }).then(()=>{
+        window.location.href("/home");
+    });
+}
 // Manejar el evento de submit del formulario de login
 document.querySelector('#loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();

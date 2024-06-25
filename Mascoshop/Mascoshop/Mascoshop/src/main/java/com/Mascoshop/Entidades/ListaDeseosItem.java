@@ -1,30 +1,25 @@
 package com.Mascoshop.Entidades;
 
 import javax.persistence.*;
+
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "DetalleCompra")
+@Table(name = "ListaDeseosItem")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DetalleCompra {
-
+public class ListaDeseosItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idDetalle;
+    private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "idCompra")
-    private Compra compra;
-
-    @Column(name = "cantidad")
-    private Integer cantidad;
-
-    @Column(name = "subTotal")
-    private Float subTotal;
+    @JoinColumn(name = "idListaDeseos", nullable = false)
+    private ListaDeseos listaDeseos;
 
     @ManyToOne
     @JoinColumn(name = "idProducto")

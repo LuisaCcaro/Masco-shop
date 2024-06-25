@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class CarritoItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private Integer cantidad;
 
     @ManyToOne

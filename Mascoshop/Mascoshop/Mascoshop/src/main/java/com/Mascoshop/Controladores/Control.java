@@ -12,32 +12,36 @@ public class Control {
         return "index"; 
     }
 
-    @GetMapping(value = {"/", "/producto"})
+    @GetMapping(value = {"/producto"})
     public String prd() {
         return "productos";
     }
-    @GetMapping(value = {"/", "/logins"})
+    @GetMapping(value = {"/logins"})
     public String lgn() {
         return "login"; 
     }
-    @GetMapping(value = {"/", "/deseos"})
+    @GetMapping(value = {"/deseos"})
     public String dso() {
         return "deseo";
     }
-    @GetMapping(value = {"/", "/carta"})
+    @GetMapping(value = {"/carta"})
     public String crt() {
         return "cartaProductos"; 
     }
-    @GetMapping(value = {"/", "/carritos"})
+    @GetMapping(value = {"/carritos"})
     public String crrt() {
         return "carrito";
     }
-    @GetMapping(value = {"/", "/blogs"})
+    @GetMapping(value = {"/blogs"})
     public String blg() {
         return "blog";
     }
-    @GetMapping(value = {"/", "/administrador"})
+    @GetMapping(value = {"/administrador"})
     public String adm() {
         return "admin"; 
+    }
+    @GetMapping(value = {"/perfiAdministrador"})
+    public String pfAdm() {
+        return "adminProductos"; 
     }
 }

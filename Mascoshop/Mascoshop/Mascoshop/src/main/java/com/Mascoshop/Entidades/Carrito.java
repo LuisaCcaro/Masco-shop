@@ -19,7 +19,7 @@ public class Carrito {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCarrito;
+    private Integer idCarrito;
 
     @ManyToOne
     @JoinColumn(name = "idUsuario", nullable = false)

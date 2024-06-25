@@ -14,7 +14,7 @@ public class Marca {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idMarca;
+    private Integer idMarca;
 
     @Column(name = "Nombre")
     private String nombre;

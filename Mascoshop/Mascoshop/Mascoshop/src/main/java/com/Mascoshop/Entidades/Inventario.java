@@ -10,7 +10,7 @@ public class Inventario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idInventario;
+    private Integer idInventario;
 
     @ManyToOne
     @JoinColumn(name = "idProducto")
