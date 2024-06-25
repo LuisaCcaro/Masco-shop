@@ -1,60 +1,68 @@
 // productos.js
 const productos = [
   {
-    id: 1,
-    nombre: "Royal Canin Cachorros",
-    precio: 5.80,
-    descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, tempora! Tenetur, doloribus consectetur, adipisci necessitatibus exercitationem laborum possimus quisquam rem ducimus nulla, eveniet vero laudantium similique nam nemo velit repellat!",
-    imagen: "../img/RoyalCaninCachorros.jpg"
+      id: 1,
+      name: "Royal Canin Cachorros",
+      price: 5.80,
+      image: "../img/RoyalCaninCachorros.jpg",
+      category: "secos",
+      rating: 4
   },
   {
-    id: 2,
-    nombre: "Alimentos húmedos Adulto",
-    precio: 5.70,
-    descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, tempora! Tenetur, doloribus consectetur, adipisci necessitatibus exercitationem laborum possimus quisquam rem ducimus nulla, eveniet vero laudantium similique nam nemo velit repellat!",
-    imagen: "../img/AlimentoHumedoPerro.png"
+      id: 2,
+      name: "Alimentos húmedos Adulto",
+      price: 5.70,
+      image: "../img/AlimentoHumedoPerro.png",
+      category: "humedos",
+      rating: 3
   },
   {
-    id: 3,
-    nombre: "Snacks Purina",
-    precio: 3.20,
-    descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, tempora! Tenetur, doloribus consectetur, adipisci necessitatibus exercitationem laborum possimus quisquam rem ducimus nulla, eveniet vero laudantium similique nam nemo velit repellat!",
-    imagen: "../img/snacksPurina.jpg"
+      id: 3,
+      name: "Snacks Purina",
+      price: 3.20,
+      image: "../img/snacksPurina.jpg",
+      category: "snacks",
+      rating: 5
   },
   {
-    id: 4,
-    nombre: "Alimentos especializados",
-    precio: 5.60,
-    descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, tempora! Tenetur, doloribus consectetur, adipisci necessitatibus exercitationem laborum possimus quisquam rem ducimus nulla, eveniet vero laudantium similique nam nemo velit repellat!",
-    imagen: "../img/AlimentoEspecializadoGatos.jpg"
+      id: 4,
+      name: "Alimentos especializados",
+      price: 5.60,
+      image: "../img/AlimentoEspecializadoGatos.jpg",
+      category: "medicado",
+      rating: 4
   },
   {
-    id: 5,
-    nombre: "Alimentos secos Pedigree",
-    precio: 5.80,
-    descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, tempora! Tenetur, doloribus consectetur, adipisci necessitatibus exercitationem laborum possimus quisquam rem ducimus nulla, eveniet vero laudantium similique nam nemo velit repellat!",
-    imagen: "../img/SecoPerro.png"
+      id: 5,
+      name: "Alimentos secos Pedigree",
+      price: 5.80,
+      image: "../img/SecoPerro.png",
+      category: "secos",
+      rating: 4
   },
   {
-    id: 6,
-    nombre: "Alimentos secos R. Canin",
-    precio: 5.70,
-    descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, tempora! Tenetur, doloribus consectetur, adipisci necessitatibus exercitationem laborum possimus quisquam rem ducimus nulla, eveniet vero laudantium similique nam nemo velit repellat!",
-    imagen: "../img/RoyalCaninAdulto.jpg"
+      id: 6,
+      name: "Alimentos secos R. Canin",
+      price: 5.70,
+      image: "../img/RoyalCaninAdulto.jpg",
+      category: "secos",
+      rating: 3
   },
   {
-    id: 7,
-    nombre: "Snacks Hills",
-    precio: 3.20,
-    descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, tempora! Tenetur, doloribus consectetur, adipisci necessitatibus exercitationem laborum possimus quisquam rem ducimus nulla, eveniet vero laudantium similique nam nemo velit repellat!",
-    imagen: "../img/snackGatos.webp"
+      id: 7,
+      name: "Snacks Hills",
+      price: 3.20,
+      image: "../img/snackGatos.webp",
+      category: "snacks",
+      rating: 5
   },
   {
-    id: 8,
-    nombre: "Alimento especializados",
-    precio: 5.60,
-    descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, tempora! Tenetur, doloribus consectetur, adipisci necessitatibus exercitationem laborum possimus quisquam rem ducimus nulla, eveniet vero laudantium similique nam nemo velit repellat!",
-    imagen: "../img/medicadoGatos.png"
+      id: 8,
+      name: "Alimento especializado",
+      price: 5.60,
+      image: "../img/medicadoGatos.png",
+      category: "medicado",
+      rating: 4
   }
 ];
 

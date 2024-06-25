@@ -13,8 +13,8 @@ function signIn() {
     form.setAttribute('action', oauthEndpoint);
 
     let params = {
-        "client_id": "1032767023549-eceqr0m60drtu1r9m3smnhkht2encr35.apps.googleusercontent.com",
-        "redirect_uri": "http://localhost:9090/index.html",
+        "client_id": "1024245301453-op5p6ofsnqnsketgf8lldkfl9dtukmcr.apps.googleusercontent.com",
+        "redirect_uri": "http://localhost:9090/home",
         "response_type": "token",
         "scope": "https://www.googleapis.com/auth/userinfo.profile",
         "include_granted_scopes": "true",
@@ -51,6 +51,8 @@ function handleAuthResponse() {
             title: 'Google',
             text: 'Inicio de sesión exitoso',
             icon: 'success'
+        }).then(()=>{
+            window.location.href = '/home';
         });
     }
 }
@@ -110,11 +112,11 @@ function signOut() {
                 '¡Sesión cerrada!',
                 'Tu sesión ha sido cerrada.',
                 'success'
-            ).then(() => {
-                updateUIForLoggedOutUser();
-                window.location.href = '/index.html';
-            });
+            );
         }
+    }).then(()=>{
+
+        window.location.reload();
     });
 }
 
@@ -155,9 +157,9 @@ document.querySelector('#loginForm').addEventListener('submit', async (e) => {
                     localStorage.setItem('supabaseToken', data.token); // Guarda el token de Supabase
                     localStorage.setItem('userRole', data.role); // Guarda el rol del usuario
                     localStorage.setItem('authMethod', 'usuario');
-                    window.location.href = '/index.html';
+                    window.location.href = '/home';
                 } else if (data.message === "Administrador - login exitoso") {
-                    window.location.href = '/html/admin.html';
+                    window.location.href = '/administrador';
                 }
             });
         }
@@ -170,3 +172,45 @@ document.querySelector('#loginForm').addEventListener('submit', async (e) => {
     }
 });
 
+// Manejar el evento de submit del formulario de registro
+document.querySelector('#form-register').addEventListener('submit', async (e) => {
+    e.preventDefault(); // Evitar que se envíe el formulario de forma predeterminada
+
+    const formData = new FormData(e.target); // Obtener datos del formulario
+    const formDataJson = Object.fromEntries(formData.entries()); // Convertir a JSON
+
+    try {
+        const response = await fetch('/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formDataJson),
+        });
+
+        if (!response.ok) {
+            // Si la respuesta no es OK, intenta obtener el mensaje de error
+            const errorData = await response.json();
+            Swal.fire({
+                title: '¡Ups!',
+                text: data.message,
+                icon: 'error'
+            }).then(() =>{
+                window.location.reload();
+            });
+            // throw new Error(errorData.message || 'Error al registrar usuario');
+        } else {
+            const data = await response.json();
+            Swal.fire({
+                title: 'Exito!',
+                text: "Usuario creado exitosamente",
+                icon: 'success'
+            }).then(() => {
+                window.location.reload();
+            });
+            // alert(data.message || 'Usuario creado exitosamente');
+        }
+    } catch (error) {
+        alert('Error aqui: ' + error.message);
+    }
+});

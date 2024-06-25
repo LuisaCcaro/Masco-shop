@@ -1,13 +1,43 @@
 package com.Mascoshop.Controladores;
 
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class Control {
-    @GetMapping("/Inicio")
-    public String informacion(){
-        return "Hola mundo :D";
+
+    @GetMapping(value = {"/", "/home"})
+    public String home() {
+        return "index"; 
+    }
+
+    @GetMapping(value = {"/", "/producto"})
+    public String prd() {
+        return "productos";
+    }
+    @GetMapping(value = {"/", "/logins"})
+    public String lgn() {
+        return "login"; 
+    }
+    @GetMapping(value = {"/", "/deseos"})
+    public String dso() {
+        return "deseo";
+    }
+    @GetMapping(value = {"/", "/carta"})
+    public String crt() {
+        return "cartaProductos"; 
+    }
+    @GetMapping(value = {"/", "/carritos"})
+    public String crrt() {
+        return "carrito";
+    }
+    @GetMapping(value = {"/", "/blogs"})
+    public String blg() {
+        return "blog";
+    }
+    @GetMapping(value = {"/", "/administrador"})
+    public String adm() {
+        return "admin"; 
     }
 }
