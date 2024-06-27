@@ -55,7 +55,7 @@
                 <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
                 <li><a href="/home">Inicio</a></li>
                 <li>
-                  <a href="#" class="desktop-item">Productos</a>
+                  <a href="/producto" class="desktop-item">Productos</a>
                   <input type="checkbox" id="showMega" class="showMegaInput">
                   <label for="showMega" class="mobile-item">Productos</label>
                   <div class="mega-box">
@@ -109,7 +109,7 @@
                 </div>
             </div>
             <div class="container-price">
-                <span id="product-price">$0.00</span>
+                <span id="product-price">$</span>
                 <i class="fa-solid fa-angle-right"></i>
             </div>
             <div class="container-details-product">
@@ -120,19 +120,18 @@
                         <option value="2lb">2Lb</option>
                     </select>
                 </div>
-                <button class="btn-clean">Limpiar</button>
             </div>
             <div class="container-add-cart">
                 <div class="container-quantity">
-                    <input type="number" placeholder="1" value="1" min="1" class="input-quantity"/>
+                    <input type="number" id="quantity-input" value="1" min="1" max="100" class="input-quantity"/>
                     <div class="btn-increment-decrement">
                         <i class="fa-solid fa-chevron-up" id="increment"></i>
                         <i class="fa-solid fa-chevron-down" id="decrement"></i>
                     </div>
                 </div>
-                <button class="btn-add-to-cart">
+                <button class="btn-add-to-cart" id="add-to-cart-btn">
                     <i class="fa-solid fa-plus"></i>
-                    Añadir al carrito
+                    Realizar compra
                 </button>
             </div>
             <div class="container-description">
@@ -162,5 +161,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/cartaProductos.js"></script>
     <script src="../js/productosDOM.js"></script>
+    <script src="../js/compra.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

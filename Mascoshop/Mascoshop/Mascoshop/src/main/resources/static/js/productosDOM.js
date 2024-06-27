@@ -89,26 +89,26 @@ document.addEventListener('DOMContentLoaded', () => {
             filterProducts();
         });
     });
+
+    document.addEventListener('click', function (event) {
+        if (event.target.closest('.view-product-button')) {
+            const productId = event.target.closest('.view-product-button').getAttribute('data-id');
+            localStorage.setItem('selectedProductId', productId);
+            window.location.href = '/carta';
+        }
+    });
 });
 
-function generateProducts(producto) {
+function generateProducts(productos) {
     const container = document.getElementById('container-products');
     if (!container) return;
     container.innerHTML = '';
 
-    producto.forEach(product => {
+    productos.forEach(producto => {
         const productCard = `
-            <div class="card-product ${product.category}">
+            <div class="card-product ${producto.categoria}">
                 <div class="container-img">
-                    <img src="img/${product.imagen}"/>
-                    <div class="button-group">
-                        <span>
-                            <a href="#" class="add-to-cart-button" data-name="${product.nombre}" data-price="${product.precio}" data-image="${product.imagen}"><i class="fa-solid fa-basket-shopping"></i></a>
-                        </span>
-                        <span>
-                            <a href="#" class="add-to-deseo-button" data-name="${product.nombre}" data-price="${product.precio}" data-image="${product.imagen}"><i class="fa-regular fa-heart"></i></a>
-                        </span>
-                    </div>
+                    <img src="../img/${producto.imagen}" alt="${producto.nombre}">
                 </div>
                 <div class="content-card-product">
                     <div class="stars">
@@ -118,11 +118,11 @@ function generateProducts(producto) {
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-regular fa-star"></i>
                     </div>
-                    <h3>${product.nombre}</h3>
+                    <h3>${producto.nombre}</h3>
                     <span class="add-cart">
-                        <a href="/carta" class="view-product-button" data-id="${product.idProducto}"><i class="fa-regular fa-eye"></i></a>
+                        <a href="#" class="view-product-button" data-id="${producto.idProducto}"><i class="fa-regular fa-eye"></i></a>
                     </span>
-                    <p class="price">$${product.precio}</p>
+                    <p class="price">$${producto.precio}</p>
                 </div>
             </div>
         `;
@@ -132,7 +132,6 @@ function generateProducts(producto) {
     document.querySelectorAll('.view-product-button').forEach(button => {
         button.addEventListener('click', function() {
             const productId = this.getAttribute('data-id');
-            console.log(`Configuración de productId en localStorage: ${productId}`);
             localStorage.setItem('selectedProductId', productId);
         });
     });

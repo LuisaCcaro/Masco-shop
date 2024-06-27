@@ -199,3 +199,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('/en/usuarios')
+        .then(response => response.json())
+        .then(data => {
+            const tbody = document.querySelector("#admin-table tbody");
+            data.forEach(user => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${user.id}</td>
+                    <td>${user.nombre}</td>
+                    <td>${user.apellido}</td>
+                    <td>${user.correo}</td>
+                    <td>${user.nombreUsuario}</td>
+                    <td>${user.direccion}</td>
+                    <td>${user.telefono}</td>
+                    <td>${user.rol ? user.rol.nombre : 'Sin rol'}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        })
+        .catch(error => console.error('Error:', error));
+});

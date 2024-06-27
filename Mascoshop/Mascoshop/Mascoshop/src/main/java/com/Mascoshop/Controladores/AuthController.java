@@ -6,6 +6,11 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -19,6 +24,8 @@ import com.Mascoshop.Entidades.Usuario;
 import com.Mascoshop.Repositorios.RepositorioUsuario;
 
 @RestController
+@AllArgsConstructor
+@Data
 public class AuthController {
 
     @Autowired
@@ -26,6 +33,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UsuarioRequest request, HttpSession session) {
+        request.limpiador();
         Usuario usuario = repositorioUsuario.findByNombreUsuario(request.getNombreUsuario());
         if (usuario != null && usuario.getContrasena().equals(request.getContrasena())) {
             if (usuario.getRol().getIdRol() == 1 || usuario.getRol().getIdRol() == 2) {
@@ -47,16 +55,17 @@ public class AuthController {
     @Transactional
     public ResponseEntity<?> crearUsuario(@Valid @RequestBody UsuarioRequest request) {
         try {
+            request.limpiador();
             Rol rolCliente = new Rol();
             rolCliente.setIdRol(3);
             Usuario nuevoUsuario = new Usuario(
-                0, request.getNombre(),
-                request.getApellido(),
-                request.getCorreo(),
-                request.getContrasena(),
-                request.getNombreUsuario(),
-                request.getDireccion(),
-                request.getTelefono(), rolCliente, null
+                    0, request.getNombre(),
+                    request.getApellido(),
+                    request.getCorreo(),
+                    request.getContrasena(),
+                    request.getNombreUsuario(),
+                    request.getDireccion(),
+                    request.getTelefono(), rolCliente, null
             );
             Usuario nuevoUsuarioPersistido = repositorioUsuario.save(nuevoUsuario);
 
@@ -74,19 +83,45 @@ public class AuthController {
         }
     }
 
-
     public static class UsuarioRequest {
+        @NotBlank(message = "El nombre no puede estar vacío")
         private String nombre;
+        @NotBlank(message = "El apellido no puede estar vacío")
         private String apellido;
+        @NotBlank(message = "El correo no puede estar vacío")
+        @Email(message = "El correo debe ser válido")
         private String correo;
+        @NotBlank(message = "La contraseña no puede estar vacía")
         private String contrasena;
+        @NotBlank(message = "El nombre de usuario no puede estar vacío")
         private String nombreUsuario;
+        @NotBlank(message = "La dirección no puede estar vacía")
         private String direccion;
+        @NotBlank(message = "El teléfono no puede estar vacío")
         private String telefono;
         private Rol rol;
         private String to;
         private String subject;
         private String message;
+
+        // Métodos para limpiar entradas!
+        public void limpiador() {
+            this.nombre = cleanString(this.nombre);
+            this.apellido = cleanString(this.apellido);
+            this.correo = cleanString(this.correo);
+            this.contrasena = cleanString(this.contrasena);
+            this.nombreUsuario = cleanString(this.nombreUsuario);
+            this.direccion = cleanString(this.direccion);
+            this.telefono = cleanString(this.telefono);
+        }
+
+        private String cleanString(String input) {
+            if (input != null) {
+                return input.replaceAll("\\s+", "");
+            }
+            return null;
+        }
+
         // Getters y setters
         public String getNombre() {
             return nombre;
@@ -153,23 +188,23 @@ public class AuthController {
         public String getTo() {
             return to;
         }
-    
+
         public void setTo(String to) {
             this.to = to;
         }
-    
+
         public String getSubject() {
             return subject;
         }
-    
+
         public void setSubject(String subject) {
             this.subject = subject;
         }
-    
+
         public String getMessage() {
             return message;
         }
-    
+
         public void setMessage(String message) {
             this.message = message;
         }
@@ -184,7 +219,6 @@ public class AuthController {
 
         public String getMessage() {
             return message;
-        }
+    }
     }
 }
-
