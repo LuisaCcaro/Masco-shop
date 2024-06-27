@@ -196,32 +196,64 @@ public class ProductoControlador {
         producto.setPrecio(precio);
         producto.setCantidadDisponible(cantidadDisponible);
 
-        if (imagen != null && !imagen.isEmpty()) {
-            Path directorioImagenes = Paths.get("src/main/resources/static/img");
-            String rutaAbsoluta = directorioImagenes.toFile().getAbsolutePath();
-            try {
-                byte[] bytesImg = imagen.getBytes();
-                Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
-                Files.write(rutaCompleta, bytesImg);
-                producto.setImagen(imagen.getOriginalFilename());
-            } catch (IOException e) {
-                e.printStackTrace();
-                return new ResponseEntity<>("Error al guardar la imagen", HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-        }
+        // if (imagen != null && !imagen.isEmpty()) {
+        //     Path directorioImagenes = Paths.get("src/main/resources/static/img");
+        //     String rutaAbsoluta = directorioImagenes.toFile().getAbsolutePath();
+        //     try {
+        //         byte[] bytesImg = imagen.getBytes();
+        //         Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
+        //         Files.write(rutaCompleta, bytesImg);
+        //         producto.setImagen(imagen.getOriginalFilename());
+        //     } catch (IOException e) {
+        //         e.printStackTrace();
+        //         return new ResponseEntity<>("Error al guardar la imagen", HttpStatus.INTERNAL_SERVER_ERROR);
+        //     }
+        // }
 
         Producto productoActualizado = serviciosProductos.editarProducto(id, producto);
         return new ResponseEntity<>(productoActualizado, HttpStatus.OK);
     }
 
 
-    // Eliminar un producto.
     @DeleteMapping("/eliminar-producto/{id}")
     public ResponseEntity<Void> eliminarProducto(@PathVariable Integer id) {
-        serviciosProductos.borrarProducto(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        try {
+            if (serviciosProductos.existeProducto(id)) {
+                serviciosProductos.borrarProducto(id);
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (IllegalArgumentException e) {
+            // Manejo de excepción específica
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            // Manejo de excepciones generales
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
+    // @GetMapping("/{id}")
+    // public ResponseEntity<?> obtenerCategoria(@PathVariable Integer id) {
+    //     CategoriaProducto categoriaProducto = serviciosProductos.buscarCategoriaPorId(id);
+    //     if (categoriaProducto == null) {
+    //         return new ResponseEntity<>("Categoría no encontrada", HttpStatus.NOT_FOUND);
+    //     }
+    //     return new ResponseEntity<>(categoriaProducto, HttpStatus.OK);
+    // }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> obtenerProductoPorId(@PathVariable Integer id) {
+        try {
+            Producto producto = serviciosProductos.buscarPorId(id);
+            return new ResponseEntity<>(producto, HttpStatus.OK);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
+    
     // Eliminar imagen de un producto
     @DeleteMapping("/borrar-imagen/{id}/imagen")
     public ResponseEntity<Void> eliminarImagen(@PathVariable Integer id) {

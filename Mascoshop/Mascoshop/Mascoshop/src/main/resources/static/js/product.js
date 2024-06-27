@@ -7,58 +7,70 @@ document.addEventListener('DOMContentLoaded', () => {
     const descripcionProducto = document.getElementById('descripcion');
     const precioProducto = document.getElementById('precio');
     const cantidadDispo = document.getElementById('cantidadDisponible');
-    const imagenProductoInput = document.getElementById('imagen');
+    const imagenProducto = document.getElementById('imagen'); // Campo de la imagen
     const messageElement = document.getElementById('message');
 
-    addProduct.addEventListener('click', async () => {
-        try {
-            const imagenProducto = imagenProductoInput.files[0];
+    // addProduct.addEventListener('click', async () => {
+    //     try {
+    //         const marcaId = parseInt(idMarca.value.trim(), 10);
+    //         if (isNaN(marcaId) || marcaId <= 0) {
+    //             throw new Error('Debe especificar un ID válido para la marca.');
+    //         }
 
-            if (!imagenProducto) {
-                throw new Error('No se ha seleccionado ninguna imagen.');
-            }
+    //         const categoriaId = parseInt(idCategoria.value.trim(), 10);
+    //         if (isNaN(categoriaId) || categoriaId <= 0) {
+    //             throw new Error('Debe especificar un ID válido para la categoría.');
+    //         }
 
-            const marcaId = parseInt(idMarca.value.trim(), 10);
-            if (isNaN(marcaId) || marcaId <= 0) {
-                throw new Error('Debe especificar un ID válido para la marca.');
-            }
+    //         const animalId = parseInt(idAnimal.value.trim(), 10);
+    //         if (isNaN(animalId) || animalId <= 0) {
+    //             throw new Error('Debe especificar un ID válido para el animal.');
+    //         }
 
-            const categoriaId = parseInt(idCategoria.value.trim(), 10);
-            if (isNaN(categoriaId) || categoriaId <= 0) {
-                throw new Error('Debe especificar un ID válido para la categoría.');
-            }
+    //         const formData = new FormData();
+    //         formData.append('nombre', nombreProducto.value.trim());
+    //         formData.append('categoriaProducto.idCategoria', categoriaId);
+    //         formData.append('animal.idAnimal', animalId);
+    //         formData.append('marca.idMarca', marcaId);
+    //         formData.append('descripcion', descripcionProducto.value.trim());
+    //         formData.append('precio', parseFloat(precioProducto.value));
+    //         formData.append('cantidadDisponible', parseInt(cantidadDispo.value, 10));
+    //         formData.append('imagen', imagenProducto.files[0]); // Añadir imagen
 
-            const animalId = parseInt(idAnimal.value.trim(), 10);
-            if (isNaN(animalId) || animalId <= 0) {
-                throw new Error('Debe especificar un ID válido para el animal.');
-            }
+    //         const response = await axios.post('/api/productos/agregar-producto', formData, {
+    //             headers: {
+    //                 'Content-Type': 'multipart/form-data'
+    //             }
+    //         });
 
-            const formData = new FormData();
-            formData.append('nombre', nombreProducto.value.trim());
-            formData.append('categoriaProducto.idCategoria', categoriaId);
-            formData.append('animal.idAnimal', animalId);
-            formData.append('marca.idMarca', marcaId);
-            formData.append('descripcion', descripcionProducto.value.trim());
-            formData.append('precio', parseFloat(precioProducto.value));
-            formData.append('cantidadDisponible', parseInt(cantidadDispo.value, 10));
-            formData.append('imagen', imagenProducto);
+    //         messageElement.textContent = 'Producto guardado exitosamente';
+    //         console.log('Response:', response.data);
 
-            const response = await axios.post('/api/productos/agregar-producto', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
+    //     } catch (error) {
+    //         console.error('Error guardando el producto:', error);
+    //         messageElement.textContent = 'Error guardando el producto: ' + error.message;
+    //     }
+    // });
 
-            console.log('Producto guardado:', response.data);
-            messageElement.textContent = 'Producto guardado exitosamente';
+    //BORRAR EL PRODUCTO
+// const deleteButton = document.getElementById('delete-product');
 
-            // Limpiar el formulario después de guardar el producto (opcional)
-            document.getElementById('productForm').reset();
-        } catch (error) {
-            console.error('Error guardando el producto:', error);
-            messageElement.textContent = 'Error guardando el producto: ' + error.message;
-        }
-    });
+//     deleteButton.addEventListener('click', () => {
+//         const productId = document.getElementById('id-producto').value;
+
+//         axios.delete(`/api/productos/eliminar-producto/${productId}`)
+//             .then(response => {
+//                 if (response.status === 204) {
+//                     console.log('Producto eliminado!');
+//                 } else {
+//                     console.error('Unexpected response status:', response.status);
+//                 }
+//             })
+//             .catch(error => {
+//                 console.error('Error eliminando el producto:', error);
+//                 document.getElementById('message').textContent = 'Error eliminando el producto.';
+//             });
+//     });
 
     const updateProductButton = document.getElementById('update-product');
     const searchProductButton = document.getElementById('search-product');

@@ -111,10 +111,18 @@ public class ServiciosProductos {
         Producto producto = repoProducto.findById(id).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
         return producto.getImagen();
     }
-
-    // Eliminar un producto
-    public void borrarProducto(Integer id){
-        repoProducto.deleteById(id);
+    
+    public void borrarProducto(Integer id) {
+        try {
+            repoProducto.deleteById(id);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("El ID proporcionado no es válido: " + id);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al eliminar el producto con ID: " + id, e);
+        }
+    }
+    public boolean existeProducto(Integer id) {
+        return repoProducto.existsById(id);
     }
 
     // Eliminar una imagen correspondiente a un producto.

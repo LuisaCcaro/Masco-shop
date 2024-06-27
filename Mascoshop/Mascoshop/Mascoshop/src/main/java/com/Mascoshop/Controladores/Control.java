@@ -41,7 +41,11 @@ public class Control {
         return "admin"; 
     }
     @GetMapping(value = {"/productos-Administrador"})
-    public String pfAdm() {
+    public String pdAdm() {
         return "adminProductos"; 
+    }
+    @GetMapping(value = {"/actualizar-Administrador"})
+    public String pfAdm() {
+        return "adminUpdateProductos"; 
     }
 }
