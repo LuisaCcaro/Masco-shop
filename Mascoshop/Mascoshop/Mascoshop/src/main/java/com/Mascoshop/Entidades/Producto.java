@@ -6,10 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 
 @Entity
-@Table(name = "Producto")
+@Table(name = "producto")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,33 +16,33 @@ public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idProducto;
+    @Column(name = "id_producto")
+    private Integer idProducto;
 
     @ManyToOne
-    @JoinColumn(name = "idPCategoria")
+    @JoinColumn(name = "idpcategoria")
     private CategoriaProducto categoriaProducto;
 
     @ManyToOne
-    @JoinColumn(name = "idAnimal",nullable = false)
+    @JoinColumn(name = "id_animal",nullable = false)
     private Animal animal;
 
     @Column(name = "nombre", nullable = false)
     private String nombre;
 
     @ManyToOne
-    @JoinColumn(name = "id_Marca", nullable = false)
+    @JoinColumn(name = "id_marca", nullable = false)
     private Marca marca;
 
-    @Column(name = "Descripcion", nullable = false)
+    @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
-    @Column(name = "Imagen")
+    @Column(name = "imagen", nullable = false)
     private String imagen;
 
-    @Column(name = "Precio", nullable = false)
+    @Column(name = "precio", nullable = false)
     private Double precio;
 
-    @Column(name = "Cantidad_Disponible", nullable = false)
+    @Column(name = "cantidad_disponible", nullable = false)
     private Integer cantidadDisponible;
-
 }

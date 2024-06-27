@@ -19,7 +19,7 @@ public class Carrito {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCarrito;
+    private Integer idCarrito;
 
     @ManyToOne
     @JoinColumn(name = "idUsuario", nullable = false)
@@ -27,6 +27,4 @@ public class Carrito {
 
     @OneToMany(mappedBy = "carrito", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CarritoItem> items = new ArrayList<>(); // Inicializar la lista aquí
-
-
 }

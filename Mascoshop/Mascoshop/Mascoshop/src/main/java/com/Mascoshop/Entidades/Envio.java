@@ -16,7 +16,7 @@ public class Envio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEnvio;
+    private Integer idEnvio;
 
     @ManyToOne
     @JoinColumn(name = "idUsuario", nullable = false)

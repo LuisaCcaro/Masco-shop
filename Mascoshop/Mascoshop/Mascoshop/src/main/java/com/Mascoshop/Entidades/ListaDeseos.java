@@ -17,7 +17,7 @@ public class ListaDeseos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idListaDeseos;
+    private Integer idListaDeseos;
 
     @ManyToOne
     @JoinColumn(name = "idUsuario",nullable = false)

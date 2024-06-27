@@ -30,4 +30,5 @@ function updateStarRating(rating) {
 // Obtener la calificación almacenada en local storage
 const storedRating = localStorage.getItem("rating");
 
-// Si hay una calificación almacenada, actualizar la interfaz de usuario
+
+

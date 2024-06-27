@@ -31,7 +31,7 @@ public class ListaDeseosControlador {
 
     // Ver lista de deseos
     @GetMapping("/{usuarioId}")
-    public ResponseEntity<List<ListaDeseosItem>> verListaDeseos(@PathVariable long usuarioId) {
+    public ResponseEntity<List<ListaDeseosItem>> verListaDeseos(@PathVariable Integer usuarioId) {
         List<ListaDeseosItem> items = serviciosListaDeseos.verListaDeseos(usuarioId);
         return new ResponseEntity<>(items, HttpStatus.OK);
     }

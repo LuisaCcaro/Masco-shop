@@ -48,7 +48,7 @@ public class ServiciosListaDeseos {
     }
 
     // Ver productos en la lista de deseos
-    public List<ListaDeseosItem> verListaDeseos(Long usuarioId) {
+    public List<ListaDeseosItem> verListaDeseos(Integer usuarioId) {
         ListaDeseos listaDeseos = listaDeseosRepository.findByUsuario_IdUsuario(Math.toIntExact(usuarioId)).orElseThrow(() -> new RuntimeException("Lista de deseos no existente"));
         return listaDeseos.getItems();
     }

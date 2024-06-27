@@ -17,7 +17,7 @@ public class Calificacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCalificacion;
+    private Integer idCalificacion;
 
 
     @Column(name = "Calificacion", nullable = false)

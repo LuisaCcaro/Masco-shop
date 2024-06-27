@@ -249,6 +249,15 @@ main {
     color: gold;
 }
 
+/* imagen de las cartas */
+#product-image {
+    max-width: 480px; 
+    height: auto; 
+    display: block;
+    margin: 0 auto;
+}
+/*  */
+
 footer {
 	padding: 30px;
 	background-color: #eee;

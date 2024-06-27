@@ -9,8 +9,9 @@
 /* carrito */
 .content-shopping-cart {
     display: flex;
-    flex-direction: column;
-    position: relative;
+	justify-content: center;
+	align-items: start;
+	gap: 5px;
 }
 
 
@@ -72,6 +73,12 @@ nav .wrapper{
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+nav .navegador{
+	display: flex;
+  	align-items: center;
+  	justify-content: end;
 }
 .wrapper .logo a{
   color: #f2f2f2;
@@ -407,10 +414,6 @@ body{
 	padding-left: 1rem;
 }
 
-.content-shopping-cart {
-	display: flex;
-	flex-direction: column;
-}
 
 /* ************* NAVBAR ************* */
 .container-navbar {
@@ -613,7 +616,7 @@ body{
 
 .container-categories {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 	gap: 3rem;
 }
 
@@ -651,6 +654,14 @@ body{
 	background-repeat: no-repeat;
 }
 
+.category-medicado {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('../img/comidaMedicada.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
 .card-category p {
 	font-size: 2.5rem;
 	color: #fff;
@@ -669,13 +680,13 @@ body{
 	transform: translate(-50%, 50%);
 }
 
-.card-category span {
+.card-category a {
 	font-size: 1.6rem;
 	color: #fff;
 	cursor: pointer;
 }
 
-.card-category span a{
+.card-category a{
 	text-decoration: none;
 }
 
@@ -739,14 +750,19 @@ body{
 .container-img {
 	position: relative;
 }
-
+.containers-img {
+	position: relative;
+}
+.containers-img img{
+	width: 100%;
+}
 .container-img img {
 	max-width: 100%;
  	max-height: 200px;
   	object-fit: cover; 
 }
 
-.container-img .discount {
+.containers-img .discount {
 	position: absolute;
 	left: 0;
 	background-color: var(--primary-color);
@@ -956,6 +972,12 @@ body{
 	grid-template-columns: repeat(2, 1fr);
 	gap: 3rem;
 }
+.container .heading-blog{
+	text-align: center;
+	font-weight: 500;
+	font-size: 3rem;
+	margin-top: 30px;
+}
 
 .card-blog {
 	display: flex;
@@ -973,8 +995,7 @@ body{
 .button-group-blog {
 	position: absolute;
 	bottom: 1.5rem;
-	right: -2.5rem;
-
+	right: -1rem;
 	display: flex;
 	gap: 0.7rem;
 	z-index: -1;
@@ -1387,14 +1408,6 @@ body{
 		display: none;
 	}
 
-	.content-shopping-cart {
-		display: none;
-	}
-
-	.content-deseo{
-		display: none;
-	}
-
 	.navbar {
 		padding: 1rem 2rem;
 	}
@@ -1634,6 +1647,14 @@ body{
 	gap: 3px;
 	text-align: center;
 }
+.filter .organicos{
+	display: flex;
+	border: 1px solid #ccc;
+	padding: 4px;
+	border-radius: 6px;
+	gap: 3px;
+	text-align: center;
+}
 
 /* pagination */
 
@@ -1686,4 +1707,19 @@ body{
 .prev-next .link.active {
   color: #fff;
   background-color: var(--primary-color);
+}
+
+
+/* icono despues del sesion google */
+
+.dropdown-menu i{
+	color: var(--primary-color);
+	font-size: 15px;
+}
+.dropdown-menu .user{
+	font-size: 15px;
+}
+
+.dropdown-menu span{
+	font-size: 12px;
 }

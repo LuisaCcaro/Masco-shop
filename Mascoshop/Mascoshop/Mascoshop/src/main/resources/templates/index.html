@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title>MascoShop</title>
-		<link rel="shortcut icon" href="img/Mascoshoop.png" type="image/x-icon">
-		<link rel="stylesheet" type="text/css" href="./css/styles.css">
+		<link rel="shortcut icon" href="./img/Gatoyperro-removebg-preview.png" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="../css/styles.css">
 		<link rel="stylesheet" href="css/swiper-bundle.min.css" />
 		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
@@ -33,16 +30,20 @@
 
 					<div class="container-user">
 						<div class="listaDeseo">
-						<i class="fa-solid fa-heart"></i>
+							<a href="/deseos"><i class="fa-solid fa-heart"></i></a>
 						</div>
 						<div class="dropdown">
 							<i class="fa-solid fa-user" data-bs-toggle="dropdown"></i>
 							<ul class="dropdown-menu">
-							  <li><a class="dropdown-item" href="./html/login.html" id="loginButton">Iniciar Sesion</a></li>
-							  <li><a class="dropdown-item" id="logoutButton" onclick="signOut()" style="display: none;">Cerrar sesion</a></li>
+								<li><a class="dropdown-item" href="#" id="configPerfilButton" style="display: none;"><i class="fa-solid fa-address-card"></i> <span>Perfil</span></a></li>
+								<li><a class="dropdown-item" href="#" id="configButton" style="display: none;"><i class="fas fa-cog"></i> <span>Configuración</span></a></li>
+								<li><a class="dropdown-item" href="/logins" id="loginButton"><i class="fas fa-sign-in-alt"></i> <span>Iniciar Sesión</span></a></li>
+								<li><a class="dropdown-item" href="#" id="logoutButton" onclick="signOut()" style="display: none;"><i class="fas fa-sign-out-alt"></i> <span>Cerrar Sesión</span></a></li>
 							</ul>
 						</div>
-						<i class="fa-solid fa-basket-shopping"></i>
+						<div class="content-shopping-cart">
+							<a href="/carritos"><i class="fa-solid fa-basket-shopping"></i></a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -59,9 +60,9 @@
 				  <input type="radio" name="slider" id="close-btn">
 				  <ul class="nav-links">
 					<label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
-					<li><a href="#">Inicio</a></li>
+					<li><a href="/home">Inicio</a></li>
 					<li>
-					  <a href="html/productos.html" class="desktop-item">Productos</a>
+					  <a href="/producto" class="desktop-item">Productos</a>
 					  <input type="checkbox" id="showMega" class="showMegaInput">
 					  <label for="showMega" class="mobile-item">Productos</label>
 					  <div class="mega-box">
@@ -95,8 +96,8 @@
 						</div>
 					  </div>
 					</li>
-					<li><a href="#blog">Blog</a></li>
-					<li><a href="#gallery">Galeria</a></li>
+					<li><a href="/blogs">Blog</a></li>
+					<li><a href="/home#gallery">Galeria</a></li>
 				  </ul>
 				  <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
 				</div>
@@ -144,15 +145,19 @@
 				<div class="container-categories">
 					<div class="card-category category-moca">
 						<p>Comida seca</p>
-						<a href="./html/productos.html"><span>Ver más</span></a>
+						<a href="/producto"><span>Ver más</span></a>
 					</div>
 					<div class="card-category category-expreso">
 						<p>Snacks</p>
-						<a href="./html/productos.html"><span>Ver más</span></a>
+						<a href="/producto"><span>Ver más</span></a>
 					</div>
 					<div class="card-category category-capuchino">
 						<p>Comida humeda</p>
-						<a href="./html/productos.html"><span>Ver más</span></a>
+						<a href="/producto"><span>Ver más</span></a>
+					</div>
+					<div class="card-category category-medicado">
+						<p>Comida medicada</p>
+						<a href="/producto"><span>Ver más</span></a>
 					</div>
 				</div>
 			</section>
@@ -167,15 +172,11 @@
 				<div class="container-products">
 					<!-- Producto 1 -->
 					<div class="card-product">
-						<div class="container-img">
+						<div class="containers-img">
 							<img src="./img/SecoPerro.png"/>
-							<span class="discount">-13%</span>
 							<div class="button-group">
 								<span>
-									<a href="./html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
-								</span>
-								<span>
-									<i class="fa-regular fa-heart"></i>
+									<div class="add-to-deseo-button"><i class="fa-regular fa-heart"></i></div>
 								</span>
 							</div>
 						</div>
@@ -189,22 +190,18 @@
 							</div>
 							<h3>Alimentos secos</h3>
 							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
+								<a href="/producto"><i class="fa-solid fa-shop"></i></a>
 							</span>
 							<p class="price">$5.80 <span>8.90</span></p>
 						</div>
 					</div>
 					<!-- Producto 2 -->
 					<div class="card-product">
-						<div class="container-img">
+						<div class="containers-img">
 							<img
 								src="./img/AlimentoHumedoPerro.png"
 							/>
-							<span class="discount">-22%</span>
 							<div class="button-group">
-								<span>
-									<a href="./html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
-								</span>
 								<span>
 									<i class="fa-regular fa-heart"></i>
 								</span>
@@ -220,7 +217,7 @@
 							</div>
 							<h3>Alimentos humedos</h3>
 							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
+								<a href="/producto"><i class="fa-solid fa-shop"></i></a>
 							</span>
 							<p class="price">$5.70 <span>$7.30</span></p>
 						</div>
@@ -229,12 +226,9 @@
 					<div class="card-product">
 						<div class="container-img">
 							<img
-								src="./img/snacksPurina.jpg"
+								src="./img/snackGatos.webp"
 							/>
 							<div class="button-group">
-								<span>
-									<a href="./html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
-								</span>
 								<span>
 									<i class="fa-regular fa-heart"></i>
 								</span>
@@ -250,7 +244,7 @@
 							</div>
 							<h3>Snacks</h3>
 							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
+								<a href="/producto"><i class="fa-solid fa-shop"></i></a>
 							</span>
 							<p class="price">$3.20</p>
 						</div>
@@ -260,9 +254,6 @@
 						<div class="container-img">
 							<img src="./img/AlimentoEspecializadoGatos.jpg"/>
 							<div class="button-group">
-								<span>
-									<a href="./html/cartaProductos.html"><i class="fa-regular fa-eye"></i></a>
-								</span>
 								<span>
 									<i class="fa-regular fa-heart"></i>
 								</span>
@@ -278,7 +269,7 @@
 							</div>
 							<h3>Alimento especializados</h3>
 							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
+								<a href="/producto"><i class="fa-solid fa-shop"></i></a>
 							</span>
 							<p class="price">$5.60</p>
 						</div>
@@ -328,49 +319,6 @@
 				<img src="img/pedrigree.webp">
 				<img src="img/royalCanin.avif">
 				<img src="img/purina.webp">
-				</div>
-			</section>
-
-			<section class="container blogs" id="blog">
-				<h1 class="heading-1">Últimos Blogs</h1>
-
-				<div class="container-blogs">
-					<div class="card-blog">
-						<div class="container-img">
-							<img src="./img/blog-1.jpg" alt="Imagen Blog 1" />
-							<div class="button-group-blog">
-								<span>
-									<i class="fa-solid fa-magnifying-glass"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-blog">
-							<h3> Grandes o pequeños, los amamos a todos</h3>
-							<span>1 Junio 2024</span>
-							<p>
-								¿Eres una persona de perros grandes o pequeños? Vea los pros y los contras de criar a un amigo de cualquier tamaño. 
-							</p>
-							<div class="btn-read-more">Leer más</div>
-						</div>
-					</div>
-					<div class="card-blog">
-						<div class="container-img">
-							<img src="./img/blog-2.jpg" alt="Imagen Blog 3" />
-							<div class="button-group-blog">
-								<span>
-									<i class="fa-solid fa-magnifying-glass"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-blog">
-							<h3> Establece un horario de alimentación saludable para tu gatito</h3>
-							<span>2 Junio 2024</span>
-							<p>
-								Descubre cómo empezar a tu gatito con la pata derecha con un horario de alimentación saludable.
-							</p>
-							<div class="btn-read-more">Leer más</div>
-						</div>
-					</div>
 				</div>
 			</section>
 			
@@ -509,14 +457,14 @@
 					<div class="newsletter">
 						<p class="title-footer">Boletín</p>
 
-						<div class="content">
+						<form action="/gmail" id="emailForm" class="content" method="POST">
 							<p>
 								Suscríbete a nuestros boletines ahora y mantente al
 								día con nuevas colecciones y ofertas exclusivas.
 							</p>
-							<input type="email" placeholder="Ingresa el correo aquí..." required>
-							<button onclick="boletinInformativo">Suscríbete</button>
-						</div>
+							<input type="email" placeholder="Ingresa el correo aquí..." name="to" required>
+							<button type="submit">Suscríbete</button>
+						</form>
 					</div>
 				</div>
 
@@ -524,22 +472,25 @@
 					<p>
 						Mascoshop &copy; 2024
 					</p>
-
 					<img src="./img/payment.png" alt="Pagos">
 				</div>
 			</div>
 		</footer>
 
+
+		
+
 		<script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
 		<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 		<script src="./js/inicio.js"></script>
     	<script src="./js/script.js"></script>
+		<script src="js/supaB.js"></script>
 		<script src="js/swiper-bundle.min.js"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    	<script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script> 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-		
+		<script src="./js/correo.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	</body>
 </html>

@@ -14,7 +14,7 @@ public class Saldo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idSaldo;
+    private Integer idSaldo;
 
     @Column(name = "monto", nullable = false)
     private Double monto;

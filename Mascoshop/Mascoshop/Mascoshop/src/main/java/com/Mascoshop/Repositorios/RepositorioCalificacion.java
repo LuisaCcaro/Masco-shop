@@ -9,4 +9,5 @@ import java.util.List;
 
 @Repository
 public interface RepositorioCalificacion extends JpaRepository <Calificacion, Integer> {
+    List<Calificacion> findByProducto_IdProducto(Long idProducto);
 }
