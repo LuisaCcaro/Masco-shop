@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM fully loaded and parsed');
+    console.log('DOM completamente cargado y analizado');
     handleAuthResponse();
     updateUIForLoggedInUser();
 });
@@ -64,12 +64,12 @@ function updateUIForLoggedInUser() {
     let configButton = document.getElementById('configButton');
     let configPerfilButton = document.getElementById('configPerfilButton');
 
-    console.log('Checking tokens in localStorage:');
+    console.log('Revisando tokens en localStorage:');
     console.log('Google Token:', localStorage.getItem('googleToken'));
     console.log('Supabase Token:', localStorage.getItem('supabaseToken'));
 
     if (localStorage.getItem('googleToken') || localStorage.getItem('supabaseToken')) {
-        console.log('User is logged in');
+        console.log('La usuario ha iniciado sesión');
         if (loginButton) loginButton.style.display = 'none';
         if (logoutButton) logoutButton.style.display = 'block';
         if (configButton) configButton.style.display = 'block';
@@ -86,7 +86,7 @@ function updateUIForLoggedOutUser() {
     let configButton = document.getElementById('configButton');
     let configPerfilButton = document.getElementById('configPerfilButton');
 
-    console.log('User logged out');
+    console.log('Usuario desconectado');
 
     if (loginButton) loginButton.style.display = 'block';
     if (logoutButton) logoutButton.style.display = 'none';
@@ -119,29 +119,23 @@ function signOut() {
     });
 }
 
+document.addEventListener('DOMContentLoaded', (event) => {
+    const signOutButton = document.getElementById('signOutButton');
+    if (signOutButton) {
+        signOutButton.addEventListener('click', signOutAdmin);
+    } else {
+        console.error('El botón de cerrar sesión no se encontró en el DOM.');
+    }
+});
+
 function signOutAdmin() {
-    Swal.fire({
-        title: 'Cerrar sesión',
-        text: '¿Estás seguro de que quieres cerrar sesión?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Sí, cerrar sesión'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            localStorage.removeItem('googleToken');
-            localStorage.removeItem('supabaseToken');
-            Swal.fire(
-                '¡Sesión cerrada!',
-                'Tu sesión ha sido cerrada.',
-                'success'
-            );
-        }
-    }).then(()=>{
-        window.location.href("/home");
-    });
+    localStorage.removeItem("supabaseToken");
+    window.location.href("/home");
+    
 }
+
+
+
 // Manejar el evento de submit del formulario de login
 document.querySelector('#loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();

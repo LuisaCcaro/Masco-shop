@@ -74,35 +74,55 @@ const productos = [
     }
 ];
 
-function generateProducts() {
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('/api/productos')
+        .then(response => response.json())
+        .then(data => {
+            generateProducts(data);
+        })
+        .catch(error => console.error('Error al obtener los productos:', error));
+
+    const filters = document.querySelectorAll('.categoriaFilter');
+    filters.forEach(filter => {
+        filter.addEventListener('change', () => {
+            filterProducts();
+        });
+    });
+});
+
+function generateProducts(producto) {
     const container = document.getElementById('container-products');
-    if (!container) return;  // Check if the container exists
+    if (!container) return;
     container.innerHTML = '';
 
-    productos.forEach(product => {
+    producto.forEach(product => {
         const productCard = `
             <div class="card-product ${product.category}">
                 <div class="container-img">
-                    <img src="${product.image}"/>
+                    <img src="img/${product.imagen}"/>
                     <div class="button-group">
                         <span>
-                            <a href="#" class="add-to-cart-button" data-name="${product.name}" data-price="${product.price}" data-image="${product.image}"><i class="fa-solid fa-basket-shopping"></i></a>
+                            <a href="#" class="add-to-cart-button" data-name="${product.nombre}" data-price="${product.precio}" data-image="${product.imagen}"><i class="fa-solid fa-basket-shopping"></i></a>
                         </span>
                         <span>
-                            <a href="#" class="add-to-deseo-button" data-name="${product.name}" data-price="${product.price}" data-image="${product.image}"><i class="fa-regular fa-heart"></i></a>
+                            <a href="#" class="add-to-deseo-button" data-name="${product.nombre}" data-price="${product.precio}" data-image="${product.imagen}"><i class="fa-regular fa-heart"></i></a>
                         </span>
                     </div>
                 </div>
                 <div class="content-card-product">
                     <div class="stars">
-                        ${'<i class="fa-solid fa-star"></i>'.repeat(product.rating)}
-                        ${'<i class="fa-regular fa-star"></i>'.repeat(5 - product.rating)}
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
                     </div>
-                    <h3>${product.name}</h3>
+                    <h3>${product.nombre}</h3>
                     <span class="add-cart">
-                        <a href="/carta" class="view-product-button" data-id="${product.id}"><i class="fa-regular fa-eye"></i></a>
+                        <a href="/carta" class="view-product-button" data-id="${product.idProducto}"><i class="fa-regular fa-eye"></i></a>
                     </span>
-                    <p class="price">$${product.price}</p>
+                    <p class="price">$${product.precio}</p>
                 </div>
             </div>
         `;
@@ -112,10 +132,12 @@ function generateProducts() {
     document.querySelectorAll('.view-product-button').forEach(button => {
         button.addEventListener('click', function() {
             const productId = this.getAttribute('data-id');
+            console.log(`Configuración de productId en localStorage: ${productId}`);
             localStorage.setItem('selectedProductId', productId);
         });
     });
 }
+
 
 function filterProducts() {
     const selectedCategories = Array.from(document.querySelectorAll('.categoriaFilter:checked')).map(checkbox => checkbox.getAttribute('category'));
@@ -125,20 +147,12 @@ function filterProducts() {
         allProducts.forEach(product => product.style.display = 'block');
     } else {
         allProducts.forEach(product => {
-            const productCategory = product.classList[1];
+            const productCategory = product.classList.contains('secos') ? 'secos' :
+                                    product.classList.contains('humedos') ? 'humedos' :
+                                    product.classList.contains('medicado') ? 'medicado' :
+                                    product.classList.contains('snacks') ? 'snacks' :
+                                    product.classList.contains('organicos') ? 'organicos' : '';
             product.style.display = selectedCategories.includes(productCategory) ? 'block' : 'none';
         });
     }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    generateProducts();
-    const filters = document.querySelectorAll('.categoriaFilter');
-    filters.forEach(filter => {
-        filter.addEventListener('change', () => {
-            filterProducts();
-        });
-    });
-});
-
-

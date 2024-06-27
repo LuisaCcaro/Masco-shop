@@ -14,12 +14,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -33,6 +35,13 @@ public class ProductoControlador {
         this.serviciosProductos = serviciosProductos;
     }
 
+
+    @GetMapping("/count")
+    public ResponseEntity<Long> contarProductos() {
+        long count = serviciosProductos.contarProductos();
+        return new ResponseEntity<>(count, HttpStatus.OK);
+    }
+    
     // Listar los productos disponibles.
     @GetMapping
     public ResponseEntity<List<Producto>> listarProductos() {
@@ -40,75 +49,87 @@ public class ProductoControlador {
         return new ResponseEntity<>(productos, HttpStatus.OK);
     }
 
+
     // Listar por ID, Obtener producto.
     @GetMapping("/buscar/{id}")
-    public ResponseEntity<?> obtenerProducto(@PathVariable Integer id) {
-        try {
-            Producto producto = serviciosProductos.buscarPorId(id);
-            return new ResponseEntity<>(producto, HttpStatus.OK);
-        } catch (RuntimeException e) {
-            return new ResponseEntity<>("Producto no encontrado", HttpStatus.NOT_FOUND);
+    public ResponseEntity<Producto> buscarProducto(@PathVariable Integer id) {
+        Optional<Producto> producto = serviciosProductos.buscarProductoPorId(id);
+        if (producto.isPresent()) {
+            return ResponseEntity.ok(producto.get());
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
     }
 
     // Agregar un producto.
+    @SuppressWarnings("null")
     @PostMapping("/agregar-producto")
     public ResponseEntity<?> agregarProducto(
-            @RequestParam("nombre") String nombre,
-            @RequestParam("categoriaProducto.idCategoria") Integer idCategoria,
-            @RequestParam("animal.idAnimal") Integer idAnimal,
-            @RequestParam("marca.idMarca") Integer idMarca,
-            @RequestParam("descripcion") String descripcion,
-            @RequestParam("precio") Double precio,
-            @RequestParam("cantidadDisponible") Integer cantidadDisponible,
-            @RequestParam("imagen") MultipartFile imagen) {
+        @RequestParam("nombre") String nombre,
+        @RequestParam("categoriaProducto.idCategoria") Integer idCategoria,
+        @RequestParam("animal.idAnimal") Integer idAnimal,
+        @RequestParam("marca.idMarca") Integer idMarca,
+        @RequestParam("descripcion") String descripcion,
+        @RequestParam("precio") Double precio,
+        @RequestParam("cantidadDisponible") Integer cantidadDisponible,
+        @RequestParam("imagen") MultipartFile imagen) {
 
-        try {
-            // Verificar que las entidades existen en la base de datos
-            CategoriaProducto categoriaProducto = serviciosProductos.buscarCategoriaPorId(idCategoria);
-            if (categoriaProducto == null) {
-                return new ResponseEntity<>("Categoría no encontrada", HttpStatus.BAD_REQUEST);
-            }
-
-            Animal animal = serviciosProductos.buscarAnimalPorId(idAnimal);
-            if (animal == null) {
-                return new ResponseEntity<>("Animal no encontrado", HttpStatus.BAD_REQUEST);
-            }
-
-            Marca marca = serviciosProductos.buscarMarcaPorId(idMarca);
-            if (marca == null) {
-                return new ResponseEntity<>("Marca no encontrada", HttpStatus.BAD_REQUEST);
-            }
-
-            Producto producto = new Producto();
-            producto.setNombre(nombre);
-            producto.setCategoriaProducto(categoriaProducto);
-            producto.setAnimal(animal);
-            producto.setMarca(marca);
-            producto.setDescripcion(descripcion);
-            producto.setPrecio(precio);
-            producto.setCantidadDisponible(cantidadDisponible);
-
-            if (!imagen.isEmpty()) {
-                Path directorioImagenes = Paths.get("src/main/resources/static/img");
-                String rutaAbsoluta = directorioImagenes.toFile().getAbsolutePath();
-                try {
-                    byte[] bytesImg = imagen.getBytes();
-                    Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
-                    Files.write(rutaCompleta, bytesImg);
-                    producto.setImagen(imagen.getOriginalFilename());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            Producto nuevoProducto = serviciosProductos.agregarProducto(producto);
-            return new ResponseEntity<>(nuevoProducto, HttpStatus.CREATED);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+    try {
+        // Verificar que las entidades existen en la base de datos
+        CategoriaProducto categoriaProducto = serviciosProductos.buscarCategoriaPorId(idCategoria);
+        if (categoriaProducto == null) {
+            return new ResponseEntity<>("Categoría no encontrada", HttpStatus.BAD_REQUEST);
         }
+
+        Animal animal = serviciosProductos.buscarAnimalPorId(idAnimal);
+        if (animal == null) {
+            return new ResponseEntity<>("Animal no encontrado", HttpStatus.BAD_REQUEST);
+        }
+
+        Marca marca = serviciosProductos.buscarMarcaPorId(idMarca);
+        if (marca == null) {
+            return new ResponseEntity<>("Marca no encontrada", HttpStatus.BAD_REQUEST);
+        }
+
+        Producto producto = new Producto();
+        producto.setNombre(nombre);
+        producto.setCategoriaProducto(categoriaProducto);
+        producto.setAnimal(animal);
+        producto.setMarca(marca);
+        producto.setDescripcion(descripcion);
+        producto.setPrecio(precio);
+        producto.setCantidadDisponible(cantidadDisponible);
+
+        if (!imagen.isEmpty()) {
+            Path directorioImagenes = Paths.get("src", "main", "resources", "static", "img");
+            String rutaAbsoluta = directorioImagenes.toFile().getAbsolutePath();
+            try {
+                // Verifica si el directorio existe, si no, créalo
+                if (!Files.exists(directorioImagenes)) {
+                    System.out.println("No existe la carpeta, procede a crearla");
+                    Files.createDirectories(directorioImagenes);
+                }else{
+                    System.out.println("ya existe!");
+                }
+                
+                byte[] bytesImg = imagen.getBytes();
+                Path rutaCompleta = Paths.get(rutaAbsoluta, imagen.getOriginalFilename());
+                Files.write(rutaCompleta, bytesImg);
+                producto.setImagen(imagen.getOriginalFilename());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        
+
+        Producto nuevoProducto = serviciosProductos.agregarProducto(producto);
+        return new ResponseEntity<>(nuevoProducto, HttpStatus.CREATED);
+    } catch (Exception e) {
+        e.printStackTrace();
+        return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+}
+
 
     // Buscar producto por animal
     @GetMapping("/animal/{animalId}")

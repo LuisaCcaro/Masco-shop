@@ -40,7 +40,7 @@ public class Control {
     public String adm() {
         return "admin"; 
     }
-    @GetMapping(value = {"/perfiAdministrador"})
+    @GetMapping(value = {"/productos-Administrador"})
     public String pfAdm() {
         return "adminProductos"; 
     }

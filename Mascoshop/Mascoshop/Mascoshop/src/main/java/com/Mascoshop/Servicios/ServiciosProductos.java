@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.util.List;
+import java.util.Optional;
 
 @Data
 @Service
@@ -29,10 +30,15 @@ public class ServiciosProductos {
     }
 
     /*Listar productos*/
-    public List<Producto> listarProductos(){
+    public List<Producto> listarProductos() {
         return repoProducto.findAll();
     }
+    
 
+    public long contarProductos() {
+        return repoProducto.count();
+    }
+    
     /*Buscar por animal, listar*/
     public List<Producto> encontrarPorAnimal(Integer animalId){
         return repoProducto.findByAnimal_IdAnimal(animalId);
@@ -64,10 +70,21 @@ public class ServiciosProductos {
     }
 
 
+    public Optional<Producto> buscarProductoPorId(Integer id) {
+        return repoProducto.findById(id);
+    }
 
     // Buscar por ID tal producto.
-    public Producto buscarPorId(Integer id){
-        return repoProducto.findById(id).orElse(null);
+    public Producto buscarPorId(Integer id) {
+        System.out.println("Buscando producto en el servicio con ID: " + id); // Log adicional
+        Optional<Producto> producto = repoProducto.findById(id);
+        if (producto.isPresent()) {
+            System.out.println("Producto encontrado en el servicio: " + producto.get()); // Log adicional
+            return producto.get();
+        } else {
+            System.out.println("Producto no encontrado en el servicio para ID: " + id); // Log adicional
+            throw new RuntimeException("Producto no encontrado");
+        }
     }
 
     // Agregar producto

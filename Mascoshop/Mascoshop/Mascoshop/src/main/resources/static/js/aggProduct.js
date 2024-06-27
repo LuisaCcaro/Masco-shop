@@ -7,15 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const descripcionProducto = document.getElementById('descripcion');
     const precioProducto = document.getElementById('precio');
     const cantidadDispo = document.getElementById('cantidadDisponible');
-    // const imagenProducto = document.getElementById('imagen');
-    const imagenProducto = document.getElementById('imagen').files[0];
+    const imagenProductoInput = document.getElementById('imagen');
     const messageElement = document.getElementById('message');
 
     addProduct.addEventListener('click', async () => {
         try {
-            if (!idCategoria || !idAnimal || !nombreProducto || !idMarca ||
-                !descripcionProducto || !precioProducto || !cantidadDispo || !imagenProducto) {
-                throw new Error('Uno o más campos no están definidos en el DOM.');
+            const imagenProducto = imagenProductoInput.files[0];
+
+            if (!imagenProducto) {
+                throw new Error('No se ha seleccionado ninguna imagen.');
             }
 
             const marcaId = parseInt(idMarca.value.trim(), 10);
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             formData.append('descripcion', descripcionProducto.value.trim());
             formData.append('precio', parseFloat(precioProducto.value));
             formData.append('cantidadDisponible', parseInt(cantidadDispo.value, 10));
-            formData.append('imagen', imagenProducto); // Añadir imagen
+            formData.append('imagen', imagenProducto);
 
             const response = await axios.post('/api/productos/agregar-producto', formData, {
                 headers: {
@@ -50,16 +50,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             console.log('Producto guardado:', response.data);
-            alert(imagenProducto);
             messageElement.textContent = 'Producto guardado exitosamente';
 
             // Limpiar el formulario después de guardar el producto (opcional)
-            formularioProducto.reset();
+            document.getElementById('productForm').reset();
         } catch (error) {
             console.error('Error guardando el producto:', error);
             messageElement.textContent = 'Error guardando el producto: ' + error.message;
         }
     });
+
 
     //BORRAR EL PRODUCTO
 const deleteButton = document.getElementById('delete-product');

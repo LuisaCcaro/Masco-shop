@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/perfilAdmin.css">
+    <link rel="stylesheet" href="../css/productosAdmin.css">
     <link rel="stylesheet" href="../css/admin.css">
     <title>Admin Panel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
@@ -17,31 +17,19 @@
             <h1><img src="../img/Mascoshoop.png" width="300px" alt=""></h1>
         </div>
         <ul>
-            <li><i class="fa-solid fa-house"></i>&nbsp; <span>Inicio</span> </li>
-            <li><i class="fa-solid fa-address-card"></i>&nbsp; <span>Perfil</span> </li>
-            <li><i class="fa-solid fa-users"></i>&nbsp;<span>Clientes</span> </li>
-            <li><i class="fa-solid fa-bone"></i>&nbsp;<span>Productos</span> </li>
-            <li><i class="fa-brands fa-paypal"></i>&nbsp;<span>Pagos</span> </li>
-            <li><i class="fa-solid fa-gear"></i>&nbsp;<span>Settings</span> </li>
-            <li><a href="" onclick="signOutAdmin()"><i class="fa-solid fa-right-from-bracket"></i>&nbsp; <span>Cerrar Sesion</span></a></li>
+            <li><a href="/administrador"><i class="fa-solid fa-house"></i>&nbsp; <span>Inicio</span> </a></li>
+            <li><a href=""><i class="fa-solid fa-address-card"></i>&nbsp; <span>Perfil</span> </a></li>
+            <li><a href="/perfiAdministrador"><i class="fa-solid fa-bone"></i>&nbsp; <span>Productos</span></a></li>
+            <li><a href=""><i class="fa-brands fa-paypal"></i>&nbsp;<span>Pagos</span> </a></li>
+            <li><a href=""><i class="fa-solid fa-gear"></i>&nbsp;<span>Settings</span> </a></li>
+            <li><a href="/home"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;<span>Cerrar sesión</span> </a></li> 
         </ul>
     </div>
     <div class="container">
         <div class="header">
             <div class="nav">
-                <div class="search">
-                    <input type="text" placeholder="Search..">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </div>
                 <div class="user">
                     <a href="#" class="btn">Agregar Productos</a>
-                    <div class="dropdown">
-                        <i class="fa-solid fa-ghost" data-bs-toggle="dropdown"></i>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" id="configPerfilButton"><i class="fa-solid fa-address-card"></i> <span>Perfil</span></a></li>
-                        </ul>
-                    </div>
-                    
                 </div>
                 
             </div>
@@ -50,94 +38,88 @@
             <div class="content-2">
                 <div class="recent-payments">
                     <div class="title">
-                        <h2>Nuevas Compras</h2>
-                        <a href="#" class="btn">Ver todos</a>
+                        <h2>Agregar Productos</h2>
                     </div>
                     <div class="containers">
                         <!-- <h2>Agregar Nuevo Producto</h2> -->
                         <form id="productForm" enctype="multipart/form-data">
-                            <div class="categoria">
-                                <p>Categoria</p>
+                            <div class="categoria form-groups">
+                                <label>Categoria</label>
                                 <input type="text" id="categoria" name="productName" required>
                             </div>
                         
-                            <div class="animal">
-                                <p>Animal</p>
+                            <div class="animal form-groups">
+                                <label>Animal</label>
                                 <input type="number" id="animal" name="productPrice" min="0" required>
                             </div>
-                            <br><br>
-                        
-                            <label for="nombre">Nombre:</label>
-                            <input type="text" id="nombre" name="nombre" required>
-                            <br><br>
-                        
-                            <div class="marca">
+                            <div class="nombre form-groups">
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="marca form-groups">
                                 <label for="nombre">Marca:</label>
                                 <input type="number" class="box-input" id="marcaId" name="marca.idMarca" required>
                             </div>
                         
-                            <label for="descripcion">Descripción:</label>
-                            <textarea id="descripcion" name="descripcion" required></textarea>
-                            <br><br>
+                            <div class="descripcion form-groups">
+                                <label for="descripcion">Descripción:</label>
+                                <textarea id="descripcion" name="descripcion" required></textarea>
+                            </div>
                         
-                            <label for="imagen">Imagen:</label>
-                            <input type="file" id="imagen" name="imagen" accept="image/*" required>
-                            <br><br>
+                            <div class="imagen form-groups">
+                                <label for="imagen">Imagen:</label>
+                                <input type="file" id="imagen" name="imagen" accept="image/*">
+                            </div>
                         
-                            <label for="precio">Precio:</label>
-                            <input type="number" id="precio" name="precio" step="0.01" required>
-                            <br><br>
+                            <div class="precio form-groups">
+                                <label for="precio">Precio:</label>
+                                <input type="number" id="precio" name="precio" min="0" step="0.01" required>
+                            </div>
                         
-                            <label for="cantidadDisponible">Cantidad Disponible:</label>
-                            <input type="number" id="cantidadDisponible" name="cantidadDisponible" required>
-                            <br><br>
+                            <div class="cantidad form-groups">
+                                <label for="cantidadDisponible">Cantidad Disponible:</label>
+                                <input type="number" id="cantidadDisponible" name="cantidadDisponible" required>
+                            </div>
                         
-                            <button type="button" id="save-product">Agregar Producto</button>
+                            <div class="botonAgg form-groups">
+                                <button type="button" id="save-product">Agregar Producto</button>
+                            </div>
                             <p id="message"></p>
                         </form>
                     </div>
                 </div>
                 <div class="new-students">
                     <div class="title">
-                        <h2>Nuevos Clientes</h2>
-                        <a href="#" class="btn">Ver todos</a>
+                        <h2>Nuevos Productos</h2> 
                     </div>
-                    <table>
-                        <tr>
-                            <th>Profile</th>
-                            <th>Name</th>
-                            <th>option</th>
-                        </tr>
-                        <tr>
-                            <td><img src="user.png" alt=""></td>
-                            <td>John Steve Doe</td>
-                            <td><img src="info.png" alt=""></td>
-                        </tr>
-                        <tr>
-                            <td><img src="user.png" alt=""></td>
-                            <td>John Steve Doe</td>
-                            <td><img src="info.png" alt=""></td>
-                        </tr>
-                        <tr>
-                            <td><img src="user.png" alt=""></td>
-                            <td>John Steve Doe</td>
-                            <td><img src="info.png" alt=""></td>
-                        </tr>
-                        <tr>
-                            <td><img src="user.png" alt=""></td>
-                            <td>John Steve Doe</td>
-                            <td><img src="info.png" alt=""></td>
-                        </tr>
+                    <table id="productos-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Animal</th>
+                                <th>Marca</th>
+                                <th>Categoría</th>
+                                <th>Imagen</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
+                        </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="../js/supaB.js"></script>
+    <script src="js/supaB.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <!-- Archivo JavaScript para manejar la lógica del formulario -->
-    <script src="js/product.js"></script>
+    <script src="js/aggProduct.js"></script>
+    <script src="js/consultaAdmin.js"></script>
+    <script src="js/productosDOM.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

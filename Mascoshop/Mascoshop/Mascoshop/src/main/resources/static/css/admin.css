@@ -9,6 +9,7 @@ body {
 }
 a {
     text-decoration: none;
+    color: #524656;
 }
 li {
     list-style: none;
@@ -63,6 +64,7 @@ td {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 35px;
 }
 .side-menu li {
     font-size: 24px;
@@ -127,7 +129,7 @@ td {
 .container .header .nav .user {
     flex: 1;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
 }
 .container .header .nav .user img {
@@ -148,7 +150,7 @@ td {
 }
 .container .content {
     position: relative;
-    margin-top: 10vh;
+    margin-top: 20vh;
     min-height: 90vh;
     background: #f1f1f1;
 }
@@ -160,7 +162,7 @@ td {
     flex-wrap: wrap;
 }
 .container .content .cards .card {
-    width: 250px;
+    width: 270px;
     height: 150px;
     background: white;
     margin: 20px 10px;
@@ -175,6 +177,7 @@ td {
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: wrap;
+    padding: 35px 0;
 }
 .container .content .content-2 .recent-payments {
     min-height: 50vh;

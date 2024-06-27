@@ -16,6 +16,8 @@ public interface RepositorioProducto extends JpaRepository<Producto, Integer> {
     List<Producto> findByAnimal_IdAnimal(Integer animalId);
     //Encontrar por marca
     List<Producto> findByMarca_IdMarca(Integer marcaId);
+    
+    long count();
 
 }
 

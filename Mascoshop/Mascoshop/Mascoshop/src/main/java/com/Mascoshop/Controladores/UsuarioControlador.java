@@ -21,11 +21,23 @@ public class UsuarioControlador {
         this.serviciosUsuario = serviciosUsuario;
     }
 
+    @GetMapping("/countClientes")
+        public ResponseEntity<Long> contarClientes() {
+        long count = serviciosUsuario.contarClientes();
+        return new ResponseEntity<>(count, HttpStatus.OK);
+    }
+
     //Listar todos los usuarios :D
     @GetMapping
     public ResponseEntity<List<Usuario>> listarUsuarios() {
         List<Usuario> usuarios = serviciosUsuario.list();
         return new ResponseEntity<>(usuarios, HttpStatus.OK);
+    }
+    
+    @GetMapping("/admin")
+    public ResponseEntity<List<Usuario>> listarAdmins() {
+        List<Usuario> admins = serviciosUsuario.listarAdmins();
+        return new ResponseEntity<>(admins, HttpStatus.OK);
     }
 
     //buscar usuario por ID

@@ -74,6 +74,12 @@ nav .wrapper{
   align-items: center;
   justify-content: space-between;
 }
+
+nav .navegador{
+	display: flex;
+  	align-items: center;
+  	justify-content: end;
+}
 .wrapper .logo a{
   color: #f2f2f2;
   font-size: 30px;
@@ -1634,6 +1640,14 @@ body{
 	text-align: center;
 }
 .filter .snacks{
+	display: flex;
+	border: 1px solid #ccc;
+	padding: 4px;
+	border-radius: 6px;
+	gap: 3px;
+	text-align: center;
+}
+.filter .organicos{
 	display: flex;
 	border: 1px solid #ccc;
 	padding: 4px;
