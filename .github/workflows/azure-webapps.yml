@@ -1,0 +1,29 @@
+name: Compilar y Desplegar en Azure Web App
+
+on:
+  push:
+    branches:
+      - main  # o la rama que quieres que dispare el despliegue
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'  # o la versión que use tu proyecto
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: '<nombre-de-tu-app-service>'  # reemplaza con el nombre de tu App Service de Azure
+          slot-name: 'production'  # o el slot de despliegue que estés usando
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
